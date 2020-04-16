@@ -1,0 +1,39 @@
+---
+title: 生物信息学环境配置
+author: Songqi Duan
+date: '2020-04-16'
+slug: 生物信息学环境配置
+categories:
+  - linux
+tags:
+  - linux
+lastmod: '2020-04-16T17:37:45+08:00'
+keywords: []
+description: ''
+comment: no
+toc: no
+autoCollapseToc: no
+postMetaInFooter: no
+hiddenFromHomePage: no
+contentCopyright: no
+reward: no
+mathjax: no
+mathjaxEnableSingleDollar: no
+mathjaxEnableAutoNumber: no
+hideHeaderAndFooter: no
+flowchartDiagrams:
+  enable: no
+  options: ''
+sequenceDiagrams:
+  enable: no
+  options: ''
+---
+这是摘要
+<!--more-->
+```{r}
+plot(c(1:10))
+```
+
+```bash
+conda install samtools
+```
