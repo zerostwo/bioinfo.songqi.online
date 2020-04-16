@@ -16,13 +16,6 @@
   </url>
   
   <url>
-    <loc>/post/about/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>/categories/</loc>
     <lastmod>2020-04-16T19:18:26+08:00</lastmod>
     <changefreq>weekly</changefreq>

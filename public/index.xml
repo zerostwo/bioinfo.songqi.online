@@ -32,17 +32,6 @@ It makes use of a variety of open source projects including:
     </item>
     
     <item>
-      <title>About</title>
-      <link>/post/about/</link>
-      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
-      
-      <guid>/post/about/</guid>
-      <description>Hugo is a static site engine written in Go.
-It makes use of a variety of open source projects including:
- Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.</description>
-    </item>
-    
-    <item>
       <title>生物信息学环境配置</title>
       <link>/post/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
