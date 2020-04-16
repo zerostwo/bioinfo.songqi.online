@@ -180,16 +180,16 @@ for (i in 1:100) {
 <pre class="r"><code>pca &lt;- prcomp(t(data.matrix), scale=TRUE)
 str(pca) # return x, sdev and rotation</code></pre>
 <pre><code>## List of 5
-##  $ sdev    : num [1:10] 9.43 1.66 1.5 1.28 1.14 ...
-##  $ rotation: num [1:100, 1:10] -0.1054 0.0812 0.0997 -0.1044 -0.0755 ...
+##  $ sdev    : num [1:10] 9.46 1.72 1.44 1.35 1.13 ...
+##  $ rotation: num [1:100, 1:10] 0.1055 0.1052 -0.1055 0.0751 -0.1057 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
 ##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
-##  $ center  : Named num [1:100] 169 442 386 160 273 ...
+##  $ center  : Named num [1:100] 420 398 451 340 422 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ scale   : Named num [1:100] 111.4 29.6 59.3 107 25.5 ...
+##  $ scale   : Named num [1:100] 424 267.6 192.1 16.6 361 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ x       : num [1:10, 1:10] -9.42 -9 -8.44 -8.85 -8.99 ...
+##  $ x       : num [1:10, 1:10] -8.69 -9.15 -9.01 -9.26 -8.73 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:10] &quot;wt1&quot; &quot;wt2&quot; &quot;wt3&quot; &quot;wt4&quot; ...
 ##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
@@ -229,36 +229,46 @@ gene_scores &lt;- abs(loading_scores)
 gene_score_ranked &lt;- sort(gene_scores, decreasing=TRUE)
 top_10_genes &lt;- names(gene_score_ranked[1:10])
 top_10_genes</code></pre>
-<pre><code>##  [1] &quot;gene24&quot; &quot;gene27&quot; &quot;gene87&quot; &quot;gene58&quot; &quot;gene20&quot; &quot;gene70&quot; &quot;gene82&quot; &quot;gene86&quot;
-##  [9] &quot;gene49&quot; &quot;gene84&quot;</code></pre>
+<pre><code>##  [1] &quot;gene16&quot; &quot;gene67&quot; &quot;gene5&quot;  &quot;gene75&quot; &quot;gene13&quot; &quot;gene22&quot; &quot;gene19&quot; &quot;gene12&quot;
+##  [9] &quot;gene58&quot; &quot;gene9&quot;</code></pre>
 <p>查看造成<code>wt</code>与<code>ko</code>不一样的关键基因</p>
 <pre class="r"><code>pca$rotation[top_10_genes,1]</code></pre>
-<pre><code>##     gene24     gene27     gene87     gene58     gene20     gene70     gene82 
-## -0.1060426 -0.1060377  0.1059927  0.1059907  0.1059529 -0.1059189 -0.1059173 
-##     gene86     gene49     gene84 
-##  0.1059153  0.1059007 -0.1058930</code></pre>
+<pre><code>##     gene16     gene67      gene5     gene75     gene13     gene22     gene19 
+##  0.1056865 -0.1056646 -0.1056631 -0.1056130  0.1056111  0.1056108  0.1055889 
+##     gene12     gene58      gene9 
+## -0.1055858 -0.1055804  0.1055666</code></pre>
 <p>得到的结果说明，<code>PC1</code>下得分为正的是将<code>ko</code>推向PCA Graph右边的关键基因</p>
 <p>为负的则是将<code>wt</code>推向左边的关键基因</p>
 <p>说明这些基因是造成<code>wt</code>和<code>ko</code>不同的差异性表达基因</p>
 
     </div>
 
-    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Songqi Duan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-04-16
+        
+    </span>
+  </p>
+  
+  
+</div>
 <footer class="post-footer">
       <div class="post-tags">
           <a href="../../tags/r/">R</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="../../post/even-preview/">
+        <a class="prev" href="../../post/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Theme preview</span>
+            <span class="prev-text nav-default">生物信息学环境配置</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="../../post/hidden-post/">
-            <span class="next-text nav-default">This is a hidden post.</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
+        
       </nav>
     </footer>
   </article>

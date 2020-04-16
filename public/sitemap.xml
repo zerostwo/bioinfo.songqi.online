@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>/post/even-preview/</loc>
-    <lastmod>2020-04-16T20:49:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>/about/</loc>
     <lastmod>2020-04-16T21:01:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -30,14 +23,7 @@
   </url>
   
   <url>
-    <loc>/tags/linux/</loc>
-    <lastmod>2020-04-16T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/linux/</loc>
+    <loc>/tags/linux-r-python/</loc>
     <lastmod>2020-04-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -79,120 +65,8 @@
   </url>
   
   <url>
-    <loc>/categories/category-2/</loc>
-    <lastmod>2020-04-16T20:49:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/category-3/</loc>
-    <lastmod>2020-04-16T20:49:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/preview/</loc>
-    <lastmod>2020-04-16T20:49:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tag-3/</loc>
-    <lastmod>2020-04-16T20:49:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/theme-preview/</loc>
-    <lastmod>2020-04-16T20:49:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/theme-preview/</loc>
-    <lastmod>2020-04-16T20:49:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/post/hidden-post/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>/</loc>
     <lastmod>2020-04-16T21:01:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/post/shortcodes/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/shortcodes/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/shortcodes/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/post/js-flowchart-diagrams/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/post/js-sequence-diagrams/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/syntax-highlighting/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/syntax-highlighting/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/post/syntax-highlighting/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tag-5/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

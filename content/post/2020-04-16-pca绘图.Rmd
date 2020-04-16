@@ -13,7 +13,7 @@ description: ''
 comment: no
 toc: no
 autoCollapseToc: no
-postMetaInFooter: no
+postMetaInFooter: true
 hiddenFromHomePage: no
 contentCopyright: no
 reward: no
