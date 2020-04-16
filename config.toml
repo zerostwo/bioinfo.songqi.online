@@ -7,7 +7,7 @@ enableRobotsTXT = true
 enableEmoji = true
 theme = "hugo-theme-even"
 enableGitInfo = true # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
-#ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 # Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
 pygmentsOptions = "linenos=table"
@@ -180,16 +180,16 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
-    a-email = "songqi.duan@outlook.com"
+    #a-email = "songqi.duan@outlook.com"
     b-stack-overflow = "https://stackoverflow.com/users/13328284/duansq"
-    c-twitter = "https://twitter.com/duansongqi1999"
-    d-facebook = "https://www.facebook.com/songqi.duan/"
+    #c-twitter = "https://twitter.com/duansongqi1999"
+    #d-facebook = "https://www.facebook.com/songqi.duan/"
     e-linkedin = "https://www.linkedin.com/in/songqi-duan-a019b6163/"
-    f-google = ""
+    #f-google = ""
     g-github = "https://github.com/zerostwo"
     h-weibo = "https://weibo.com/3764641951"
     i-zhihu = "https://www.zhihu.com/people/zerostwo"
-    j-douban = "https://www.douban.com/people/duansq/"
+    #j-douban = "https://www.douban.com/people/duansq/"
     #k-pocket = "http://localhost:1313"
     #l-tumblr = "http://localhost:1313"
     m-instagram = "https://www.instagram.com/songqiduan/"
