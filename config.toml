@@ -1,6 +1,6 @@
 #baseURL = "http://localhost:1313/"
 languageCode = "en"
-defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
+defaultContentLanguage = "zh-cn" # en / zh-cn / ... (This field determines which i18n file to use)
 title = "Songqi Duan | 段松岐"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
@@ -55,7 +55,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
   since = "2020"            # Site creation time          # 站点建立时间
-  # use public git repo url to link lastmod git commit, enableGitInfo should be true.
+  # use public git repo ur l to link lastmod git commit, enableGitInfo should be true.
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
   gitRepo = "git@github.com:zerostwo/zerostwo.github.io.git"
 
@@ -71,7 +71,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   showArchiveCount = true
 
   # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
-  dateFormatToUse = "2020-01-02"
+  dateFormatToUse = "2006-01-02"
 
   # show word count and read time ?                       # 是否显示字数统计与阅读时间
   moreMeta = true
@@ -181,10 +181,10 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   [params.social]                                         # 社交链接
     #a-email = "songqi.duan@outlook.com"
-    b-stack-overflow = "https://stackoverflow.com/users/13328284/duansq"
+    #b-stack-overflow = "https://stackoverflow.com/users/13328284/duansq"
     #c-twitter = "https://twitter.com/duansongqi1999"
     #d-facebook = "https://www.facebook.com/songqi.duan/"
-    e-linkedin = "https://www.linkedin.com/in/songqi-duan-a019b6163/"
+    #e-linkedin = "https://www.linkedin.com/in/songqi-duan-a019b6163/"
     #f-google = ""
     g-github = "https://github.com/zerostwo"
     h-weibo = "https://weibo.com/3764641951"
@@ -192,7 +192,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     #j-douban = "https://www.douban.com/people/duansq/"
     #k-pocket = "http://localhost:1313"
     #l-tumblr = "http://localhost:1313"
-    m-instagram = "https://www.instagram.com/songqiduan/"
+    #m-instagram = "https://www.instagram.com/songqiduan/"
     #n-gitlab = "http://localhost:1313"
     o-bilibili = "https://space.bilibili.com/85834603"
 
