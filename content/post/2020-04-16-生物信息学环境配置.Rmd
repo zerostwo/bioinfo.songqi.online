@@ -11,13 +11,13 @@ lastmod: '2020-04-16T 17:37:45+08:00'
 keywords: []
 description: ''
 comment: no
-toc: true
-autoCollapseToc: no
-postMetaInFooter: no
+#toc: true
+#autoCollapseToc: true
+postMetaInFooter: true
 hiddenFromHomePage: no
-contentCopyright: no
+#contentCopyright: no
 reward: no
-mathjax: no
+#mathjax: true
 mathjaxEnableSingleDollar: no
 mathjaxEnableAutoNumber: no
 hideHeaderAndFooter: no
@@ -27,8 +27,12 @@ flowchartDiagrams:
 sequenceDiagrams:
   enable: no
   options: ''
+  
+weight: 10
+contentCopyright: MIT
+mathjax: true
+autoCollapseToc: true
 ---
-
 这是摘要
 <!--more-->
 拿到一台新的服务器生信分析环境的配置

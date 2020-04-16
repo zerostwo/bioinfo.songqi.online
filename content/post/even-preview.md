@@ -13,6 +13,10 @@ autoCollapseToc: true
 
 ---
 
+主题预览
+<!--more-->
+
+
 > Based on [MarkdownPreview test.md](https://github.com/facelessuser/MarkdownPreview/blob/master/examples/test.md).
 
 # Markdown

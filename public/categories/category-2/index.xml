@@ -17,7 +17,7 @@
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
       
       <guid>/post/even-preview/</guid>
-      <description>Based on MarkdownPreview test.md. Markdown # H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 ### Duplicate Header ### Duplicate Header H1 H2 H3 H4 H5 H6 Duplicate Header Duplicate Header Paragraphs This is a paragraph. I am still part of the paragraph. New paragraph. This is a paragraph. I am still part of the paragraph. New paragraph. Anchor Define anchor by {#section-id} Something Footnote This is a</description>
+      <description>&lt;p&gt;主题预览&lt;/p&gt;</description>
     </item>
     
   </channel>
