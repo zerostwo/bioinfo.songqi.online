@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/post/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <loc>/2020/04/16/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2020-04-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -10,7 +10,7 @@
   
   <url>
     <loc>/about/</loc>
-    <lastmod>2020-04-16T21:01:18+08:00</lastmod>
+    <lastmod>2020-04-16T22:24:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -23,14 +23,14 @@
   </url>
   
   <url>
-    <loc>/tags/linux-r-python/</loc>
+    <loc>/tags/linux/</loc>
     <lastmod>2020-04-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>/post/pca/</loc>
+    <loc>/2020/04/16/pca/</loc>
     <lastmod>2020-04-16T21:52:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -39,6 +39,13 @@
   <url>
     <loc>/post/</loc>
     <lastmod>2020-04-16T21:52:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2020-04-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -66,7 +73,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-04-16T21:01:18+08:00</lastmod>
+    <lastmod>2020-04-16T22:24:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

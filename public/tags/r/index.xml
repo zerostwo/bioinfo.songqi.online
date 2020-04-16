@@ -12,15 +12,28 @@
     
     
     <item>
-      <title>PCA绘图</title>
-      <link>/post/pca/</link>
+      <title>生物信息学环境配置</title>
+      <link>/2020/04/16/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/pca/</guid>
+      <guid>/2020/04/16/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>
+
+
+&lt;p&gt;这是摘要
+</description>
+    </item>
+    
+    <item>
+      <title>PCA绘图</title>
+      <link>/2020/04/16/pca/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/16/pca/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
-no
+true
 &lt;/div&gt;
 
 &lt;p&gt;使用R语言进行PCA绘图
