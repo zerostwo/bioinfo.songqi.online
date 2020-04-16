@@ -11,9 +11,9 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 # Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
 pygmentsOptions = "linenos=table"
-pygmentsCodefences = true
-pygmentsUseClasses = true
-pygmentsCodefencesGuessSyntax = true
+pygmentsCodefences = false
+pygmentsUseClasses = false
+pygmentsCodefencesGuessSyntax = false
 
 hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
 paginate = 5                                              # 首页每页显示的文章数
@@ -152,23 +152,23 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   # more info please open https://valine.js.org
   [params.valine]
     enable = false
-    appId = '你的appId'
-    appKey = '你的appKey'
-    notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
-    verify = false # Verification code
+    appId = '6FCcBjcFHX50R0LWLT6M1oEw-gzGzoHsz'
+    appKey = 'ykGojkiIS5LzIumATDYhuXv9'
+    notify = true  # mail notifier , https://github.com/xCss/Valine/wiki
+    verify = true # Verification code
     avatar = 'mm' 
     placeholder = '说点什么吧...'
     visitor = false
 
   [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
-    enable = false
+    enable = true
     options = ""
 
   [params.sequenceDiagrams] # see https://blog.olowolo.com/example-site/post/js-sequence-diagrams/
-    enable = false
+    enable = true
     options = ""            # default: "{theme: 'simple'}"
 
-  [params.busuanzi]         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
+  [params.busuanzi]         # count web traffic by busuanzi # 是否使用不蒜子统计站点访问量
     enable = true
     siteUV = true
     sitePV = true

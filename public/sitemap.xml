@@ -1,4 +1,4 @@
-<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-04-16T19:18:26+08:00</lastmod>
+    <lastmod>2020-04-16T19:52:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -46,6 +46,13 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2020-04-16T19:18:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/tesst/</loc>
+    <lastmod>2020-04-16T19:52:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
