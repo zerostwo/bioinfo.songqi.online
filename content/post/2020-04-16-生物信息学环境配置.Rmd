@@ -53,7 +53,7 @@ chsh -s /bin/zsh
 
 ## 1.2 安装 Oh My Zsh
 
-```bash
+```Bash
 sudo apt install git
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 ```
