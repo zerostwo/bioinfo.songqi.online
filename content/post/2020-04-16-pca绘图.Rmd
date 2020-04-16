@@ -11,7 +11,6 @@ lastmod: '2020-04-16T21:52:16+08:00'
 keywords: []
 description: 'This'
 comment: false
-toc: true
 autoCollapseToc: true
 postMetaInFooter: true
 hiddenFromHomePage: false
@@ -28,10 +27,8 @@ sequenceDiagrams:
   enable: false
   options: ''
 ---
-使用R语言进行PCA绘图
 <!--more-->
-
->参考[StatQuest: PCA in R](https://www.youtube.com/watch?v=0Jp4gsfOLMs&list=PLblh5JKOoLUJJpBNfk8_YadPwDTO2SCbx)
+使用R语言进行PCA绘图[^1]
 
 构建绘图数据
 ```{r}
@@ -111,3 +108,5 @@ pca$rotation[top_10_genes,1]
 为负的则是将`wt`推向左边的关键基因
 
 说明这些基因是造成`wt`和`ko`不同的差异性表达基因
+
+[^1]: [StatQuest: PCA in R](https://www.youtube.com/watch?v=0Jp4gsfOLMs&list=PLblh5JKOoLUJJpBNfk8_YadPwDTO2SCbx)

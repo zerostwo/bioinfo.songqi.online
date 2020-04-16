@@ -2,7 +2,7 @@
 title: 生物信息学环境配置
 author: Songqi Duan
 date: '2010-04-16'
-slug: 生物信息学环境配置
+slug: bioinfo_env_config
 categories:
   - 生物信息学
 tags:
@@ -40,9 +40,7 @@ autoCollapseToc: true
 <!--more-->
 拿到一台新的服务器生信分析环境的配置
 
-# 1 终端美化（Oh My Zsh）
-
->参考[Ubuntu 下 Oh My Zsh 的最佳实践「安装及配置」](https://segmentfault.com/a/1190000015283092)
+# 1 终端美化（Oh My Zsh）[^1]
 
 ## 1.1 安装 Zsh
 
@@ -113,9 +111,7 @@ source .zshrc
   sudo apt intall r-base
   ```
 
-## 2.2 安装Rstudio
-
->参考[Download RStudio Server for Debian & Ubuntu](https://rstudio.com/products/rstudio/download-server/debian-ubuntu/)
+## 2.2 安装Rstudio[^2]
 
 **注意：**注意不同Ubuntu系统版本下载的Rstudio Server不同。
 
@@ -147,9 +143,7 @@ export PATH=/home/duansq/miniconda3/bin:$PATH
 ```
 由于我是安装在我的用户目录下，所以路径为`home/duansq`，这里根据自己实际情况进行替换。
 
-## 3.2 bioconda源添加
-
->参考[Set up channels](https://bioconda.github.io/user/install.html)
+## 3.2 bioconda源添加[^3]
 
 ```bash
 conda config --add channels defaults
@@ -189,3 +183,7 @@ conda activate tophat
 conda install -y tophat
 conda deactivate
 ```
+
+[^1]: [Ubuntu 下 Oh My Zsh 的最佳实践「安装及配置」](https://segmentfault.com/a/1190000015283092)
+[^2]: [Download RStudio Server for Debian & Ubuntu](https://rstudio.com/products/rstudio/download-server/debian-ubuntu/)
+[^3]: [Set up channels](https://bioconda.github.io/user/install.html)

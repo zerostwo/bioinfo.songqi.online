@@ -8,7 +8,7 @@ enableEmoji = true
 theme = "hugo-theme-even"
 # 可根据 Git 中的提交生成最近更新记录。
 enableGitInfo = true
-#ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 # Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
 pygmentsOptions = "linenos=table"
