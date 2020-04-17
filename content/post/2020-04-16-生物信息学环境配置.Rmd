@@ -1,7 +1,7 @@
 ---
 title: 生物信息学环境配置
 author: Songqi Duan
-date: '2010-04-16'
+date: '2020-04-16'
 slug: bioinfo_env_config
 categories:
   - 生物信息学
@@ -9,8 +9,8 @@ tags:
   - Linux
   - R
   - Python
-#lastmod: '2017-04-16T 17:37:45+08:00'
-lastmod: '`r Sys.Date()`'
+lastmod: '2017-04-16T 17:37:45+08:00'
+#lastmod: '`r Sys.Date()`'
 keywords: []
 description: ''
 comment: no

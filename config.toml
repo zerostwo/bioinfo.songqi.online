@@ -124,12 +124,13 @@ copyright = ""
   contentCopyright = ''
 
   # 畅言
-  changyanAppid = ""
-  changyanAppkey = ""
+  changyanAppid = "cytrEmFrj"
+  changyanAppkey = "prod_7fbc0dd8362b19e9497c3b0170730c11"
 
   # 来必力
-  livereUID = "MTAyMC80OTcwMC8yNjE5MQ=="                  
-
+  #livereUID = "MTAyMC80OTcwMC8yNjE5MQ=="                  
+  livereUID = ""
+  
   # 百度
   baiduPush = true        # baidu push                  
   baiduAnalytics = ""      # Baidu Analytics

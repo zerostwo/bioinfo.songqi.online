@@ -51,6 +51,13 @@
   </url>
   
   <url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2020-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>/2020/04/16/pca/</loc>
     <lastmod>2020-04-16T21:52:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -58,29 +65,22 @@
   </url>
   
   <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2020-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/2020/04/16/bioinfo_env_config/</loc>
+    <lastmod>2020-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <lastmod>2020-04-16T22:24:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/linux/</loc>
-    <lastmod>2020-04-17T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/python/</loc>
-    <lastmod>2020-04-17T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/2010/04/16/bioinfo_env_config/</loc>
-    <lastmod>2020-04-17T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
