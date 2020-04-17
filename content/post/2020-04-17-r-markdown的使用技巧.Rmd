@@ -29,7 +29,7 @@ sequenceDiagrams:
 ---
 `R markdown`通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
 <!--more-->
-
+此文介绍`R markdown`的一些使用技巧和常用快捷键[^1][^2]。
 # 图片居中
 ```
 <center>
@@ -97,5 +97,6 @@ p <- gapminder %>%
 ggplotly(p)
 ```
 
-
+[^1]: [Pimp my RMD: a few tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/#)
+[^2]: [第 5 章 R Markdown](https://bookdown.org/xiao/RAnalysisBook/r-markdown.html)
 
