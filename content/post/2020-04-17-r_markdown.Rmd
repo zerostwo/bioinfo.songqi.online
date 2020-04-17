@@ -68,7 +68,7 @@ $c\approx 299,792,458\space m/s$
 
 # 并排放两张图
 
-可以在`{r}`[^3]中增添以下信息：
+可以在`{r}`中增添以下信息：
 ```
 {r out.width=c('50%', '50%'), fig.show='hold'}
 ```
@@ -80,9 +80,9 @@ plot(rnorm(10))
 
 # 交互式图表
 
-可使用`plotly`构建交互式图表，充分利用`html`可交互的特性。
+可使用`plotly`[^3]构建交互式图表，充分利用`html`可交互的特性。
 
-```{r, fig.align="center", fig.width=6, fig.height=6, fig.cap="交互式图表"}
+```{r, fig.align="center", fig.cap="交互式图表"}
 
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(plotly))
@@ -90,7 +90,7 @@ library(gapminder)
 
 p <- gapminder %>%
   filter(year==1977) %>%
-  ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) +
+  ggplot(aes(gdpPercap, lifeExp, size = pop, color=continent)) +
   geom_point() +
   scale_x_log10() +
   theme_bw()
