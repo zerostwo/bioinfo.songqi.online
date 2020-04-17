@@ -49,7 +49,7 @@
 <meta itemprop="description" content="This">
 <meta itemprop="datePublished" content="2020-04-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-16T21:52:16&#43;08:00" />
-<meta itemprop="wordCount" content="627">
+<meta itemprop="wordCount" content="445">
 
 
 
@@ -133,11 +133,16 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
     <div class="post-content">
-      <p>使用R语言进行PCA绘图<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+      <p>使用R语言进行PCA绘图<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <p>构建绘图数据</p>
-<pre class="r"><code>data.matrix &lt;- matrix(nrow=100, ncol=10)
+<pre><code class="language-{r}">data.matrix &lt;- matrix(nrow=100, ncol=10)
 colnames(data.matrix) &lt;- c(
   paste(&quot;wt&quot;, 1:5, sep=&quot;&quot;),
   paste(&quot;ko&quot;, 1:5, sep=&quot;&quot;)
@@ -149,41 +154,32 @@ for (i in 1:100) {
   wt.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1))
   ko.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1))
   data.matrix[i,] &lt;- c(wt.values, ko.values)
-}</code></pre>
+}
+</code></pre>
 <p><code>procomp</code>默认样本为行，基因为列，因此在这里需要转置</p>
-<pre class="r"><code>pca &lt;- prcomp(t(data.matrix), scale=TRUE)
-str(pca) # return x, sdev and rotation</code></pre>
-<pre><code>## List of 5
-##  $ sdev    : num [1:10] 9.37 1.78 1.6 1.44 1.29 ...
-##  $ rotation: num [1:100, 1:10] -0.107 0.105 0.105 -0.107 0.106 ...
-##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. ..$ : chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
-##  $ center  : Named num [1:100] 466 200 182 503 449 ...
-##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ scale   : Named num [1:100] 266 142 125 377 445 ...
-##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ x       : num [1:10, 1:10] -8.73 -8.65 -8.92 -9.09 -9.04 ...
-##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. ..$ : chr [1:10] &quot;wt1&quot; &quot;wt2&quot; &quot;wt3&quot; &quot;wt4&quot; ...
-##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
-##  - attr(*, &quot;class&quot;)= chr &quot;prcomp&quot;</code></pre>
+<pre><code class="language-{r}">pca &lt;- prcomp(t(data.matrix), scale=TRUE)
+str(pca) # return x, sdev and rotation
+</code></pre>
 <p>取第一主成分和第二主成分</p>
-<pre class="r"><code>plot(pca$x[,1], pca$x[,2]) </code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre><code class="language-{r,">plot(pca$x[,1], pca$x[,2]) 
+</code></pre>
 <ul>
-<li><p>第一主成分解释了原始数据（所有10个样本的基因表达）中最大的方差</p></li>
-<li><p>第二主成分解释了…第二大方差，以此类推</p></li>
+<li>
+<p>第一主成分解释了原始数据（所有10个样本的基因表达）中最大的方差</p>
+</li>
+<li>
+<p>第二主成分解释了&hellip;第二大方差，以此类推</p>
+</li>
 </ul>
 <p>让我们看看PC1能解释原始数据多大的方差，因此我们使用<code>sdev</code>(标准差)的平方</p>
 <p>标准差的平方是方差</p>
-<pre class="r"><code>pca.var &lt;- pca$sdev^2
+<pre><code class="language-{r,">pca.var &lt;- pca$sdev^2
 pca.var.per &lt;- round(pca.var/sum(pca.var)*100, 1)
 barplot(pca.var.per, 
         main=&quot;Scree Plot&quot;, xlab=&quot;Principal Component&quot;,
-        ylab=&quot;Percent Variation&quot;)</code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>library(ggplot2)
+        ylab=&quot;Percent Variation&quot;)
+</code></pre>
+<pre><code class="language-{r,">library(ggplot2)
 pca.data &lt;- data.frame(
   Sample=rownames(pca$x),
   X=pca$x[,1],
@@ -195,32 +191,29 @@ ggplot(data=pca.data, mapping = aes(x=X, y=Y, label=Sample)) +
   xlab(paste(&quot;PC1 - &quot;, pca.var.per[1], &quot;%&quot;, sep=&quot;&quot;)) + 
   ylab(paste(&quot;PC2 - &quot;, pca.var.per[2], &quot;%&quot;, sep=&quot;&quot;)) + 
   theme_bw() +
-  ggtitle(&quot;My PCA Graph&quot;)</code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+  ggtitle(&quot;My PCA Graph&quot;)
+</code></pre>
 <p>下面我们可以通过<code>pca$rotation</code>来看什么基因对结果影响最大</p>
-<pre class="r"><code>loading_scores &lt;- pca$rotation[,1] # 这里使用第一列因为PC1的对原始数据的影响达到91%
+<pre><code class="language-{r}">loading_scores &lt;- pca$rotation[,1] # 这里使用第一列因为PC1的对原始数据的影响达到91%
 gene_scores &lt;- abs(loading_scores)
 gene_score_ranked &lt;- sort(gene_scores, decreasing=TRUE)
 top_10_genes &lt;- names(gene_score_ranked[1:10])
-top_10_genes</code></pre>
-<pre><code>##  [1] &quot;gene58&quot; &quot;gene67&quot; &quot;gene10&quot; &quot;gene53&quot; &quot;gene21&quot; &quot;gene88&quot; &quot;gene69&quot; &quot;gene39&quot;
-##  [9] &quot;gene81&quot; &quot;gene45&quot;</code></pre>
+top_10_genes
+</code></pre>
 <p>查看造成<code>wt</code>与<code>ko</code>不一样的关键基因</p>
-<pre class="r"><code>pca$rotation[top_10_genes,1]</code></pre>
-<pre><code>##     gene58     gene67     gene10     gene53     gene21     gene88     gene69 
-##  0.1066898 -0.1066846  0.1066756  0.1066713 -0.1066704 -0.1066651 -0.1066488 
-##     gene39     gene81     gene45 
-## -0.1066433  0.1066362  0.1066235</code></pre>
+<pre><code class="language-{r}">pca$rotation[top_10_genes,1]
+</code></pre>
 <p>得到的结果说明，<code>PC1</code>下得分为正的是将<code>ko</code>推向PCA Graph右边的关键基因</p>
 <p>为负的则是将<code>wt</code>推向左边的关键基因</p>
 <p>说明这些基因是造成<code>wt</code>和<code>ko</code>不同的差异性表达基因</p>
-<div class="footnotes">
-<hr />
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn1"><p><a href="https://www.youtube.com/watch?v=0Jp4gsfOLMs&amp;list=PLblh5JKOoLUJJpBNfk8_YadPwDTO2SCbx">StatQuest: PCA in R</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://www.youtube.com/watch?v=0Jp4gsfOLMs&amp;list=PLblh5JKOoLUJJpBNfk8_YadPwDTO2SCbx">StatQuest: PCA in R</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
-
+</section>
     </div>
 
     <div class="post-copyright">
@@ -257,7 +250,27 @@ top_10_genes</code></pre>
     </footer>
   </article>
         </div>
-        
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2020-04-16 00:00:00 \x2b0000 UTC',
+        title: 'PCA绘图',
+        clientID: 'e80f8bc7b6095ab1ad40',
+        clientSecret: '623211db1d4eca51644a76627aa4d2f224dd98c8',
+        repo: 'zerostwo.github.io',
+        owner: 'zerostwo',
+        admin: ['zerostwo'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
