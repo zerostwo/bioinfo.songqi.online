@@ -1,183 +1,52 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>R Markdown的使用技巧 - Songqi</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+---
+title: R Markdown的使用技巧
+author: Songqi Duan
+date: '2020-04-17'
+slug: r_markdown
+categories:
+  - 生物信息学
+tags:
+  - R
+lastmod: '2020-04-17T11:42:23+08:00'
+keywords: []
+description: ''
+comment: no
+autoCollapseToc: no
+postMetaInFooter: true
+hiddenFromHomePage: no
+contentCopyright: no
+reward: no
+mathjax: true
+mathjaxEnableSingleDollar: true
+mathjaxEnableAutoNumber: true
+hideHeaderAndFooter: no
+flowchartDiagrams:
+  enable: no
+  options: ''
+sequenceDiagrams:
+  enable: no
+  options: ''
+---
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="Songqi Duan" /><meta name="description" content="       R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 " /><meta name="keywords" content="生物信息学, R语言, 数据分析" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
-
-
-<link rel="canonical" href="../../../../2020/04/17/r_markdown/" />
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../favicon-16x16.png">
-<link rel="manifest" href="../../../../manifest.json">
-<link rel="mask-icon" href="../../../../safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="../../../../sass/main.min.123129356677eddd4073174ff5e64e4ea642bdaf9cfaf2ba960bb70646eccc7f.css" rel="stylesheet">
-<link href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="R Markdown的使用技巧" />
-<meta property="og:description" content="
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
 
 
-
-
-
-
-
-
-
-
-R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/2020/04/17/r_markdown/" />
-<meta property="article:published_time" content="2020-04-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-17T11:42:23+08:00" />
-<meta itemprop="name" content="R Markdown的使用技巧">
-<meta itemprop="description" content="
-
-
-
-
-
-
-
-
-
-
-R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
-">
-<meta itemprop="datePublished" content="2020-04-17T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-17T11:42:23&#43;08:00" />
-<meta itemprop="wordCount" content="1223">
-
-
-
-<meta itemprop="keywords" content="R," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="R Markdown的使用技巧"/>
-<meta name="twitter:description" content="
-
-
-
-
-
-
-
-
-
-
-R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
-"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="../../../../" class="logo">Songqi</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="../../../../">
-        <li class="mobile-menu-item">主页</li>
-      </a><a href="../../../../post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="../../../../tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="../../../../categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="../../../../about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="../../../../" class="logo">Songqi</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="../../../../">主页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">R Markdown的使用技巧</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2020-04-17 </span>
-        <div class="post-category">
-            <a href="../../../../categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"> 生物信息学 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    
-    <div class="post-content">
-      此文介绍<code>R markdown</code>的一些使用技巧和常用快捷键<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>。
+<p><code>R markdown</code>通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
+<!--more-->
+此文介绍<code>R markdown</code>的一些使用技巧和常用快捷键<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>。
 # 图片居中</p>
 <pre><code>&lt;center&gt;
 ![]()
 &lt;/center&gt;</code></pre>
 <center>
-<img src="../../../../post/2020-04-17-r-markdown的使用技巧_files/bg_footer_1.jpg" alt="Naruto" />
+<img src="/post/2020-04-17-r-markdown的使用技巧_files/bg_footer_1.jpg" alt="Naruto" />
 </center>
 <div id="图注" class="section level1">
 <h1>图注</h1>
@@ -188,7 +57,7 @@ R markdown通过R代码创建交互式报告。这篇文章提供了一些我每
 }</code></pre>
 <pre class="r"><code>plot(c(1:10))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="../../../../post/2020-04-17-r_markdown_files/figure-html/unnamed-chunk-1-1.png" alt="Figure: Here is a really important caption." width="576" />
+<img src="/post/2020-04-17-r_markdown_files/figure-html/unnamed-chunk-1-1.png" alt="Figure: Here is a really important caption." width="576" />
 <p class="caption">
 Figure 1: Figure: Here is a really important caption.
 </p>
@@ -209,7 +78,7 @@ Figure 1: Figure: Here is a really important caption.
 <pre><code>{r out.width=c(&#39;50%&#39;, &#39;50%&#39;), fig.show=&#39;hold&#39;}</code></pre>
 <pre class="r"><code>boxplot(rnorm(10))
 plot(rnorm(10))</code></pre>
-<p><img src="../../../../post/2020-04-17-r_markdown_files/figure-html/unnamed-chunk-2-1.png" width="50%" /><img src="../../../../post/2020-04-17-r_markdown_files/figure-html/unnamed-chunk-2-2.png" width="50%" /></p>
+<p><img src="/post/2020-04-17-r_markdown_files/figure-html/unnamed-chunk-2-1.png" width="50%" /><img src="/post/2020-04-17-r_markdown_files/figure-html/unnamed-chunk-2-2.png" width="50%" /></p>
 <pre class="r"><code>library(ggplot2)
 library(plotly)</code></pre>
 <pre><code>## 
@@ -243,114 +112,3 @@ ggplotly(p)</code></pre>
 <li id="fn2"><p><a href="https://bookdown.org/xiao/RAnalysisBook/r-markdown.html">第 5 章 R Markdown</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
-
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">Songqi Duan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2020-04-17
-        
-    </span>
-  </p>
-  
-  
-</div>
-<footer class="post-footer">
-      <div class="post-tags">
-          <a href="../../../../tags/r/">R</a>
-          </div>
-      <nav class="post-nav">
-        
-        <a class="next" href="../../../../2020/04/16/pca/">
-            <span class="next-text nav-default">PCA绘图</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://github.com/zerostwo" class="iconfont icon-github" title="github"></a>
-      <a href="https://weibo.com/3764641951" class="iconfont icon-weibo" title="weibo"></a>
-      <a href="https://www.zhihu.com/people/zerostwo" class="iconfont icon-zhihu" title="zhihu"></a>
-      <a href="https://space.bilibili.com/85834603" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="../../../../index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  
-
-  <span class="copyright-year">
-    Copyright
-    &copy; 
-    <span class="author">Songqi Duan</span>
-    2020
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script src="../../../../lib/highlight/highlight.pack.js?v=20171001"></script>
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script src="https://cdn.bootcss.com/slideout/1.0.1/slideout.min.js"></script>
-  <script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js"></script>
-    <script src="https://cdn.bootcss.com/timeago.js/3.0.2/timeago.min.js"></script>
-    <script src="https://cdn.bootcss.com/timeago.js/3.0.2/timeago.locales.min.js"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script>
-
-
-
-<script type="text/javascript" src="../../../../js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
