@@ -26,16 +26,16 @@
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="../../../../2020/04/16/pca/" />
-<link rel="apple-touch-icon" sizes="180x180" href="../../../../apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../../favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../../favicon-16x16.png">
-<link rel="manifest" href="../../../../manifest.json">
-<link rel="mask-icon" href="../../../../safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="/2020/04/16/pca/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
 
-<link href="../../../../sass/main.min.123129356677eddd4073174ff5e64e4ea642bdaf9cfaf2ba960bb70646eccc7f.css" rel="stylesheet">
+<link href="/sass/main.min.123129356677eddd4073174ff5e64e4ea642bdaf9cfaf2ba960bb70646eccc7f.css" rel="stylesheet">
 <link href="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css" rel="stylesheet">
 
 
@@ -70,7 +70,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="../../../../" class="logo">Songqi</a>
+    <a href="/" class="logo">Songqi</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -80,15 +80,15 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="../../../../">
+    <a href="/">
         <li class="mobile-menu-item">主页</li>
-      </a><a href="../../../../post/">
+      </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
-      </a><a href="../../../../tags/">
+      </a><a href="/tags/">
         <li class="mobile-menu-item">标签</li>
-      </a><a href="../../../../categories/">
+      </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="../../../../about/">
+      </a><a href="/about/">
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
@@ -96,21 +96,21 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="../../../../" class="logo">Songqi</a>
+  <a href="/" class="logo">Songqi</a>
 </div>
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="../../../../">主页</a>
+        <a class="menu-item-link" href="/">主页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../post/">归档</a>
+        <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../tags/">标签</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../categories/">分类</a>
+        <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../about/">关于</a>
+        <a class="menu-item-link" href="/about/">关于</a>
       </li>
   </ul>
 </nav>
@@ -127,7 +127,7 @@
       <div class="post-meta">
         <span class="post-time"> 2020-04-16 </span>
         <div class="post-category">
-            <a href="../../../../categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"> 生物信息学 </a>
+            <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"> 生物信息学 </a>
             </div>
         
       </div>
@@ -157,23 +157,23 @@ for (i in 1:100) {
 <pre class="r"><code>pca &lt;- prcomp(t(data.matrix), scale=TRUE)
 str(pca) # return x, sdev and rotation</code></pre>
 <pre><code>## List of 5
-##  $ sdev    : num [1:10] 9.44 1.68 1.36 1.3 1.12 ...
-##  $ rotation: num [1:100, 1:10] -0.1055 0.0883 -0.1058 0.1035 0.1006 ...
+##  $ sdev    : num [1:10] 9.599 1.457 1.379 1.139 0.905 ...
+##  $ rotation: num [1:100, 1:10] -0.104 -0.104 0.103 0.101 0.104 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
 ##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
-##  $ center  : Named num [1:100] 545 821 555 308 270 ...
+##  $ center  : Named num [1:100] 425.2 512.3 634.2 77.2 174.8 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ scale   : Named num [1:100] 424.6 47.1 415.8 82.5 47.8 ...
+##  $ scale   : Named num [1:100] 324 421 224 27 141 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ x       : num [1:10, 1:10] -8.87 -9.5 -8.85 -8.76 -8.8 ...
+##  $ x       : num [1:10, 1:10] -9.14 -8.78 -9.45 -8.99 -9.16 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:10] &quot;wt1&quot; &quot;wt2&quot; &quot;wt3&quot; &quot;wt4&quot; ...
 ##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
 ##  - attr(*, &quot;class&quot;)= chr &quot;prcomp&quot;</code></pre>
 <p>取第一主成分和第二主成分</p>
 <pre class="r"><code>plot(pca$x[,1], pca$x[,2]) </code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>第一主成分解释了原始数据（所有10个样本的基因表达）中最大的方差</p></li>
 <li><p>第二主成分解释了…第二大方差，以此类推</p></li>
@@ -185,7 +185,7 @@ pca.var.per &lt;- round(pca.var/sum(pca.var)*100, 1)
 barplot(pca.var.per, 
         main=&quot;Scree Plot&quot;, xlab=&quot;Principal Component&quot;,
         ylab=&quot;Percent Variation&quot;)</code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>library(ggplot2)
 pca.data &lt;- data.frame(
   Sample=rownames(pca$x),
@@ -199,21 +199,21 @@ ggplot(data=pca.data, mapping = aes(x=X, y=Y, label=Sample)) +
   ylab(paste(&quot;PC2 - &quot;, pca.var.per[2], &quot;%&quot;, sep=&quot;&quot;)) + 
   theme_bw() +
   ggtitle(&quot;My PCA Graph&quot;)</code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>下面我们可以通过<code>pca$rotation</code>来看什么基因对结果影响最大</p>
 <pre class="r"><code>loading_scores &lt;- pca$rotation[,1] # 这里使用第一列因为PC1的对原始数据的影响达到91%
 gene_scores &lt;- abs(loading_scores)
 gene_score_ranked &lt;- sort(gene_scores, decreasing=TRUE)
 top_10_genes &lt;- names(gene_score_ranked[1:10])
 top_10_genes</code></pre>
-<pre><code>##  [1] &quot;gene14&quot; &quot;gene82&quot; &quot;gene49&quot; &quot;gene3&quot;  &quot;gene77&quot; &quot;gene88&quot; &quot;gene53&quot; &quot;gene57&quot;
-##  [9] &quot;gene10&quot; &quot;gene16&quot;</code></pre>
+<pre><code>##  [1] &quot;gene37&quot; &quot;gene82&quot; &quot;gene40&quot; &quot;gene30&quot; &quot;gene80&quot; &quot;gene85&quot; &quot;gene2&quot;  &quot;gene71&quot;
+##  [9] &quot;gene1&quot;  &quot;gene65&quot;</code></pre>
 <p>查看造成<code>wt</code>与<code>ko</code>不一样的关键基因</p>
 <pre class="r"><code>pca$rotation[top_10_genes,1]</code></pre>
-<pre><code>##     gene14     gene82     gene49      gene3     gene77     gene88     gene53 
-## -0.1058454  0.1058438 -0.1058393 -0.1058189 -0.1058107  0.1057997  0.1057940 
-##     gene57     gene10     gene16 
-##  0.1057891 -0.1057807 -0.1057766</code></pre>
+<pre><code>##     gene37     gene82     gene40     gene30     gene80     gene85      gene2 
+##  0.1041283 -0.1041259 -0.1041243 -0.1041113 -0.1041007 -0.1040859 -0.1040784 
+##     gene71      gene1     gene65 
+##  0.1040739 -0.1040605 -0.1040571</code></pre>
 <p>得到的结果说明，<code>PC1</code>下得分为正的是将<code>ko</code>推向PCA Graph右边的关键基因</p>
 <p>为负的则是将<code>wt</code>推向左边的关键基因</p>
 <p>说明这些基因是造成<code>wt</code>和<code>ko</code>不同的差异性表达基因</p>
@@ -243,15 +243,15 @@ top_10_genes</code></pre>
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="../../../../tags/r/">R</a>
+          <a href="/tags/r/">R</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="../../../../2020/04/17/r_markdown/">
+        <a class="prev" href="/2020/04/17/r_markdown/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">R Markdown的使用技巧</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="../../../../2020/04/16/bioinfo_env_config/">
+        <a class="next" href="/2020/04/16/bioinfo_env_config/">
             <span class="next-text nav-default">生物信息学环境配置</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
@@ -291,7 +291,7 @@ top_10_genes</code></pre>
       <a href="https://weibo.com/3764641951" class="iconfont icon-weibo" title="weibo"></a>
       <a href="https://www.zhihu.com/people/zerostwo" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="https://space.bilibili.com/85834603" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="../../../../index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -310,7 +310,7 @@ top_10_genes</code></pre>
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="../../../../lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="https://cdn.bootcss.com/slideout/1.0.1/slideout.min.js"></script>
   <script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js"></script>
@@ -324,7 +324,7 @@ top_10_genes</code></pre>
 
 
 
-<script type="text/javascript" src="../../../../js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js"></script>
+<script type="text/javascript" src="/js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js"></script>
 
 
 
