@@ -37,7 +37,8 @@ flowchartDiagrams:
 sequenceDiagrams: 
   enable: false
   options: ""
-
+  
+output:
+  blogdown::html_page:
+    toc: true
 ---
-
-<!--more-->
