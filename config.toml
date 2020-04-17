@@ -124,8 +124,8 @@ copyright = ""
   contentCopyright = ''
 
   # 畅言
-  changyanAppid = "cytrEmFrj"
-  changyanAppkey = "prod_7fbc0dd8362b19e9497c3b0170730c11"
+  changyanAppid = ""
+  changyanAppkey = ""
 
   # 来必力
   #livereUID = "MTAyMC80OTcwMC8yNjE5MQ=="                  
@@ -194,13 +194,13 @@ copyright = ""
   # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
   [params.gitalk]
     # Your GitHub ID
-    owner = ""
+    owner = "zerostwo"
     # The repo to store comments
-    repo = ""
+    repo = "https://github.com/zerostwo/zerostwo.github.io"
     # Your client ID
-    clientId = ""
+    clientId = "e80f8bc7b6095ab1ad40"
     # Your client secret
-    clientSecret = ""
+    clientSecret = "623211db1d4eca51644a76627aa4d2f224dd98c8"
 
   # Valine.
   # You can get your appid and appkey from https://leancloud.cn
