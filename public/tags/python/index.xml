@@ -6,17 +6,17 @@
     <description>Recent content in Python on Songqi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>生物信息学环境配置</title>
-      <link>/2020/04/17/bioinfo_config/</link>
-      <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
+      <link>/2020/04/15/bioinfo_config/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/04/17/bioinfo_config/</guid>
+      <guid>/2020/04/15/bioinfo_config/</guid>
       <description>1 终端美化（Oh My Zsh） 1.1 安装 Zsh 1.2 安装 Oh My Zsh 1.3 插件配置 1.4 .zshrc配置 2 R及Rstudio的安装 2.1 R安装 2.2 安装Rstudio 3 conda</description>
     </item>
     

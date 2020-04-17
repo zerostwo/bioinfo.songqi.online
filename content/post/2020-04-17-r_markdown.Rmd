@@ -41,7 +41,7 @@ output:
 </center>
 ```
 <center>
-![Naruto](/post/2020-04-17-r-markdown的使用技巧_files/bg_footer_1.jpg)
+![Naruto](/post/2020-04-17-r_markdown_files/bg_footer_1.jpg){width=50%}
 </center>
 
 # 2 图注
