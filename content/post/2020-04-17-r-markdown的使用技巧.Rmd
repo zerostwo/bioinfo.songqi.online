@@ -50,7 +50,6 @@ sequenceDiagrams:
 ```
 
 ```{r, fig.align="center", fig.width=6, fig.height=6, fig.cap="Figure: Here is a really important caption."}
-
 plot(c(1:10))
 ```
 
@@ -77,24 +76,6 @@ $c\approx 299,792,458\space m/s$
 ```{r out.width=c('50%', '50%'), fig.show='hold'}
 boxplot(rnorm(10))
 plot(rnorm(10))
-```
-
-# 交互式图表
-
-```{r}
-suppressPackageStartupMessages(library(ggplot2))
-suppressPackageStartupMessages(library(plotly))
-suppressPackageStartupMessages(library(gapminder))
-
-p <- gapminder %>%
-  filter(year==1977) %>%
-  ggplot(aes(gdpPercap, lifeExp, 
-             size = pop, color=continent)) +
-  geom_point() +
-  scale_x_log10() +
-  theme_bw()
-
-ggplotly(p)
 ```
 
 [^1]: [Pimp my RMD: a few tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/#)
