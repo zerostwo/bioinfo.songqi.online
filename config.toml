@@ -196,7 +196,7 @@ copyright = ""
     # Your GitHub ID
     owner = "zerostwo"
     # The repo to store comments
-    repo = "https://github.com/zerostwo/zerostwo.github.io"
+    repo = "zerostwo.github.io"
     # Your client ID
     clientId = "e80f8bc7b6095ab1ad40"
     # Your client secret
