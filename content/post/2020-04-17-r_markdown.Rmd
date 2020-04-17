@@ -10,8 +10,7 @@ tags:
 lastmod: '2020-04-17T11:42:23+08:00'
 keywords: []
 description: ''
-comment: no
-autoCollapseToc: no
+comment: true
 postMetaInFooter: true
 hiddenFromHomePage: no
 contentCopyright: no
@@ -26,11 +25,16 @@ flowchartDiagrams:
 sequenceDiagrams:
   enable: no
   options: ''
+
+output:
+  blogdown::html_page:
+    toc: true
 ---
 `R markdown`通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
-<!--more-->
+
 此文介绍`R markdown`的一些使用技巧和常用快捷键[^1][^2]。
-# 图片居中
+
+# 1 图片居中
 ```
 <center>
 ![]()
@@ -40,7 +44,7 @@ sequenceDiagrams:
 ![Naruto](/post/2020-04-17-r-markdown的使用技巧_files/bg_footer_1.jpg)
 </center>
 
-# 图注
+# 2 图注
 可以在`{r}`中增添以下信息：
 ```
 {r, 
@@ -53,7 +57,7 @@ sequenceDiagrams:
 plot(c(1:10))
 ```
 
-# 数学公式
+# 3 数学公式
 
 块级公式：
 ```
@@ -66,7 +70,7 @@ $c\approx 299,792,458\space m/s$
 ```
 其中$c\approx 299,792,458\space m/s$
 
-# 并排放两张图
+# 4 并排放两张图
 
 可以在`{r}`中增添以下信息：
 ```
@@ -78,7 +82,7 @@ boxplot(rnorm(10))
 plot(rnorm(10))
 ```
 
-# 交互式图表
+# 5 交互式图表
 
 可使用`plotly`[^3]构建交互式图表，充分利用`html`可交互的特性。
 

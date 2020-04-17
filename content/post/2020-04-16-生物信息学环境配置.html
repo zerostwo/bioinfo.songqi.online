@@ -1,0 +1,167 @@
+---
+title: 生物信息学环境配置
+author: Songqi Duan
+date: '2020-04-16'
+slug: bioinfo_env_config
+categories:
+  - 生物信息学
+tags:
+  - Linux
+  - R
+  - Python
+lastmod: '2017-04-16T 17:37:45+08:00'
+keywords: []
+description: ''
+comment: true
+autoCollapseToc: no
+postMetaInFooter: true
+hiddenFromHomePage: no
+contentCopyright: no
+reward: no
+mathjax: true
+mathjaxEnableSingleDollar: true
+mathjaxEnableAutoNumber: true
+hideHeaderAndFooter: no
+flowchartDiagrams:
+  enable: no
+  options: ''
+sequenceDiagrams:
+  enable: no
+  options: ''
+  
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#终端美化oh-my-zsh1">1 终端美化（Oh My Zsh）</a><ul>
+<li><a href="#安装-zsh">1.1 安装 Zsh</a></li>
+<li><a href="#安装-oh-my-zsh">1.2 安装 Oh My Zsh</a></li>
+<li><a href="#插件配置">1.3 插件配置</a></li>
+<li><a href="#zshrc配置">1.4 <code>.zshrc</code>配置</a></li>
+</ul></li>
+<li><a href="#r及rstudio的安装">2 R及Rstudio的安装</a><ul>
+<li><a href="#r安装">2.1 R安装</a></li>
+<li><a href="#安装rstudio2">2.2 安装Rstudio</a></li>
+</ul></li>
+<li><a href="#conda安装及bioconda配置">3 conda安装及bioconda配置</a><ul>
+<li><a href="#miniconda安装">3.1 miniconda安装</a></li>
+<li><a href="#bioconda源添加3">3.2 bioconda源添加</a></li>
+<li><a href="#常用生信工具安装">3.3 常用生信工具安装</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>拿到一台新的服务器生信分析环境的配置</p>
+<div id="终端美化oh-my-zsh1" class="section level1">
+<h1>1 终端美化（Oh My Zsh）<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h1>
+<div id="安装-zsh" class="section level2">
+<h2>1.1 安装 Zsh</h2>
+<pre class="bash"><code>sudo apt install zsh
+chsh -s /bin/zsh</code></pre>
+</div>
+<div id="安装-oh-my-zsh" class="section level2">
+<h2>1.2 安装 Oh My Zsh</h2>
+<pre class="bash"><code>sudo apt install git
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</code></pre>
+</div>
+<div id="插件配置" class="section level2">
+<h2>1.3 插件配置</h2>
+<ul>
+<li><p>zsh-autosuggestions(命令行命令键入时的历史命令建议插件)</p>
+<pre class="bash"><code>git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</code></pre></li>
+<li><p>zsh-syntax-highlighting(命令行语法高亮插件)</p>
+<pre class="bash"><code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre></li>
+</ul>
+</div>
+<div id="zshrc配置" class="section level2">
+<h2>1.4 <code>.zshrc</code>配置</h2>
+<pre class="vim"><code># 设置命令行的主题
+ZSH_THEME=&quot;gianu&quot;
+
+# 启动错误命令自动更正
+ENABLE_CORRECTION=&quot;true&quot;
+
+# 在命令执行的过程中，使用小红点进行提示
+COMPLETION_WAITING_DOTS=&quot;true&quot;
+
+# 启用已安装的插件
+plugins=(
+  git zsh-autosuggestions zsh-syntax-highlighting
+)</code></pre>
+<p>修改完<code>.zshrc</code>后记得：</p>
+<pre class="bash"><code>source .zshrc</code></pre>
+</div>
+</div>
+<div id="r及rstudio的安装" class="section level1">
+<h1>2 R及Rstudio的安装</h1>
+<div id="r安装" class="section level2">
+<h2>2.1 R安装</h2>
+<p>默认安装的不是最新版本的，所以为来了获取最新版本的按照如下操作：</p>
+<ul>
+<li><p>添加密钥</p>
+<pre class="bash"><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys   E298A3A825C0D65DFD57CBB651716619E084DAB9</code></pre></li>
+<li><p>添加源，下面这个源是3.6的，如果需要获取其它版本请访问<a href="https://cran.r-project.org/bin/linux/ubuntu/README.html">UBUNTU PACKAGES FOR R</a></p>
+<pre class="bash"><code>sudo add-apt-repository &quot;deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/&quot;</code></pre></li>
+<li><p>安装</p>
+<pre class="bash"><code>sudo apt update
+sudo apt intall r-base</code></pre></li>
+</ul>
+</div>
+<div id="安装rstudio2" class="section level2">
+<h2>2.2 安装Rstudio<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></h2>
+<p><strong>注意：</strong>注意不同Ubuntu系统版本下载的Rstudio Server不同。</p>
+<p>现在我常用Ubuntu 18.04，因此下面参考流程以此版本为例：</p>
+<pre class="bash"><code>sudo apt-get install gdebi-core
+wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.2.5042-amd64.deb
+sudo gdebi rstudio-server-1.2.5042-amd64.deb</code></pre>
+<p>Rstudio Server默认端口<code>8787</code></p>
+</div>
+</div>
+<div id="conda安装及bioconda配置" class="section level1">
+<h1>3 conda安装及bioconda配置</h1>
+<div id="miniconda安装" class="section level2">
+<h2>3.1 miniconda安装</h2>
+<p>在<a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>获取最新安装包链接</p>
+<pre class="bash"><code>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh</code></pre>
+<p>在完成后配置环境变量</p>
+<pre class="vim"><code>export PATH=/home/duansq/miniconda3/bin:$PATH</code></pre>
+<p>由于我是安装在我的用户目录下，所以路径为<code>home/duansq</code>，这里根据自己实际情况进行替换。</p>
+</div>
+<div id="bioconda源添加3" class="section level2">
+<h2>3.2 bioconda源添加<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></h2>
+<pre class="bash"><code>conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge</code></pre>
+<p>如果是国内服务器，可以换用<a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/">Anaconda 镜像使用帮助</a></p>
+</div>
+<div id="常用生信工具安装" class="section level2">
+<h2>3.3 常用生信工具安装</h2>
+<p>首先创建一个生信分析环境并命名为<code>rna</code>，目前大多数工具支持的python版本为3.7</p>
+<pre class="bash"><code>conda create -n rna python=3.7</code></pre>
+<p>创建好后切换环境</p>
+<pre class="bash"><code># 激活环境
+conda activate rna
+# 退出环境
+conda deactivate</code></pre>
+<p>工具安装：</p>
+<pre class="bash"><code>conda install -y sra-tools fastqc multiqc trim-galore subread bwa hisat2 bowtie2 star samtools htseq </code></pre>
+<p>如果需要安装<code>tophat</code>，需要新创建一个python2的环境，因为现在它只支持python2</p>
+<pre class="bash"><code>conda create -n tophat python=2
+conda activate tophat
+conda install -y tophat
+conda deactivate</code></pre>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://segmentfault.com/a/1190000015283092">Ubuntu 下 Oh My Zsh 的最佳实践「安装及配置」</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p><a href="https://rstudio.com/products/rstudio/download-server/debian-ubuntu/">Download RStudio Server for Debian &amp; Ubuntu</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p><a href="https://bioconda.github.io/user/install.html">Set up channels</a><a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</div>

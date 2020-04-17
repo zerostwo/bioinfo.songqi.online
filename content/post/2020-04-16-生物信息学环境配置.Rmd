@@ -10,19 +10,17 @@ tags:
   - R
   - Python
 lastmod: '2017-04-16T 17:37:45+08:00'
-#lastmod: '`r Sys.Date()`'
 keywords: []
 description: ''
 comment: true
-toc: true
-autoCollapseToc: true
+autoCollapseToc: no
 postMetaInFooter: true
 hiddenFromHomePage: no
-#contentCopyright: no
+contentCopyright: no
 reward: no
-#mathjax: true
-mathjaxEnableSingleDollar: no
-mathjaxEnableAutoNumber: no
+mathjax: true
+mathjaxEnableSingleDollar: true
+mathjaxEnableAutoNumber: true
 hideHeaderAndFooter: no
 flowchartDiagrams:
   enable: no
@@ -31,10 +29,10 @@ sequenceDiagrams:
   enable: no
   options: ''
   
-#weight: 10
+output:
+  blogdown::html_page:
+    toc: true
 ---
-这是摘要
-<!--more-->
 拿到一台新的服务器生信分析环境的配置
 
 # 1 终端美化（Oh My Zsh）[^1]

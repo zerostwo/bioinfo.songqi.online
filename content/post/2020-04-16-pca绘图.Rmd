@@ -11,8 +11,6 @@ lastmod: '2020-04-16T21:52:16+08:00'
 keywords: []
 description: 'This'
 comment: true
-toc: true
-autoCollapseToc: true
 postMetaInFooter: true
 hiddenFromHomePage: false
 contentCopyright: false
@@ -28,7 +26,6 @@ sequenceDiagrams:
   enable: false
   options: ''
 ---
-<!--more-->
 使用R语言进行PCA绘图[^1]
 
 构建绘图数据
