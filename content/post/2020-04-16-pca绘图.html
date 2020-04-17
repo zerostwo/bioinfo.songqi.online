@@ -9,7 +9,7 @@ tags:
   - R
 lastmod: '2020-04-16T21:52:16+08:00'
 keywords: []
-description: 'This'
+description: ''
 comment: true
 postMetaInFooter: true
 hiddenFromHomePage: false
@@ -25,6 +25,9 @@ flowchartDiagrams:
 sequenceDiagrams:
   enable: false
   options: ''
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 
@@ -48,16 +51,16 @@ for (i in 1:100) {
 <pre class="r"><code>pca &lt;- prcomp(t(data.matrix), scale=TRUE)
 str(pca) # return x, sdev and rotation</code></pre>
 <pre><code>## List of 5
-##  $ sdev    : num [1:10] 9.54 1.49 1.31 1.18 1.08 ...
-##  $ rotation: num [1:100, 1:10] -0.0871 -0.1042 -0.1044 -0.1045 0.1046 ...
+##  $ sdev    : num [1:10] 9.44 1.68 1.36 1.3 1.12 ...
+##  $ rotation: num [1:100, 1:10] -0.1055 0.0883 -0.1058 0.1035 0.1006 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
 ##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
-##  $ center  : Named num [1:100] 84.5 269.7 696 335.7 467.7 ...
+##  $ center  : Named num [1:100] 545 821 555 308 270 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ scale   : Named num [1:100] 15.8 106.5 278.1 172.1 470.8 ...
+##  $ scale   : Named num [1:100] 424.6 47.1 415.8 82.5 47.8 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ x       : num [1:10, 1:10] -8.85 -9 -9.33 -8.99 -9.09 ...
+##  $ x       : num [1:10, 1:10] -8.87 -9.5 -8.85 -8.76 -8.8 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:10] &quot;wt1&quot; &quot;wt2&quot; &quot;wt3&quot; &quot;wt4&quot; ...
 ##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
@@ -97,14 +100,14 @@ gene_scores &lt;- abs(loading_scores)
 gene_score_ranked &lt;- sort(gene_scores, decreasing=TRUE)
 top_10_genes &lt;- names(gene_score_ranked[1:10])
 top_10_genes</code></pre>
-<pre><code>##  [1] &quot;gene11&quot; &quot;gene41&quot; &quot;gene94&quot; &quot;gene20&quot; &quot;gene88&quot; &quot;gene59&quot; &quot;gene82&quot; &quot;gene51&quot;
-##  [9] &quot;gene67&quot; &quot;gene24&quot;</code></pre>
+<pre><code>##  [1] &quot;gene14&quot; &quot;gene82&quot; &quot;gene49&quot; &quot;gene3&quot;  &quot;gene77&quot; &quot;gene88&quot; &quot;gene53&quot; &quot;gene57&quot;
+##  [9] &quot;gene10&quot; &quot;gene16&quot;</code></pre>
 <p>查看造成<code>wt</code>与<code>ko</code>不一样的关键基因</p>
 <pre class="r"><code>pca$rotation[top_10_genes,1]</code></pre>
-<pre><code>##     gene11     gene41     gene94     gene20     gene88     gene59     gene82 
-##  0.1047445  0.1047265  0.1047211  0.1047005 -0.1046913 -0.1046905 -0.1046896 
-##     gene51     gene67     gene24 
-##  0.1046860  0.1046821 -0.1046692</code></pre>
+<pre><code>##     gene14     gene82     gene49      gene3     gene77     gene88     gene53 
+## -0.1058454  0.1058438 -0.1058393 -0.1058189 -0.1058107  0.1057997  0.1057940 
+##     gene57     gene10     gene16 
+##  0.1057891 -0.1057807 -0.1057766</code></pre>
 <p>得到的结果说明，<code>PC1</code>下得分为正的是将<code>ko</code>推向PCA Graph右边的关键基因</p>
 <p>为负的则是将<code>wt</code>推向左边的关键基因</p>
 <p>说明这些基因是造成<code>wt</code>和<code>ko</code>不同的差异性表达基因</p>

@@ -9,7 +9,7 @@ tags:
   - R
 lastmod: '2020-04-16T21:52:16+08:00'
 keywords: []
-description: 'This'
+description: ''
 comment: true
 postMetaInFooter: true
 hiddenFromHomePage: false
@@ -25,6 +25,9 @@ flowchartDiagrams:
 sequenceDiagrams:
   enable: false
   options: ''
+output:
+  blogdown::html_page:
+    toc: true
 ---
 使用R语言进行PCA绘图[^1]
 

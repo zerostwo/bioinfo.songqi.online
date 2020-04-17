@@ -13,7 +13,6 @@ lastmod: '2017-04-16T 17:37:45+08:00'
 keywords: []
 description: ''
 comment: true
-autoCollapseToc: no
 postMetaInFooter: true
 hiddenFromHomePage: no
 contentCopyright: no
@@ -28,7 +27,6 @@ flowchartDiagrams:
 sequenceDiagrams:
   enable: no
   options: ''
-  
 output:
   blogdown::html_page:
     toc: true
