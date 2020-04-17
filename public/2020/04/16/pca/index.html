@@ -160,23 +160,23 @@ for (i in 1:100) {
 <pre class="r"><code>pca &lt;- prcomp(t(data.matrix), scale=TRUE)
 str(pca) # return x, sdev and rotation</code></pre>
 <pre><code>## List of 5
-##  $ sdev    : num [1:10] 9.624 1.493 1.272 1.057 0.827 ...
-##  $ rotation: num [1:100, 1:10] -0.103 0.103 0.103 -0.102 0.102 ...
+##  $ sdev    : num [1:10] 9.37 1.78 1.6 1.44 1.29 ...
+##  $ rotation: num [1:100, 1:10] -0.107 0.105 0.105 -0.107 0.106 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
 ##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
-##  $ center  : Named num [1:100] 760.5 168.1 318.8 148.5 81.8 ...
+##  $ center  : Named num [1:100] 466 200 182 503 449 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ scale   : Named num [1:100] 204.6 133.1 112.3 81.1 46.2 ...
+##  $ scale   : Named num [1:100] 266 142 125 377 445 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:100] &quot;gene1&quot; &quot;gene2&quot; &quot;gene3&quot; &quot;gene4&quot; ...
-##  $ x       : num [1:10, 1:10] -9.08 -9.25 -8.99 -9.22 -9.11 ...
+##  $ x       : num [1:10, 1:10] -8.73 -8.65 -8.92 -9.09 -9.04 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:10] &quot;wt1&quot; &quot;wt2&quot; &quot;wt3&quot; &quot;wt4&quot; ...
 ##   .. ..$ : chr [1:10] &quot;PC1&quot; &quot;PC2&quot; &quot;PC3&quot; &quot;PC4&quot; ...
 ##  - attr(*, &quot;class&quot;)= chr &quot;prcomp&quot;</code></pre>
 <p>取第一主成分和第二主成分</p>
 <pre class="r"><code>plot(pca$x[,1], pca$x[,2]) </code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>第一主成分解释了原始数据（所有10个样本的基因表达）中最大的方差</p></li>
 <li><p>第二主成分解释了…第二大方差，以此类推</p></li>
@@ -188,7 +188,7 @@ pca.var.per &lt;- round(pca.var/sum(pca.var)*100, 1)
 barplot(pca.var.per, 
         main=&quot;Scree Plot&quot;, xlab=&quot;Principal Component&quot;,
         ylab=&quot;Percent Variation&quot;)</code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>library(ggplot2)
 pca.data &lt;- data.frame(
   Sample=rownames(pca$x),
@@ -202,21 +202,21 @@ ggplot(data=pca.data, mapping = aes(x=X, y=Y, label=Sample)) +
   ylab(paste(&quot;PC2 - &quot;, pca.var.per[2], &quot;%&quot;, sep=&quot;&quot;)) + 
   theme_bw() +
   ggtitle(&quot;My PCA Graph&quot;)</code></pre>
-<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="../../../../post/2020-04-16-pca%E7%BB%98%E5%9B%BE_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>下面我们可以通过<code>pca$rotation</code>来看什么基因对结果影响最大</p>
 <pre class="r"><code>loading_scores &lt;- pca$rotation[,1] # 这里使用第一列因为PC1的对原始数据的影响达到91%
 gene_scores &lt;- abs(loading_scores)
 gene_score_ranked &lt;- sort(gene_scores, decreasing=TRUE)
 top_10_genes &lt;- names(gene_score_ranked[1:10])
 top_10_genes</code></pre>
-<pre><code>##  [1] &quot;gene28&quot; &quot;gene8&quot;  &quot;gene43&quot; &quot;gene90&quot; &quot;gene17&quot; &quot;gene25&quot; &quot;gene78&quot; &quot;gene27&quot;
-##  [9] &quot;gene49&quot; &quot;gene29&quot;</code></pre>
+<pre><code>##  [1] &quot;gene58&quot; &quot;gene67&quot; &quot;gene10&quot; &quot;gene53&quot; &quot;gene21&quot; &quot;gene88&quot; &quot;gene69&quot; &quot;gene39&quot;
+##  [9] &quot;gene81&quot; &quot;gene45&quot;</code></pre>
 <p>查看造成<code>wt</code>与<code>ko</code>不一样的关键基因</p>
 <pre class="r"><code>pca$rotation[top_10_genes,1]</code></pre>
-<pre><code>##     gene28      gene8     gene43     gene90     gene17     gene25     gene78 
-##  0.1038725 -0.1038443  0.1038348  0.1038315  0.1038266  0.1038204  0.1038167 
-##     gene27     gene49     gene29 
-##  0.1038141  0.1038136 -0.1038133</code></pre>
+<pre><code>##     gene58     gene67     gene10     gene53     gene21     gene88     gene69 
+##  0.1066898 -0.1066846  0.1066756  0.1066713 -0.1066704 -0.1066651 -0.1066488 
+##     gene39     gene81     gene45 
+## -0.1066433  0.1066362  0.1066235</code></pre>
 <p>得到的结果说明，<code>PC1</code>下得分为正的是将<code>ko</code>推向PCA Graph右边的关键基因</p>
 <p>为负的则是将<code>wt</code>推向左边的关键基因</p>
 <p>说明这些基因是造成<code>wt</code>和<code>ko</code>不同的差异性表达基因</p>
@@ -249,12 +249,16 @@ top_10_genes</code></pre>
           <a href="../../../../tags/r/">R</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="../../../../2010/04/16/bioinfo_env_config/">
+        <a class="prev" href="../../../../2020/04/17/r_markdown/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">生物信息学环境配置</span>
+            <span class="prev-text nav-default">R Markdown的使用技巧</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        
+        <a class="next" href="../../../../2010/04/16/bioinfo_env_config/">
+            <span class="next-text nav-default">生物信息学环境配置</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
       </nav>
     </footer>
   </article>

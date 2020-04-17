@@ -31,10 +31,8 @@ sequenceDiagrams:
   enable: no
   options: ''
   
-weight: 10
+#weight: 10
 contentCopyright: MIT
-mathjax: true
-autoCollapseToc: true
 ---
 这是摘要
 <!--more-->

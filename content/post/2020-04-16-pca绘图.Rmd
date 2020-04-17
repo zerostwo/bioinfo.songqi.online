@@ -54,7 +54,7 @@ str(pca) # return x, sdev and rotation
 ```
 
 取第一主成分和第二主成分
-```{r}
+```{r, fig.align="center"}
 plot(pca$x[,1], pca$x[,2]) 
 ```
 
@@ -65,7 +65,7 @@ plot(pca$x[,1], pca$x[,2])
 让我们看看PC1能解释原始数据多大的方差，因此我们使用`sdev`(标准差)的平方
 
 标准差的平方是方差
-```{r}
+```{r, fig.align="center"}
 pca.var <- pca$sdev^2
 pca.var.per <- round(pca.var/sum(pca.var)*100, 1)
 barplot(pca.var.per, 
@@ -73,7 +73,7 @@ barplot(pca.var.per,
         ylab="Percent Variation")
 ```
 
-```{r}
+```{r, fig.align="center"}
 library(ggplot2)
 pca.data <- data.frame(
   Sample=rownames(pca$x),

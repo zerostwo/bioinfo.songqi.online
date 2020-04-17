@@ -6,21 +6,29 @@
     <description>Recent content in R on Songqi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>生物信息学环境配置</title>
-      <link>/2010/04/16/bioinfo_env_config/</link>
-      <pubDate>Fri, 16 Apr 2010 00:00:00 +0000</pubDate>
+      <title>R Markdown的使用技巧</title>
+      <link>/2020/04/17/r_markdown/</link>
+      <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2010/04/16/bioinfo_env_config/</guid>
+      <guid>/2020/04/17/r_markdown/</guid>
       <description>
+&lt;script src=&#34;2020-04-17-r-markdown的使用技巧_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;2020-04-17-r-markdown的使用技巧_files/plotly-binding/plotly.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;2020-04-17-r-markdown的使用技巧_files/typedarray/typedarray.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;2020-04-17-r-markdown的使用技巧_files/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;2020-04-17-r-markdown的使用技巧_files/crosstalk/css/crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;2020-04-17-r-markdown的使用技巧_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;2020-04-17-r-markdown的使用技巧_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;2020-04-17-r-markdown的使用技巧_files/plotly-main/plotly-latest.min.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;这是摘要
+&lt;p&gt;&lt;code&gt;R markdown&lt;/code&gt;通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
 </description>
     </item>
     
@@ -33,6 +41,19 @@
       <description>
 
 
+</description>
+    </item>
+    
+    <item>
+      <title>生物信息学环境配置</title>
+      <link>/2010/04/16/bioinfo_env_config/</link>
+      <pubDate>Fri, 16 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/2010/04/16/bioinfo_env_config/</guid>
+      <description>
+
+
+&lt;p&gt;这是摘要
 </description>
     </item>
     
