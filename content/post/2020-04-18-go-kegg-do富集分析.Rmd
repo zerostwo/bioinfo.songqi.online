@@ -32,7 +32,7 @@ output:
 ---
 # 1 R Bioconductor初步探索
 
-
+[Bioconductor](http://www.bioconductor.org/)提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编程语言，并且是开源和开放开发的。每年有两个版本，以及一个活跃的用户社区。
 
 # 2 RNA-Seq后续应该怎么分析？
 
@@ -85,7 +85,9 @@ output:
     cuffdiff_result.sign <- cuffdiff_result[select_vector,]
     dim(cuffdiff_result.sign)
     ```
+    
     通过数据筛选后，基因数已经从原来的22857个缩减到84个，这84个就是我们期望的`DEG`，但是84个基因做GO富集分析是做不出什么好的结果的（**为什么呢？**），因此在这里将条件放宽一下，$\left|\log_{2}{FC}\right|\geq 1$变为$\left|\log_{2}{FC}\right|\geq 0.5$，得到差不多1000个左右的基因即可。
+    
     ```{r}
     select_vector <-
       (cuffdiff_result$value_1>1|cuffdiff_result$value_2>1)&
@@ -143,21 +145,18 @@ output:
     library("org.Hs.eg.db")
     ```
     
-    在进行GO富集分析之前，对`output.gene_id`进行字符串转化，转化完后进行GO富集分析：
+    在进行GO富集分析之前，对`output.gene_id`进行字符串转化，转化完后进行GO富集分析，在这里值得注意的是还进行了一个`ID转换`：
     
-    ```{r}
+    ```{r, message = FALSE, warning = FALSE}
     DEG.gene_symbol <- as.character(output.gene_id$gene_id)
     DEG.entrez_id <- mapIds(x = org.Hs.eg.db, 
                             keys = DEG.gene_symbol,
                             keytype = "SYMBOL",
                             column = "ENTREZID")
     DEG.entrez_id <- na.omit(DEG.entrez_id)
-    erich.go.BP <- enrichGO(
-      gene = DEG.entrez_id, OrgDb = org.Hs.eg.db, 
-      keyType = "ENTREZID", ont = "BP", 
-      pvalueCutoff = 0.01, qvalueCutoff = 0.05,
-      readable = T
-    )
+    ```
+    
+    ```r
     erich.go.CC <- enrichGO(
       gene = DEG.entrez_id, OrgDb = org.Hs.eg.db, 
       keyType = "ENTREZID", ont = "CC", 
@@ -165,22 +164,67 @@ output:
       readable = T
     )
     barplot(erich.go.CC)
+    dotplot(erich.go.CC)
     ```
     
+    ```{r, echo=FALSE,out.width=c('50%', '50%'), fig.show='hold', fig.align="center", fig.cap="Barplot (left) and dotplot (right) of Cellular Components."}
+    load("~/songqi/data/rna-seq/go_kegg_do.Rdata")
+    barplot(erich.go.CC)
+    dotplot(erich.go.CC)
+    ```
     
+    除此之外还可以使用`plotGOgraph`绘制树形图
+ ：
+ 
+    ```{r, fig.align="center", message = FALSE, warning = FALSE, fig.cap="PlotGOgraph of Cellular Components."}
+    plotGOgraph(erich.go.CC)
+    ```
     
+    如果图片看不清楚，可以将结果保存为`pdf`文件
+    
+    ```r
+    pdf("~/songqi/data/rna-seq/enrich.go.cc.tree.pdf")
+    plotGOgraph(erich.go.CC)
+    dev.off()
+    ```
+
 ## 2.2 KEGG富集分析（KEGG enrichment analysis）
 
 将生物体的`pathway`进行富集分析。
+
+```r
+erich.KEGG <- eichKEGG(gene = DEG.entrez_id, organism = "hsa", 
+                 keyType = "kegg", alueCutoff = 0.05, 
+                 qvalueCutoff = 0.2)
+```
+
+```{r, echo=FALSE,out.width=c('50%', '50%'), fig.show='hold', fig.align="center", fig.cap="Barplot (left) and dotplot (right) of KEGG."}
+load("~/songqi/data/rna-seq/go_kegg_do.Rdata")
+barplot(erich.KEGG)
+dotplot(erich.KEGG)
+```
+
 
 ## 2.3 DO富集分析（DO enrichment analysis）
 
 看基因是否在某个疾病上富集，临床上用得比较多。
 
-# 3 一些细节问题
-## 3.1 常用的ID有哪些?
-## 3.2 ID之间怎么转换？
-## 3.3 如果没有现成的注释怎么做富集分析？
+```r
+library("DOSE")
+erich.DO <- enrichDO(gene = DEG.entrez_id, ont = "DO",
+                     pvalueCutoff = 0.5, qvalueCutoff = 0.5)
+
+```
+
+```{r, echo=FALSE,out.width=c('50%', '50%'), fig.show='hold', fig.align="center", fig.cap="Barplot (left) and dotplot (right) of DO."}
+library("DOSE")
+load("~/songqi/data/rna-seq/go_kegg_do.Rdata")
+barplot(erich.DO)
+dotplot(erich.DO)
+```
+
+以上所有内容学习自[2018-01-07 生物信息学教程-GO, KEGG, DO富集分析
+](https://www.bilibili.com/video/BV14W411q7gi?t=2387)
 
 [^1]: [基因本体](https://baike.baidu.com/item/%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93)
 [^2]: [org.Hs.eg.db](https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html)

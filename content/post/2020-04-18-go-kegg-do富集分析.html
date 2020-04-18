@@ -43,16 +43,12 @@ output:
 <li><a href="#kegg富集分析kegg-enrichment-analysis">2.2 KEGG富集分析（KEGG enrichment analysis）</a></li>
 <li><a href="#do富集分析do-enrichment-analysis">2.3 DO富集分析（DO enrichment analysis）</a></li>
 </ul></li>
-<li><a href="#一些细节问题">3 一些细节问题</a><ul>
-<li><a href="#常用的id有哪些">3.1 常用的ID有哪些?</a></li>
-<li><a href="#id之间怎么转换">3.2 ID之间怎么转换？</a></li>
-<li><a href="#如果没有现成的注释怎么做富集分析">3.3 如果没有现成的注释怎么做富集分析？</a></li>
-</ul></li>
 </ul>
 </div>
 
 <div id="r-bioconductor初步探索" class="section level1">
 <h1>1 R Bioconductor初步探索</h1>
+<p><a href="http://www.bioconductor.org/">Bioconductor</a>提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编程语言，并且是开源和开放开发的。每年有两个版本，以及一个活跃的用户社区。</p>
 </div>
 <div id="rna-seq后续应该怎么分析" class="section level1">
 <h1>2 RNA-Seq后续应该怎么分析？</h1>
@@ -131,50 +127,81 @@ library(&quot;topGO&quot;)
 library(&quot;Rgraphviz&quot;)
 library(&quot;pathview&quot;)
 library(&quot;org.Hs.eg.db&quot;)</code></pre>
-<p>在进行GO富集分析之前，对<code>output.gene_id</code>进行字符串转化，转化完后进行GO富集分析：</p>
+<p>在进行GO富集分析之前，对<code>output.gene_id</code>进行字符串转化，转化完后进行GO富集分析，在这里值得注意的是还进行了一个<code>ID转换</code>：</p>
 <pre class="r"><code>DEG.gene_symbol &lt;- as.character(output.gene_id$gene_id)
 DEG.entrez_id &lt;- mapIds(x = org.Hs.eg.db, 
                         keys = DEG.gene_symbol,
                         keytype = &quot;SYMBOL&quot;,
-                        column = &quot;ENTREZID&quot;)</code></pre>
-<pre><code>## &#39;select()&#39; returned 1:many mapping between keys and columns</code></pre>
-<pre class="r"><code>DEG.entrez_id &lt;- na.omit(DEG.entrez_id)
-erich.go.BP &lt;- enrichGO(
-  gene = DEG.entrez_id, OrgDb = org.Hs.eg.db, 
-  keyType = &quot;ENTREZID&quot;, ont = &quot;BP&quot;, 
-  pvalueCutoff = 0.01, qvalueCutoff = 0.05,
-  readable = T
-)
-erich.go.CC &lt;- enrichGO(
+                        column = &quot;ENTREZID&quot;)
+DEG.entrez_id &lt;- na.omit(DEG.entrez_id)</code></pre>
+<pre class="r"><code>erich.go.CC &lt;- enrichGO(
   gene = DEG.entrez_id, OrgDb = org.Hs.eg.db, 
   keyType = &quot;ENTREZID&quot;, ont = &quot;CC&quot;, 
   pvalueCutoff = 0.5, qvalueCutoff = 0.5,
   readable = T
 )
-barplot(erich.go.CC)</code></pre>
-<p><img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p></li>
+barplot(erich.go.CC)
+dotplot(erich.go.CC)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-7-1.png" alt="Barplot (left) and dotplot (right) of Cellular Components." width="50%" /><img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-7-2.png" alt="Barplot (left) and dotplot (right) of Cellular Components." width="50%" />
+<p class="caption">
+Figure 1: Barplot (left) and dotplot (right) of Cellular Components.
+</p>
+</div>
+<p>除此之外还可以使用<code>plotGOgraph</code>绘制树形图
+：</p>
+<pre class="r"><code>plotGOgraph(erich.go.CC)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-8-1.png" alt="PlotGOgraph of Cellular Components." width="672" />
+<p class="caption">
+Figure 2: PlotGOgraph of Cellular Components.
+</p>
+</div>
+<pre><code>## $dag
+## A graphNEL graph with directed edges
+## Number of Nodes = 28 
+## Number of Edges = 34 
+## 
+## $complete.dag
+## [1] &quot;A graph with 28 nodes.&quot;</code></pre>
+<p>如果图片看不清楚，可以将结果保存为<code>pdf</code>文件</p>
+<pre class="r"><code>pdf(&quot;~/songqi/data/rna-seq/enrich.go.cc.tree.pdf&quot;)
+plotGOgraph(erich.go.CC)
+dev.off()</code></pre></li>
 </ol>
 </div>
 </div>
 <div id="kegg富集分析kegg-enrichment-analysis" class="section level2">
 <h2>2.2 KEGG富集分析（KEGG enrichment analysis）</h2>
 <p>将生物体的<code>pathway</code>进行富集分析。</p>
+<pre class="r"><code>erich.KEGG &lt;- eichKEGG(gene = DEG.entrez_id, organism = &quot;hsa&quot;, 
+                 keyType = &quot;kegg&quot;, alueCutoff = 0.05, 
+                 qvalueCutoff = 0.2)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-9-1.png" alt="Barplot (left) and dotplot (right) of KEGG." width="50%" /><img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-9-2.png" alt="Barplot (left) and dotplot (right) of KEGG." width="50%" />
+<p class="caption">
+Figure 3: Barplot (left) and dotplot (right) of KEGG.
+</p>
+</div>
 </div>
 <div id="do富集分析do-enrichment-analysis" class="section level2">
 <h2>2.3 DO富集分析（DO enrichment analysis）</h2>
 <p>看基因是否在某个疾病上富集，临床上用得比较多。</p>
+<pre class="r"><code>library(&quot;DOSE&quot;)
+erich.DO &lt;- enrichDO(gene = DEG.entrez_id, ont = &quot;DO&quot;,
+                     pvalueCutoff = 0.5, qvalueCutoff = 0.5)
+</code></pre>
+<pre><code>## DOSE v3.12.0  For help: https://guangchuangyu.github.io/software/DOSE
+## 
+## If you use DOSE in published research, please cite:
+## Guangchuang Yu, Li-Gen Wang, Guang-Rong Yan, Qing-Yu He. DOSE: an R/Bioconductor package for Disease Ontology Semantic and Enrichment analysis. Bioinformatics 2015, 31(4):608-609</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-10-1.png" alt="Barplot (left) and dotplot (right) of DO." width="50%" /><img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-10-2.png" alt="Barplot (left) and dotplot (right) of DO." width="50%" />
+<p class="caption">
+Figure 4: Barplot (left) and dotplot (right) of DO.
+</p>
 </div>
-</div>
-<div id="一些细节问题" class="section level1">
-<h1>3 一些细节问题</h1>
-<div id="常用的id有哪些" class="section level2">
-<h2>3.1 常用的ID有哪些?</h2>
-</div>
-<div id="id之间怎么转换" class="section level2">
-<h2>3.2 ID之间怎么转换？</h2>
-</div>
-<div id="如果没有现成的注释怎么做富集分析" class="section level2">
-<h2>3.3 如果没有现成的注释怎么做富集分析？</h2>
+<p>以上所有内容学习自<a href="https://www.bilibili.com/video/BV14W411q7gi?t=2387">2018-01-07 生物信息学教程-GO, KEGG, DO富集分析</a></p>
 </div>
 </div>
 <div class="footnotes">
