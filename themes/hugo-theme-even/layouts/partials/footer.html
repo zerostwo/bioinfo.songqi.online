@@ -30,11 +30,9 @@
   {{- end }}
 
   <span class="copyright-year">
-    Copyright
-    {{- $current := now.Format "2006" }}
-    &copy;
-    <span
-      class="author">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
+    Copyright{{- $current := now.Format "2006" }}&copy;
+    <a href="https://songqi.netlify.app/" style="color:#8a8a8a"><span
+      class="author">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span></a>
     {{ if ne .Site.Params.since $current -}}
     {{ .Site.Params.since }} -
     {{ end }}
