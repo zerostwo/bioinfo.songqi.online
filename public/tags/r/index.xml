@@ -6,10 +6,19 @@
     <description>Recent content in R on Songqi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GO, KEGG, DO富集分析</title>
+      <link>/2020/04/18/go_kegg_do/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/18/go_kegg_do/</guid>
+      <description>1 R Bioconductor初步探索 2 RNA-Seq后续应该怎么分析？ 2.1 GO富集分析（GO enrichment analysis） 2.1.1 基因本体论（Gene Onto</description>
+    </item>
     
     <item>
       <title>R Markdown的使用技巧</title>

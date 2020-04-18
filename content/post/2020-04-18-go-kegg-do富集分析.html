@@ -1,0 +1,186 @@
+---
+title: GO, KEGG, DO富集分析
+author: Songqi Duan
+date: '2020-04-18'
+slug: go_kegg_do
+categories:
+  - 生物信息学
+tags:
+  - R
+lastmod: '2020-04-18T15:35:51+08:00'
+keywords: []
+description: ''
+comment: yes
+postMetaInFooter: yes
+hiddenFromHomePage: no
+contentCopyright: <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC
+  BY-NC-ND 4.0</a>
+reward: no
+mathjax: yes
+mathjaxEnableSingleDollar: no
+mathjaxEnableAutoNumber: no
+hideHeaderAndFooter: no
+flowchartDiagrams:
+  enable: no
+  options: ''
+sequenceDiagrams:
+  enable: no
+  options: ''
+output:
+  blogdown::html_page:
+    toc: yes
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#r-bioconductor初步探索">1 R Bioconductor初步探索</a></li>
+<li><a href="#rna-seq后续应该怎么分析">2 RNA-Seq后续应该怎么分析？</a><ul>
+<li><a href="#go富集分析go-enrichment-analysis">2.1 GO富集分析（GO enrichment analysis）</a><ul>
+<li><a href="#基因本体论gene-ontologygo1">2.1.1 基因本体论（Gene Ontology，GO）</a></li>
+<li><a href="#go富集分析流程">2.1.2 GO富集分析流程</a></li>
+</ul></li>
+<li><a href="#kegg富集分析kegg-enrichment-analysis">2.2 KEGG富集分析（KEGG enrichment analysis）</a></li>
+<li><a href="#do富集分析do-enrichment-analysis">2.3 DO富集分析（DO enrichment analysis）</a></li>
+</ul></li>
+<li><a href="#一些细节问题">3 一些细节问题</a><ul>
+<li><a href="#常用的id有哪些">3.1 常用的ID有哪些?</a></li>
+<li><a href="#id之间怎么转换">3.2 ID之间怎么转换？</a></li>
+<li><a href="#如果没有现成的注释怎么做富集分析">3.3 如果没有现成的注释怎么做富集分析？</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="r-bioconductor初步探索" class="section level1">
+<h1>1 R Bioconductor初步探索</h1>
+</div>
+<div id="rna-seq后续应该怎么分析" class="section level1">
+<h1>2 RNA-Seq后续应该怎么分析？</h1>
+<div id="go富集分析go-enrichment-analysis" class="section level2">
+<h2>2.1 GO富集分析（GO enrichment analysis）</h2>
+<div id="基因本体论gene-ontologygo1" class="section level3">
+<h3>2.1.1 基因本体论（Gene Ontology，GO）<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h3>
+<p>可以依据以下三个层面对基因进行注释分类。</p>
+<ol style="list-style-type: decimal">
+<li><p>细胞组分（Cellular Component，CC）</p>
+<p>细胞的每个部分和细胞外环境。</p></li>
+<li><p>生物过程（Biological Process，BP）</p>
+<p>生物学过程系指由一个或多个分子功能有序组合而产生的系列事件。其定义有广义和狭义之分，在词义上可以区分为泛指和特指。一般规律是，一个过程是由多个不同的步骤组成。需要指出的是，生物学过程与途径或通路（pathway）不是同一回事。</p></li>
+<li><p>分子功能（Molecular Function，MF）</p>
+<p>可以描述为分子水平的活性（activity），如催化（catalytic）或结合（binding）活性。</p></li>
+</ol>
+<p>为了实现基因的GO富集（GO enrichment），我们采用<code>GO富集分析</code>:</p>
+</div>
+<div id="go富集分析流程" class="section level3">
+<h3>2.1.2 GO富集分析流程</h3>
+<ol style="list-style-type: decimal">
+<li><p>加载<code>cuffdiff</code>结果</p>
+<pre class="r"><code>cuffdiff_result = read.table(&quot;~/songqi/data/rna-seq/cuffdiff_test_data_gene_exp.diff&quot;, header = T, sep=&quot;\t&quot;)
+cuffdiff_result$sample_1 &lt;- &quot;treat&quot;
+cuffdiff_result$sample_2 &lt;- &quot;ctrl&quot;
+dim(cuffdiff_result)</code></pre>
+<pre><code>## [1] 22857    14</code></pre></li>
+<li><p>选择<code>DEG</code></p>
+<p>满足以下三个条件的基因即可视为差异基因：</p>
+<ul>
+<li><p><span class="math inline">\(FPKM1&gt;1\)</span>并且<span class="math inline">\(FPKM2&gt;1\)</span></p></li>
+<li><p><span class="math inline">\(\left|\log_{2}{FC}\right|\geq 1\)</span></p></li>
+<li><p><span class="math inline">\(p &lt; 0.05\)</span></p></li>
+</ul>
+<pre class="r"><code>select_vector &lt;-
+  (cuffdiff_result$value_1&gt;1|cuffdiff_result$value_2&gt;1)&amp;
+  (abs(cuffdiff_result$log2.fold_change.)&gt;=1) &amp;
+  (cuffdiff_result$p_value&lt;0.05)
+cuffdiff_result.sign &lt;- cuffdiff_result[select_vector,]
+dim(cuffdiff_result.sign)</code></pre>
+<pre><code>## [1] 84 14</code></pre>
+<p>通过数据筛选后，基因数已经从原来的22857个缩减到84个，这84个就是我们期望的<code>DEG</code>，但是84个基因做GO富集分析是做不出什么好的结果的（<strong>为什么呢？</strong>），因此在这里将条件放宽一下，<span class="math inline">\(\left|\log_{2}{FC}\right|\geq 1\)</span>变为<span class="math inline">\(\left|\log_{2}{FC}\right|\geq 0.5\)</span>，得到差不多1000个左右的基因即可。</p>
+<pre class="r"><code>select_vector &lt;-
+  (cuffdiff_result$value_1&gt;1|cuffdiff_result$value_2&gt;1)&amp;
+  (abs(cuffdiff_result$log2.fold_change.)&gt;=0.5) &amp;
+  (cuffdiff_result$p_value&lt;0.05)
+cuffdiff_result.sign &lt;- cuffdiff_result[select_vector,]
+dim(cuffdiff_result.sign)</code></pre>
+<pre><code>## [1] 1449   14</code></pre></li>
+<li><p>富集分析（网站法）</p>
+<p>首先将<code>gene_id</code>提取出来。</p>
+<pre class="r"><code>output.gene_id &lt;- data.frame(gene_id=cuffdiff_result.sign$gene_id)
+write.table(output.gene_id, 
+            file=&quot;~/songqi/data/rna-seq/sign_gene_id.txt&quot;, 
+            col.names = F, row.names = F,
+            sep=&quot;\t&quot;, quote = F)</code></pre>
+<p>将提出出来的基因粘贴到<a href="http://amp.pharm.mssm.edu/Enrichr/">Enrichr</a>的输入框里面，然后点击<code>Submit</code>。</p>
+<p><strong>注意</strong>此网站适用于模式动物。如果要做植物的可以使用<a href="https://david.ncifcrf.gov/home.jsp">DAVID</a>，这个网站的优点是动物植物都可以做，但这个网站在国内加载奇慢。</p>
+<center>
+<img src="/post/2020-04-18-go-kegg-do富集分析_files/enrichr.png" />
+</center>
+<p>稍等片刻后即可得到GO，KEGG，DO等分析结果。</p>
+<center>
+<img src="/post/2020-04-18-go-kegg-do富集分析_files/enrichr_result.png" />
+</center></li>
+<li><p>富集分析（R包大法）</p>
+<p>安装以下的R包<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>：</p>
+<pre class="r"><code>BiocManager::install(&quot;clusterProfiler&quot;)
+BiocManager::install(&quot;topGO&quot;)
+BiocManager::install(&quot;Rgraphviz&quot;)
+BiocManager::install(&quot;pathview&quot;)
+BiocManager::install(&quot;org.Hs.eg.db&quot;)</code></pre>
+<p>安装完成后加载包：</p>
+<pre class="r"><code>library(&quot;clusterProfiler&quot;)
+library(&quot;topGO&quot;)
+library(&quot;Rgraphviz&quot;)
+library(&quot;pathview&quot;)
+library(&quot;org.Hs.eg.db&quot;)</code></pre>
+<p>在进行GO富集分析之前，对<code>output.gene_id</code>进行字符串转化，转化完后进行GO富集分析：</p>
+<pre class="r"><code>DEG.gene_symbol &lt;- as.character(output.gene_id$gene_id)
+DEG.entrez_id &lt;- mapIds(x = org.Hs.eg.db, 
+                        keys = DEG.gene_symbol,
+                        keytype = &quot;SYMBOL&quot;,
+                        column = &quot;ENTREZID&quot;)</code></pre>
+<pre><code>## &#39;select()&#39; returned 1:many mapping between keys and columns</code></pre>
+<pre class="r"><code>DEG.entrez_id &lt;- na.omit(DEG.entrez_id)
+erich.go.BP &lt;- enrichGO(
+  gene = DEG.entrez_id, OrgDb = org.Hs.eg.db, 
+  keyType = &quot;ENTREZID&quot;, ont = &quot;BP&quot;, 
+  pvalueCutoff = 0.01, qvalueCutoff = 0.05,
+  readable = T
+)
+erich.go.CC &lt;- enrichGO(
+  gene = DEG.entrez_id, OrgDb = org.Hs.eg.db, 
+  keyType = &quot;ENTREZID&quot;, ont = &quot;CC&quot;, 
+  pvalueCutoff = 0.5, qvalueCutoff = 0.5,
+  readable = T
+)
+barplot(erich.go.CC)</code></pre>
+<p><img src="/post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p></li>
+</ol>
+</div>
+</div>
+<div id="kegg富集分析kegg-enrichment-analysis" class="section level2">
+<h2>2.2 KEGG富集分析（KEGG enrichment analysis）</h2>
+<p>将生物体的<code>pathway</code>进行富集分析。</p>
+</div>
+<div id="do富集分析do-enrichment-analysis" class="section level2">
+<h2>2.3 DO富集分析（DO enrichment analysis）</h2>
+<p>看基因是否在某个疾病上富集，临床上用得比较多。</p>
+</div>
+</div>
+<div id="一些细节问题" class="section level1">
+<h1>3 一些细节问题</h1>
+<div id="常用的id有哪些" class="section level2">
+<h2>3.1 常用的ID有哪些?</h2>
+</div>
+<div id="id之间怎么转换" class="section level2">
+<h2>3.2 ID之间怎么转换？</h2>
+</div>
+<div id="如果没有现成的注释怎么做富集分析" class="section level2">
+<h2>3.3 如果没有现成的注释怎么做富集分析？</h2>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://baike.baidu.com/item/%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93">基因本体</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p><a href="https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html">org.Hs.eg.db</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
