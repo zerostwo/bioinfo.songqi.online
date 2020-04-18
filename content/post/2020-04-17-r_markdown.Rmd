@@ -13,7 +13,7 @@ description: ''
 comment: true
 postMetaInFooter: true
 hiddenFromHomePage: no
-contentCopyright: no
+contentCopyright: "<a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>"
 reward: no
 mathjax: true
 mathjaxEnableSingleDollar: true

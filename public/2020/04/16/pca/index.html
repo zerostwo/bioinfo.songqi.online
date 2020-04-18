@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>PCA绘图 - Songqi</title>
   <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -16,7 +17,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Songqi Duan" /><meta name="description" content="使用R语言进行PCA绘图1 构建绘图数据 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;quot;wt&amp;quot;, 1:5, sep=&amp;quot;&amp;quot;), paste(&amp;quot;ko&amp;quot;, 1:5, sep=&amp;quot;&amp;quot;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;quot;gene&amp;quot;, 1:100, sep=&amp;quot;&amp;quot;) ) for (i in 1:100) { wt.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &amp;lt;- c(wt.values, ko.values) } procomp默认样" /><meta name="keywords" content="生物信息学, R语言, 数据分析" />
+<meta name="author"
+  content="Songqi Duan" /><meta name="description" content="使用R语言进行PCA绘图1 构建绘图数据 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;quot;wt&amp;quot;, 1:5, sep=&amp;quot;&amp;quot;), paste(&amp;quot;ko&amp;quot;, 1:5, sep=&amp;quot;&amp;quot;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;quot;gene&amp;quot;, 1:100, sep=&amp;quot;&amp;quot;) ) for (i in 1:100) { wt.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &amp;lt;- c(wt.values, ko.values) } procomp默认样" /><meta name="keywords"
+  content="生物信息学, R语言, 数据分析" />
 
 
 
@@ -65,8 +68,8 @@
   <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
 <![endif]-->
-
 </head>
+
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
@@ -81,37 +84,37 @@
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
     <a href="../../../../">
-        <li class="mobile-menu-item">主页</li>
-      </a><a href="../../../../post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="../../../../tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="../../../../categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="../../../../about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
+      <li class="mobile-menu-item">主页</li>
+    </a><a href="../../../../post/">
+      <li class="mobile-menu-item">归档</li>
+    </a><a href="../../../../tags/">
+      <li class="mobile-menu-item">标签</li>
+    </a><a href="../../../../categories/">
+      <li class="mobile-menu-item">分类</li>
+    </a><a href="../../../../about/">
+      <li class="mobile-menu-item">关于</li>
+    </a>
   </ul>
 </nav>
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
-        <div class="logo-wrapper">
+      <div class="logo-wrapper">
   <a href="../../../../" class="logo">Songqi</a>
 </div>
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="../../../../">主页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="../../../../about/">关于</a>
-      </li>
+      <a class="menu-item-link" href="../../../../">主页</a>
+    </li><li class="menu-item">
+      <a class="menu-item-link" href="../../../../post/">归档</a>
+    </li><li class="menu-item">
+      <a class="menu-item-link" href="../../../../tags/">标签</a>
+    </li><li class="menu-item">
+      <a class="menu-item-link" href="../../../../categories/">分类</a>
+    </li><li class="menu-item">
+      <a class="menu-item-link" href="../../../../about/">关于</a>
+    </li>
   </ul>
 </nav>
     </header>
@@ -229,19 +232,19 @@ top_10_genes</code></pre>
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">Songqi Duan</span>
+    <span
+      class="item-content">Songqi Duan</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-04-16
-        
+      2020-04-16
+      
     </span>
   </p>
   
   
-</div>
-<footer class="post-footer">
+</div><footer class="post-footer">
       <div class="post-tags">
           <a href="../../../../tags/r/">R</a>
           </div>
@@ -261,36 +264,36 @@ top_10_genes</code></pre>
   </article>
         </div>
         <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-      var gitalk = new Gitalk({
-        id: '2020-04-16 00:00:00 \x2b0000 UTC',
-        title: 'PCA绘图',
-        clientID: 'e80f8bc7b6095ab1ad40',
-        clientSecret: '623211db1d4eca51644a76627aa4d2f224dd98c8',
-        repo: 'zerostwo.github.io',
-        owner: 'zerostwo',
-        admin: ['zerostwo'],
-        body: decodeURI(location.href)
-      });
-      gitalk.render('gitalk-container');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    id: '2020-04-16 00:00:00 \x2b0000 UTC',
+    title: 'PCA绘图',
+    clientID: 'e80f8bc7b6095ab1ad40',
+    clientSecret: '623211db1d4eca51644a76627aa4d2f224dd98c8',
+    repo: 'zerostwo.github.io',
+    owner: 'zerostwo',
+    admin: ['zerostwo'],
+    body: decodeURI(location.href)
+  });
+  gitalk.render('gitalk-container');
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by
+    gitalk.</a></noscript>
 
-  
 
-  
+
 
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="https://github.com/zerostwo" class="iconfont icon-github" title="github"></a>
-      <a href="https://weibo.com/3764641951" class="iconfont icon-weibo" title="weibo"></a>
-      <a href="https://www.zhihu.com/people/zerostwo" class="iconfont icon-zhihu" title="zhihu"></a>
-      <a href="https://space.bilibili.com/85834603" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://github.com/zerostwo" class="iconfont icon-github" title="github"></a>
+  <a href="https://weibo.com/3764641951" class="iconfont icon-weibo" title="weibo"></a>
+  <a href="https://www.zhihu.com/people/zerostwo" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://space.bilibili.com/85834603" class="iconfont icon-bilibili" title="bilibili"></a>
   <a href="../../../../index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
@@ -299,8 +302,9 @@ top_10_genes</code></pre>
 
   <span class="copyright-year">
     Copyright
-    &copy; 
-    <span class="author">Songqi Duan</span>
+    &copy;
+    <span
+      class="author">Songqi Duan</span>
     2020
   </span>
 </div>
@@ -311,25 +315,25 @@ top_10_genes</code></pre>
     </div>
   </div>
   <script src="../../../../lib/highlight/highlight.pack.js?v=20171001"></script>
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script src="https://cdn.bootcss.com/slideout/1.0.1/slideout.min.js"></script>
-  <script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js"></script>
-    <script src="https://cdn.bootcss.com/timeago.js/3.0.2/timeago.min.js"></script>
-    <script src="https://cdn.bootcss.com/timeago.js/3.0.2/timeago.locales.min.js"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/slideout/1.0.1/slideout.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+<script src="https://cdn.bootcss.com/timeago.js/3.0.2/timeago.min.js"></script>
+<script src="https://cdn.bootcss.com/timeago.js/3.0.2/timeago.locales.min.js"></script>
+<script>< !--NOTE: timeago.js uses the language code format like "zh_CN"(underscore and case sensitive)-- >
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) { return $0.replace($1, $1.toUpperCase()); });
+  timeago().render(document.querySelectorAll('.timeago'), languageCode);
+  timeago.cancel();  
+</script>
 
 
 
-<script type="text/javascript" src="../../../../js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js"></script>
+<script type="text/javascript" src="../../../../js/main.5c396b668cb22fb75d863f6bf5678a531438ebda670c726c4f071a7194fa9ffd.js"></script>
 
 
 
 <script id="baidu_push">
-  (function(){
+  (function () {
     if (window.location.hostname === 'localhost') return;
     var bp = document.createElement('script'); bp.async = true;
     var curProtocol = window.location.protocol.split(':')[0];
@@ -346,6 +350,6 @@ top_10_genes</code></pre>
 
 
 
-
 </body>
+
 </html>
