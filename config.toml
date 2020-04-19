@@ -12,12 +12,12 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 # 语法高亮。注意：请勿同时启用`highlightInClient`和`chroma`！
 pygmentsOptions = "linenos=table"
-pygmentsCodefences = false
-pygmentsUseClasses = false
-pygmentsCodefencesGuessSyntax = false
+pygmentsCodefences = true
+pygmentsUseClasses = true
+pygmentsCodefencesGuessSyntax = true
 
 # 自动检测是否包含 中文\日文\韩文
-hasCJKLanguage = true 
+hasCJKLanguage = true
 # 首页每页显示的文章数
 paginate = 5
 # disqus_shortname
@@ -95,7 +95,7 @@ copyright = ""
   moreMeta = false
 
   # Syntax highlighting by highlight.js
-  highlightInClient = true
+  highlightInClient = false
 
   # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
   # 是否开启目录

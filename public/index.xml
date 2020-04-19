@@ -44,7 +44,7 @@
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/04/17/r_markdown/</guid>
-      <description>[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和</description>
+      <description>R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和常</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@
       <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/04/16/pca/</guid>
-      <description>使用R语言进行PCA绘图1 构建绘图数据 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;quot;wt&amp;quot;, 1:5, sep=&amp;quot;&amp;quot;), paste(&amp;quot;ko&amp;quot;, 1:5, sep=&amp;quot;&amp;quot;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;quot;gene&amp;quot;, 1:100, sep=&amp;quot;&amp;quot;) ) for (i in 1:100) { wt.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &amp;lt;- c(wt.values, ko.values) } procomp默认样</description>
+      <description>使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;#34;wt&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;), paste(&amp;#34;ko&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;#34;gene&amp;#34;, 1:100, sep=&amp;#34;&amp;#34;) ) for (i in 1:100) { wt.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &amp;lt;-</description>
     </item>
     
     <item>

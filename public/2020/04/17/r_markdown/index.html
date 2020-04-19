@@ -18,7 +18,7 @@
 
 
 <meta name="author"
-  content="Songqi Duan" /><meta name="description" content="[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和" /><meta name="keywords"
+  content="Songqi Duan" /><meta name="description" content="R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和常" /><meta name="keywords"
   content="生物信息学, R语言, 数据分析" />
 
 
@@ -43,22 +43,22 @@
 
 
 <meta property="og:title" content="R Markdown的使用技巧" />
-<meta property="og:description" content="[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和" />
+<meta property="og:description" content="R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和常" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2020/04/17/r_markdown/" />
 <meta property="article:published_time" content="2020-04-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-17T18:43:59+08:00" />
+<meta property="article:modified_time" content="2020-04-19T11:33:45+08:00" />
 <meta itemprop="name" content="R Markdown的使用技巧">
-<meta itemprop="description" content="[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和">
+<meta itemprop="description" content="R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和常">
 <meta itemprop="datePublished" content="2020-04-17T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-17T18:43:59&#43;08:00" />
-<meta itemprop="wordCount" content="210">
+<meta itemprop="dateModified" content="2020-04-19T11:33:45&#43;08:00" />
+<meta itemprop="wordCount" content="218">
 
 
 
 <meta itemprop="keywords" content="R," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown的使用技巧"/>
-<meta name="twitter:description" content="[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和"/>
+<meta name="twitter:description" content="R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和常"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -138,42 +138,89 @@
 
     
     <div class="post-content">
-      <p>[TOC]</p>
-<p><code>R markdown</code>通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。</p>
+      <p><code>R markdown</code>通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。</p>
 <p>此文介绍<code>R markdown</code>的一些使用技巧和常用快捷键<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
 <h1 id="1-图片居中">1 图片居中</h1>
-<pre><code class="language-R">&lt;center&gt;
-![Naruto](http://songqi.zzmath.top/Naruto.jpg){width=50%}
-&lt;/center&gt;
-</code></pre>
-<!-- raw HTML omitted -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&lt;</span><span class="n">center</span><span class="o">&gt;</span>
+<span class="o">!</span><span class="n">[Naruto</span><span class="nf">]</span><span class="p">(</span><span class="n">http</span><span class="o">://</span><span class="n">songqi.zzmath.top</span><span class="o">/</span><span class="n">Naruto.jpg</span><span class="p">){</span><span class="n">width</span><span class="o">=</span><span class="m">50</span>%<span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">center</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><!-- raw HTML omitted -->
 <h1 id="2-图注">2 图注</h1>
 <p>可以在<code>{r}</code>中增添以下信息：</p>
-<pre><code class="language-R">{r, 
-  fig.align=&quot;center&quot;, fig.width=6, fig.height=6,
-  fig.cap=&quot;我是图注.&quot;
-}
-</code></pre>
-<pre><code class="language-R">plot(c(1:10))
-</code></pre>
-<!-- raw HTML omitted -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="p">{</span><span class="n">r</span><span class="p">,</span> 
+  <span class="n">fig.align</span><span class="o">=</span><span class="s">&#34;center&#34;</span><span class="p">,</span> <span class="n">fig.width</span><span class="o">=</span><span class="m">6</span><span class="p">,</span> <span class="n">fig.height</span><span class="o">=</span><span class="m">6</span><span class="p">,</span>
+  <span class="n">fig.cap</span><span class="o">=</span><span class="s">&#34;我是图注.&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="nf">plot</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><!-- raw HTML omitted -->
 <h1 id="3-数学公式">3 数学公式</h1>
 <p>块级公式：</p>
-<pre><code class="language-Latex">$$E=mc^2$$
-</code></pre>
-<p>$$E=mc^2$$
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Latex" data-lang="Latex"><span class="sb">$$</span><span class="nb">E</span><span class="o">=</span><span class="nb">mc^</span><span class="m">2</span><span class="s">$$</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>$$E=mc^2$$
 行内公式：</p>
-<pre><code class="language-Latex">$c\approx 299,792,458\space m/s$
-</code></pre>
-<p>其中$c\approx 299,792,458\space m/s$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Latex" data-lang="Latex"><span class="s">$</span><span class="nb">c</span><span class="nv">\approx</span><span class="nb"> </span><span class="m">299</span><span class="nb">,</span><span class="m">792</span><span class="nb">,</span><span class="m">458</span><span class="nv">\space</span><span class="nb"> m</span><span class="o">/</span><span class="nb">s</span><span class="s">$</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>其中$c\approx 299,792,458\space m/s$</p>
 <h1 id="4-并排放两张图">4 并排放两张图</h1>
 <p>可以在<code>{r}</code>中增添以下信息：</p>
-<pre><code class="language-R">{r out.width=c('50%', '50%'), fig.show='hold'}
-</code></pre>
-<pre><code class="language-R">boxplot(rnorm(10))
-plot(rnorm(10))
-</code></pre>
-<!-- raw HTML omitted -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="p">{</span><span class="n">r</span> <span class="n">out.width</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;50%&#39;</span><span class="p">,</span> <span class="s">&#39;50%&#39;</span><span class="p">),</span> <span class="n">fig.show</span><span class="o">=</span><span class="s">&#39;hold&#39;</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="nf">boxplot</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">10</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">10</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><!-- raw HTML omitted -->
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -197,9 +244,9 @@ plot(rnorm(10))
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2020-04-17
-      <a href="#ZgotmplZ/commit/82df835c4708c48cb11713165806d3879a6946dd"
-        title="修复了若干bug">(82df835)</a>
+      2020-04-19
+      <a href="#ZgotmplZ/commit/acd02ea1ffe64e4c1467a0493486b3b820817279"
+        title="Rmd2md">(acd02ea)</a>
     </span>
   </p>
   
@@ -276,7 +323,7 @@ plot(rnorm(10))
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="../../../../lib/highlight/highlight.pack.js?v=20171001"></script>
+  
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
