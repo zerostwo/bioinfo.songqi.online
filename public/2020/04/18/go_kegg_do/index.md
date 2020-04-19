@@ -1,35 +1,3 @@
----
-title: GO, KEGG, DO富集分析
-author: Songqi Duan
-date: '2020-04-18'
-slug: go_kegg_do
-categories:
-  - 生物信息学
-tags:
-  - R
-lastmod: '2020-04-18T15:35:51+08:00'
-keywords: []
-description: ''
-comment: yes
-postMetaInFooter: yes
-hiddenFromHomePage: no
-contentCopyright: <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC
-  BY-NC-ND 4.0</a>
-reward: no
-mathjax: yes
-mathjaxEnableSingleDollar: no
-mathjaxEnableAutoNumber: no
-hideHeaderAndFooter: no
-flowchartDiagrams:
-  enable: no
-  options: ''
-sequenceDiagrams:
-  enable: no
-  options: ''
-output:
-  blogdown::html_page:
-    toc: yes
----
 # 1 R Bioconductor初步探索
 
 [Bioconductor](http://www.bioconductor.org/)提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编程语言，并且是开源和开放开发的。每年有两个版本，以及一个活跃的用户社区。
@@ -60,7 +28,7 @@ output:
 
 1. 加载`cuffdiff`结果
         
-    ```{r}
+    ```r
     cuffdiff_result = read.table("~/songqi/data/rna-seq/cuffdiff_test_data_gene_exp.diff", header = T, sep="\t")
     cuffdiff_result$sample_1 <- "treat"
     cuffdiff_result$sample_2 <- "ctrl"
@@ -77,7 +45,7 @@ output:
       
     - $p < 0.05$
 
-    ```{r}
+    ```r
     select_vector <-
       (cuffdiff_result$value_1>1|cuffdiff_result$value_2>1)&
       (abs(cuffdiff_result$log2.fold_change.)>=1) &
@@ -88,7 +56,7 @@ output:
     
     通过数据筛选后，基因数已经从原来的22857个缩减到84个，这84个就是我们期望的`DEG`，但是84个基因做GO富集分析是做不出什么好的结果的（**为什么呢？**），因此在这里将条件放宽一下，$\left|\log_{2}{FC}\right|\geq 1$变为$\left|\log_{2}{FC}\right|\geq 0.5$，得到差不多1000个左右的基因即可。
     
-    ```{r}
+    ```r
     select_vector <-
       (cuffdiff_result$value_1>1|cuffdiff_result$value_2>1)&
       (abs(cuffdiff_result$log2.fold_change.)>=0.5) &
@@ -101,7 +69,7 @@ output:
 
     首先将`gene_id`提取出来。
 
-    ```{r}
+    ```r
     output.gene_id <- data.frame(gene_id=cuffdiff_result.sign$gene_id)
     write.table(output.gene_id, 
                 file="~/songqi/data/rna-seq/sign_gene_id.txt", 
@@ -113,15 +81,13 @@ output:
     
     **注意**此网站适用于模式动物。如果要做植物的可以使用[DAVID](https://david.ncifcrf.gov/home.jsp)，这个网站的优点是动物植物都可以做，但这个网站在国内加载奇慢。
     
-    <center>
-    ![](/post/2020-04-18-go-kegg-do富集分析_files/enrichr.png)
-    </center>
+    ![enrichr](https://songqi.zzmath.top/enrichr.png)
+    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图1. Enrichr官网主页面.</center>
     
     稍等片刻后即可得到GO，KEGG，DO等分析结果。
     
-    <center>
-    ![](/post/2020-04-18-go-kegg-do富集分析_files/enrichr_result.png)
-    </center>
+    ![enrichr result](https://songqi.zzmath.top/enrichr_result.png)
+    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图2. Enrichr运行完成后输出页面.</center>
     
 4. 富集分析（R包大法）
     
@@ -137,7 +103,7 @@ output:
     
     安装完成后加载包：
     
-    ```{r, message = FALSE, warning = FALSE}
+    ```r
     library("clusterProfiler")
     library("topGO")
     library("Rgraphviz")
@@ -147,7 +113,7 @@ output:
     
     在进行GO富集分析之前，对`output.gene_id`进行字符串转化，转化完后进行GO富集分析，在这里值得注意的是还进行了一个`ID转换`：
     
-    ```{r, message = FALSE, warning = FALSE}
+    ```r
     DEG.gene_symbol <- as.character(output.gene_id$gene_id)
     DEG.entrez_id <- mapIds(x = org.Hs.eg.db, 
                             keys = DEG.gene_symbol,
@@ -166,19 +132,19 @@ output:
     barplot(erich.go.CC)
     dotplot(erich.go.CC)
     ```
+    ![GO barplot](https://songqi.zzmath.top/go_barplot.png)
+    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图3. Barplot of Cellular Components.</center>
     
-    ```{r, echo=FALSE,out.width=c('50%', '50%'), fig.show='hold', fig.align="center", fig.cap="Barplot (left) and dotplot (right) of Cellular Components."}
-    load("~/songqi/data/rna-seq/go_kegg_do.Rdata")
-    barplot(erich.go.CC)
-    dotplot(erich.go.CC)
-    ```
+    ![GO dotplot](https://songqi.zzmath.top/go_dotplot.png)
+    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图4. Dotplot of Cellular Components.</center>
     
     除此之外还可以使用`plotGOgraph`绘制树形图
  ：
  
-    ```{r, fig.align="center", message = FALSE, warning = FALSE, fig.cap="PlotGOgraph of Cellular Components."}
+    ```r
     plotGOgraph(erich.go.CC)
     ```
+    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图5. PlotGOgraph of Cellular Components.</center>
     
     如果图片看不清楚，可以将结果保存为`pdf`文件
     
@@ -203,6 +169,11 @@ load("~/songqi/data/rna-seq/go_kegg_do.Rdata")
 barplot(erich.KEGG)
 dotplot(erich.KEGG)
 ```
+![KEGG barplot](https://songqi.zzmath.top/kegg_barplot.png)
+<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图6. Barplot of KEGG.</center>
+
+![KEGG dotplot](https://songqi.zzmath.top/kegg_dotplot.png)
+<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图7. Dotplot of KEGG.</center>
 
 
 ## 2.3 DO富集分析（DO enrichment analysis）
@@ -213,15 +184,15 @@ dotplot(erich.KEGG)
 library("DOSE")
 erich.DO <- enrichDO(gene = DEG.entrez_id, ont = "DO",
                      pvalueCutoff = 0.5, qvalueCutoff = 0.5)
-
-```
-
-```{r, echo=FALSE,out.width=c('50%', '50%'), fig.show='hold', fig.align="center", fig.cap="Barplot (left) and dotplot (right) of DO."}
-library("DOSE")
-load("~/songqi/data/rna-seq/go_kegg_do.Rdata")
 barplot(erich.DO)
 dotplot(erich.DO)
 ```
+
+![DO barplot](https://songqi.zzmath.top/do_barplot.png)
+<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图8. Barplot of DO.</center>
+
+![DO dotplot](https://songqi.zzmath.top/do_dotplot.png)
+<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图9. Dotplot of DO.</center>
 
 以上所有内容学习自[2018-01-07 生物信息学教程-GO, KEGG, DO富集分析
 ](https://www.bilibili.com/video/BV14W411q7gi?t=2387)

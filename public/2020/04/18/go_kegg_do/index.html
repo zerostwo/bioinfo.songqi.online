@@ -18,7 +18,7 @@
 
 
 <meta name="author"
-  content="Songqi Duan" /><meta name="description" content="1 R Bioconductor初步探索 2 RNA-Seq后续应该怎么分析？ 2.1 GO富集分析（GO enrichment analysis） 2.1.1 基因本体论（Gene Onto" /><meta name="keywords"
+  content="Songqi Duan" /><meta name="description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编" /><meta name="keywords"
   content="生物信息学, R语言, 数据分析" />
 
 
@@ -38,27 +38,27 @@
 
 
 
-<link href="../../../../sass/main.min.50a7822e625c07bdde42d8e86bcf9ab8018de43091536e47eb3c95ad4a600ba4.css" rel="stylesheet">
+<link href="../../../../sass/main.min.f527d45788cc356ff99d15fa9df89766fb20ac762a8a1e6f488043d4df0bc8a8.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="GO, KEGG, DO富集分析" />
-<meta property="og:description" content="1 R Bioconductor初步探索 2 RNA-Seq后续应该怎么分析？ 2.1 GO富集分析（GO enrichment analysis） 2.1.1 基因本体论（Gene Onto" />
+<meta property="og:description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2020/04/18/go_kegg_do/" />
 <meta property="article:published_time" content="2020-04-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-18T15:35:51+08:00" />
+<meta property="article:modified_time" content="2020-04-19T15:35:51+08:00" />
 <meta itemprop="name" content="GO, KEGG, DO富集分析">
-<meta itemprop="description" content="1 R Bioconductor初步探索 2 RNA-Seq后续应该怎么分析？ 2.1 GO富集分析（GO enrichment analysis） 2.1.1 基因本体论（Gene Onto">
+<meta itemprop="description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编">
 <meta itemprop="datePublished" content="2020-04-18T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-18T15:35:51&#43;08:00" />
-<meta itemprop="wordCount" content="1564">
+<meta itemprop="dateModified" content="2020-04-19T15:35:51&#43;08:00" />
+<meta itemprop="wordCount" content="1362">
 
 
 
 <meta itemprop="keywords" content="R," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GO, KEGG, DO富集分析"/>
-<meta name="twitter:description" content="1 R Bioconductor初步探索 2 RNA-Seq后续应该怎么分析？ 2.1 GO富集分析（GO enrichment analysis） 2.1.1 基因本体论（Gene Onto"/>
+<meta name="twitter:description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -136,189 +136,316 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div
+    class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-go富集分析go-enrichment-analysis">2.1 GO富集分析（GO enrichment analysis）</a>
+      <ul>
+        <li><a href="#211-基因本体论gene-ontologygo1">2.1.1 基因本体论（Gene Ontology，GO）</a></li>
+        <li><a href="#212-go富集分析流程">2.1.2 GO富集分析流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#22-kegg富集分析kegg-enrichment-analysis">2.2 KEGG富集分析（KEGG enrichment analysis）</a></li>
+    <li><a href="#23-do富集分析do-enrichment-analysis">2.3 DO富集分析（DO enrichment analysis）</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
-      
-
-<div id="TOC">
-<ul>
-<li><a href="#r-bioconductor初步探索">1 R Bioconductor初步探索</a></li>
-<li><a href="#rna-seq后续应该怎么分析">2 RNA-Seq后续应该怎么分析？</a><ul>
-<li><a href="#go富集分析go-enrichment-analysis">2.1 GO富集分析（GO enrichment analysis）</a><ul>
-<li><a href="#基因本体论gene-ontologygo1">2.1.1 基因本体论（Gene Ontology，GO）</a></li>
-<li><a href="#go富集分析流程">2.1.2 GO富集分析流程</a></li>
-</ul></li>
-<li><a href="#kegg富集分析kegg-enrichment-analysis">2.2 KEGG富集分析（KEGG enrichment analysis）</a></li>
-<li><a href="#do富集分析do-enrichment-analysis">2.3 DO富集分析（DO enrichment analysis）</a></li>
-</ul></li>
-</ul>
-</div>
-
-<div id="r-bioconductor初步探索" class="section level1">
-<h1>1 R Bioconductor初步探索</h1>
+      <h1 id="1-r-bioconductor初步探索">1 R Bioconductor初步探索</h1>
 <p><a href="http://www.bioconductor.org/">Bioconductor</a>提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编程语言，并且是开源和开放开发的。每年有两个版本，以及一个活跃的用户社区。</p>
-</div>
-<div id="rna-seq后续应该怎么分析" class="section level1">
-<h1>2 RNA-Seq后续应该怎么分析？</h1>
-<div id="go富集分析go-enrichment-analysis" class="section level2">
-<h2>2.1 GO富集分析（GO enrichment analysis）</h2>
-<div id="基因本体论gene-ontologygo1" class="section level3">
-<h3>2.1.1 基因本体论（Gene Ontology，GO）<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h3>
+<h1 id="2-rna-seq后续应该怎么分析">2 RNA-Seq后续应该怎么分析？</h1>
+<h2 id="21-go富集分析go-enrichment-analysis">2.1 GO富集分析（GO enrichment analysis）</h2>
+<h3 id="211-基因本体论gene-ontologygo1">2.1.1 基因本体论（Gene Ontology，GO）<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h3>
 <p>可以依据以下三个层面对基因进行注释分类。</p>
-<ol style="list-style-type: decimal">
-<li><p>细胞组分（Cellular Component，CC）</p>
-<p>细胞的每个部分和细胞外环境。</p></li>
-<li><p>生物过程（Biological Process，BP）</p>
-<p>生物学过程系指由一个或多个分子功能有序组合而产生的系列事件。其定义有广义和狭义之分，在词义上可以区分为泛指和特指。一般规律是，一个过程是由多个不同的步骤组成。需要指出的是，生物学过程与途径或通路（pathway）不是同一回事。</p></li>
-<li><p>分子功能（Molecular Function，MF）</p>
-<p>可以描述为分子水平的活性（activity），如催化（catalytic）或结合（binding）活性。</p></li>
+<ol>
+<li>
+<p>细胞组分（Cellular Component，CC）</p>
+<p>细胞的每个部分和细胞外环境。</p>
+</li>
+<li>
+<p>生物过程（Biological Process，BP）</p>
+<p>生物学过程系指由一个或多个分子功能有序组合而产生的系列事件。其定义有广义和狭义之分，在词义上可以区分为泛指和特指。一般规律是，一个过程是由多个不同的步骤组成。需要指出的是，生物学过程与途径或通路（pathway）不是同一回事。</p>
+</li>
+<li>
+<p>分子功能（Molecular Function，MF）</p>
+<p>可以描述为分子水平的活性（activity），如催化（catalytic）或结合（binding）活性。</p>
+</li>
 </ol>
 <p>为了实现基因的GO富集（GO enrichment），我们采用<code>GO富集分析</code>:</p>
+<h3 id="212-go富集分析流程">2.1.2 GO富集分析流程</h3>
+<ol>
+<li>
+<p>加载<code>cuffdiff</code>结果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">cuffdiff_result</span> <span class="o">=</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&#34;~/songqi/data/rna-seq/cuffdiff_test_data_gene_exp.diff&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;\t&#34;</span><span class="p">)</span>
+<span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">sample_1</span> <span class="o">&lt;-</span> <span class="s">&#34;treat&#34;</span>
+<span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">sample_2</span> <span class="o">&lt;-</span> <span class="s">&#34;ctrl&#34;</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">cuffdiff_result</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-<div id="go富集分析流程" class="section level3">
-<h3>2.1.2 GO富集分析流程</h3>
-<ol style="list-style-type: decimal">
-<li><p>加载<code>cuffdiff</code>结果</p>
-<pre class="r"><code>cuffdiff_result = read.table(&quot;~/songqi/data/rna-seq/cuffdiff_test_data_gene_exp.diff&quot;, header = T, sep=&quot;\t&quot;)
-cuffdiff_result$sample_1 &lt;- &quot;treat&quot;
-cuffdiff_result$sample_2 &lt;- &quot;ctrl&quot;
-dim(cuffdiff_result)</code></pre>
-<pre><code>## [1] 22857    14</code></pre></li>
-<li><p>选择<code>DEG</code></p>
+</div></li>
+<li>
+<p>选择<code>DEG</code></p>
 <p>满足以下三个条件的基因即可视为差异基因：</p>
 <ul>
-<li><p><span class="math inline">\(FPKM1&gt;1\)</span>并且<span class="math inline">\(FPKM2&gt;1\)</span></p></li>
-<li><p><span class="math inline">\(\left|\log_{2}{FC}\right|\geq 1\)</span></p></li>
-<li><p><span class="math inline">\(p &lt; 0.05\)</span></p></li>
+<li>
+<p>$FPKM1&gt;1$并且$FPKM2&gt;1$</p>
+</li>
+<li>
+<p>$\left|\log_{2}{FC}\right|\geq 1$</p>
+</li>
+<li>
+<p>$p &lt; 0.05$</p>
+</li>
 </ul>
-<pre class="r"><code>select_vector &lt;-
-  (cuffdiff_result$value_1&gt;1|cuffdiff_result$value_2&gt;1)&amp;
-  (abs(cuffdiff_result$log2.fold_change.)&gt;=1) &amp;
-  (cuffdiff_result$p_value&lt;0.05)
-cuffdiff_result.sign &lt;- cuffdiff_result[select_vector,]
-dim(cuffdiff_result.sign)</code></pre>
-<pre><code>## [1] 84 14</code></pre>
-<p>通过数据筛选后，基因数已经从原来的22857个缩减到84个，这84个就是我们期望的<code>DEG</code>，但是84个基因做GO富集分析是做不出什么好的结果的（<strong>为什么呢？</strong>），因此在这里将条件放宽一下，<span class="math inline">\(\left|\log_{2}{FC}\right|\geq 1\)</span>变为<span class="math inline">\(\left|\log_{2}{FC}\right|\geq 0.5\)</span>，得到差不多1000个左右的基因即可。</p>
-<pre class="r"><code>select_vector &lt;-
-  (cuffdiff_result$value_1&gt;1|cuffdiff_result$value_2&gt;1)&amp;
-  (abs(cuffdiff_result$log2.fold_change.)&gt;=0.5) &amp;
-  (cuffdiff_result$p_value&lt;0.05)
-cuffdiff_result.sign &lt;- cuffdiff_result[select_vector,]
-dim(cuffdiff_result.sign)</code></pre>
-<pre><code>## [1] 1449   14</code></pre></li>
-<li><p>富集分析（网站法）</p>
-<p>首先将<code>gene_id</code>提取出来。</p>
-<pre class="r"><code>output.gene_id &lt;- data.frame(gene_id=cuffdiff_result.sign$gene_id)
-write.table(output.gene_id, 
-            file=&quot;~/songqi/data/rna-seq/sign_gene_id.txt&quot;, 
-            col.names = F, row.names = F,
-            sep=&quot;\t&quot;, quote = F)</code></pre>
-<p>将提出出来的基因粘贴到<a href="http://amp.pharm.mssm.edu/Enrichr/">Enrichr</a>的输入框里面，然后点击<code>Submit</code>。</p>
-<p><strong>注意</strong>此网站适用于模式动物。如果要做植物的可以使用<a href="https://david.ncifcrf.gov/home.jsp">DAVID</a>，这个网站的优点是动物植物都可以做，但这个网站在国内加载奇慢。</p>
-<center>
-<img src="../../../../post/2020-04-18-go-kegg-do富集分析_files/enrichr.png" />
-</center>
-<p>稍等片刻后即可得到GO，KEGG，DO等分析结果。</p>
-<center>
-<img src="../../../../post/2020-04-18-go-kegg-do富集分析_files/enrichr_result.png" />
-</center></li>
-<li><p>富集分析（R包大法）</p>
-<p>安装以下的R包<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>：</p>
-<pre class="r"><code>BiocManager::install(&quot;clusterProfiler&quot;)
-BiocManager::install(&quot;topGO&quot;)
-BiocManager::install(&quot;Rgraphviz&quot;)
-BiocManager::install(&quot;pathview&quot;)
-BiocManager::install(&quot;org.Hs.eg.db&quot;)</code></pre>
-<p>安装完成后加载包：</p>
-<pre class="r"><code>library(&quot;clusterProfiler&quot;)
-library(&quot;topGO&quot;)
-library(&quot;Rgraphviz&quot;)
-library(&quot;pathview&quot;)
-library(&quot;org.Hs.eg.db&quot;)</code></pre>
-<p>在进行GO富集分析之前，对<code>output.gene_id</code>进行字符串转化，转化完后进行GO富集分析，在这里值得注意的是还进行了一个<code>ID转换</code>：</p>
-<pre class="r"><code>DEG.gene_symbol &lt;- as.character(output.gene_id$gene_id)
-DEG.entrez_id &lt;- mapIds(x = org.Hs.eg.db, 
-                        keys = DEG.gene_symbol,
-                        keytype = &quot;SYMBOL&quot;,
-                        column = &quot;ENTREZID&quot;)
-DEG.entrez_id &lt;- na.omit(DEG.entrez_id)</code></pre>
-<pre class="r"><code>erich.go.CC &lt;- enrichGO(
-  gene = DEG.entrez_id, OrgDb = org.Hs.eg.db, 
-  keyType = &quot;ENTREZID&quot;, ont = &quot;CC&quot;, 
-  pvalueCutoff = 0.5, qvalueCutoff = 0.5,
-  readable = T
-)
-barplot(erich.go.CC)
-dotplot(erich.go.CC)</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
-<img src="../../../../post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-7-1.png" alt="Barplot (left) and dotplot (right) of Cellular Components." width="50%" /><img src="../../../../post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-7-2.png" alt="Barplot (left) and dotplot (right) of Cellular Components." width="50%" />
-<p class="caption">
-Figure 1: Barplot (left) and dotplot (right) of Cellular Components.
-</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">select_vector</span> <span class="o">&lt;-</span>
+  <span class="p">(</span><span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">value_1</span><span class="o">&gt;</span><span class="m">1</span><span class="o">|</span><span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">value_2</span><span class="o">&gt;</span><span class="m">1</span><span class="p">)</span><span class="o">&amp;</span>
+  <span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">log2.fold_change.</span><span class="p">)</span><span class="o">&gt;=</span><span class="m">1</span><span class="p">)</span> <span class="o">&amp;</span>
+  <span class="p">(</span><span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">p_value</span><span class="o">&lt;</span><span class="m">0.05</span><span class="p">)</span>
+<span class="n">cuffdiff_result.sign</span> <span class="o">&lt;-</span> <span class="n">cuffdiff_result[select_vector</span><span class="p">,</span><span class="n">]</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">cuffdiff_result.sign</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
+</div><p>通过数据筛选后，基因数已经从原来的22857个缩减到84个，这84个就是我们期望的<code>DEG</code>，但是84个基因做GO富集分析是做不出什么好的结果的（<strong>为什么呢？</strong>），因此在这里将条件放宽一下，$\left|\log_{2}{FC}\right|\geq 1$变为$\left|\log_{2}{FC}\right|\geq 0.5$，得到差不多1000个左右的基因即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">select_vector</span> <span class="o">&lt;-</span>
+  <span class="p">(</span><span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">value_1</span><span class="o">&gt;</span><span class="m">1</span><span class="o">|</span><span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">value_2</span><span class="o">&gt;</span><span class="m">1</span><span class="p">)</span><span class="o">&amp;</span>
+  <span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">log2.fold_change.</span><span class="p">)</span><span class="o">&gt;=</span><span class="m">0.5</span><span class="p">)</span> <span class="o">&amp;</span>
+  <span class="p">(</span><span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">p_value</span><span class="o">&lt;</span><span class="m">0.05</span><span class="p">)</span>
+<span class="n">cuffdiff_result.sign</span> <span class="o">&lt;-</span> <span class="n">cuffdiff_result[select_vector</span><span class="p">,</span><span class="n">]</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">cuffdiff_result.sign</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>富集分析（网站法）</p>
+<p>首先将<code>gene_id</code>提取出来。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">output.gene_id</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">gene_id</span><span class="o">=</span><span class="n">cuffdiff_result.sign</span><span class="o">$</span><span class="n">gene_id</span><span class="p">)</span>
+<span class="nf">write.table</span><span class="p">(</span><span class="n">output.gene_id</span><span class="p">,</span> 
+            <span class="n">file</span><span class="o">=</span><span class="s">&#34;~/songqi/data/rna-seq/sign_gene_id.txt&#34;</span><span class="p">,</span> 
+            <span class="n">col.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span>
+            <span class="n">sep</span><span class="o">=</span><span class="s">&#34;\t&#34;</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>将提出出来的基因粘贴到<a href="http://amp.pharm.mssm.edu/Enrichr/">Enrichr</a>的输入框里面，然后点击<code>Submit</code>。</p>
+<p><strong>注意</strong>此网站适用于模式动物。如果要做植物的可以使用<a href="https://david.ncifcrf.gov/home.jsp">DAVID</a>，这个网站的优点是动物植物都可以做，但这个网站在国内加载奇慢。</p>
+<p><img src="https://songqi.zzmath.top/enrichr.png" alt="enrichr"></p>
+<!-- raw HTML omitted -->
+<p>稍等片刻后即可得到GO，KEGG，DO等分析结果。</p>
+<p><img src="https://songqi.zzmath.top/enrichr_result.png" alt="enrichr result"></p>
+<!-- raw HTML omitted -->
+</li>
+<li>
+<p>富集分析（R包大法）</p>
+<p>安装以下的R包<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;clusterProfiler&#34;</span><span class="p">)</span>
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;topGO&#34;</span><span class="p">)</span>
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;Rgraphviz&#34;</span><span class="p">)</span>
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;pathview&#34;</span><span class="p">)</span>
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;org.Hs.eg.db&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>安装完成后加载包：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;clusterProfiler&#34;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#34;topGO&#34;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#34;Rgraphviz&#34;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#34;pathview&#34;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#34;org.Hs.eg.db&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在进行GO富集分析之前，对<code>output.gene_id</code>进行字符串转化，转化完后进行GO富集分析，在这里值得注意的是还进行了一个<code>ID转换</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">DEG.gene_symbol</span> <span class="o">&lt;-</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">output.gene_id</span><span class="o">$</span><span class="n">gene_id</span><span class="p">)</span>
+<span class="n">DEG.entrez_id</span> <span class="o">&lt;-</span> <span class="nf">mapIds</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">org.Hs.eg.db</span><span class="p">,</span> 
+                        <span class="n">keys</span> <span class="o">=</span> <span class="n">DEG.gene_symbol</span><span class="p">,</span>
+                        <span class="n">keytype</span> <span class="o">=</span> <span class="s">&#34;SYMBOL&#34;</span><span class="p">,</span>
+                        <span class="n">column</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">)</span>
+<span class="n">DEG.entrez_id</span> <span class="o">&lt;-</span> <span class="nf">na.omit</span><span class="p">(</span><span class="n">DEG.entrez_id</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">erich.go.CC</span> <span class="o">&lt;-</span> <span class="nf">enrichGO</span><span class="p">(</span>
+  <span class="n">gene</span> <span class="o">=</span> <span class="n">DEG.entrez_id</span><span class="p">,</span> <span class="n">OrgDb</span> <span class="o">=</span> <span class="n">org.Hs.eg.db</span><span class="p">,</span> 
+  <span class="n">keyType</span> <span class="o">=</span> <span class="s">&#34;ENTREZID&#34;</span><span class="p">,</span> <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;CC&#34;</span><span class="p">,</span> 
+  <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span>
+  <span class="n">readable</span> <span class="o">=</span> <span class="bp">T</span>
+<span class="p">)</span>
+<span class="nf">barplot</span><span class="p">(</span><span class="n">erich.go.CC</span><span class="p">)</span>
+<span class="nf">dotplot</span><span class="p">(</span><span class="n">erich.go.CC</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://songqi.zzmath.top/go_barplot.png" alt="GO barplot"></p>
+<!-- raw HTML omitted -->
+<p><img src="https://songqi.zzmath.top/go_dotplot.png" alt="GO dotplot"></p>
+<!-- raw HTML omitted -->
 <p>除此之外还可以使用<code>plotGOgraph</code>绘制树形图
 ：</p>
-<pre class="r"><code>plotGOgraph(erich.go.CC)</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
-<img src="../../../../post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-8-1.png" alt="PlotGOgraph of Cellular Components." width="672" />
-<p class="caption">
-Figure 2: PlotGOgraph of Cellular Components.
-</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">plotGOgraph</span><span class="p">(</span><span class="n">erich.go.CC</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-<pre><code>## $dag
-## A graphNEL graph with directed edges
-## Number of Nodes = 28 
-## Number of Edges = 34 
-## 
-## $complete.dag
-## [1] &quot;A graph with 28 nodes.&quot;</code></pre>
+</div><!-- raw HTML omitted -->
 <p>如果图片看不清楚，可以将结果保存为<code>pdf</code>文件</p>
-<pre class="r"><code>pdf(&quot;~/songqi/data/rna-seq/enrich.go.cc.tree.pdf&quot;)
-plotGOgraph(erich.go.CC)
-dev.off()</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">pdf</span><span class="p">(</span><span class="s">&#34;~/songqi/data/rna-seq/enrich.go.cc.tree.pdf&#34;</span><span class="p">)</span>
+<span class="nf">plotGOgraph</span><span class="p">(</span><span class="n">erich.go.CC</span><span class="p">)</span>
+<span class="nf">dev.off</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
-</div>
-</div>
-<div id="kegg富集分析kegg-enrichment-analysis" class="section level2">
-<h2>2.2 KEGG富集分析（KEGG enrichment analysis）</h2>
+<h2 id="22-kegg富集分析kegg-enrichment-analysis">2.2 KEGG富集分析（KEGG enrichment analysis）</h2>
 <p>将生物体的<code>pathway</code>进行富集分析。</p>
-<pre class="r"><code>erich.KEGG &lt;- eichKEGG(gene = DEG.entrez_id, organism = &quot;hsa&quot;, 
-                 keyType = &quot;kegg&quot;, alueCutoff = 0.05, 
-                 qvalueCutoff = 0.2)</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
-<img src="../../../../post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-9-1.png" alt="Barplot (left) and dotplot (right) of KEGG." width="50%" /><img src="../../../../post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-9-2.png" alt="Barplot (left) and dotplot (right) of KEGG." width="50%" />
-<p class="caption">
-Figure 3: Barplot (left) and dotplot (right) of KEGG.
-</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">erich.KEGG</span> <span class="o">&lt;-</span> <span class="nf">eichKEGG</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="n">DEG.entrez_id</span><span class="p">,</span> <span class="n">organism</span> <span class="o">=</span> <span class="s">&#34;hsa&#34;</span><span class="p">,</span> 
+                 <span class="n">keyType</span> <span class="o">=</span> <span class="s">&#34;kegg&#34;</span><span class="p">,</span> <span class="n">alueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span> 
+                 <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">load(&#34;~/songqi/data/rna-seq/go_kegg_do.Rdata&#34;)
+barplot(erich.KEGG)
+dotplot(erich.KEGG)
+</code></pre></td></tr></table>
 </div>
-<div id="do富集分析do-enrichment-analysis" class="section level2">
-<h2>2.3 DO富集分析（DO enrichment analysis）</h2>
+</div><p><img src="https://songqi.zzmath.top/kegg_barplot.png" alt="KEGG barplot"></p>
+<!-- raw HTML omitted -->
+<p><img src="https://songqi.zzmath.top/kegg_dotplot.png" alt="KEGG dotplot"></p>
+<!-- raw HTML omitted -->
+<h2 id="23-do富集分析do-enrichment-analysis">2.3 DO富集分析（DO enrichment analysis）</h2>
 <p>看基因是否在某个疾病上富集，临床上用得比较多。</p>
-<pre class="r"><code>library(&quot;DOSE&quot;)
-erich.DO &lt;- enrichDO(gene = DEG.entrez_id, ont = &quot;DO&quot;,
-                     pvalueCutoff = 0.5, qvalueCutoff = 0.5)
-</code></pre>
-<pre><code>## DOSE v3.12.0  For help: https://guangchuangyu.github.io/software/DOSE
-## 
-## If you use DOSE in published research, please cite:
-## Guangchuang Yu, Li-Gen Wang, Guang-Rong Yan, Qing-Yu He. DOSE: an R/Bioconductor package for Disease Ontology Semantic and Enrichment analysis. Bioinformatics 2015, 31(4):608-609</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
-<img src="../../../../post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-10-1.png" alt="Barplot (left) and dotplot (right) of DO." width="50%" /><img src="../../../../post/2020-04-18-go-kegg-do%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_files/figure-html/unnamed-chunk-10-2.png" alt="Barplot (left) and dotplot (right) of DO." width="50%" />
-<p class="caption">
-Figure 4: Barplot (left) and dotplot (right) of DO.
-</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;DOSE&#34;</span><span class="p">)</span>
+<span class="n">erich.DO</span> <span class="o">&lt;-</span> <span class="nf">enrichDO</span><span class="p">(</span><span class="n">gene</span> <span class="o">=</span> <span class="n">DEG.entrez_id</span><span class="p">,</span> <span class="n">ont</span> <span class="o">=</span> <span class="s">&#34;DO&#34;</span><span class="p">,</span>
+                     <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">qvalueCutoff</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span>
+<span class="nf">barplot</span><span class="p">(</span><span class="n">erich.DO</span><span class="p">)</span>
+<span class="nf">dotplot</span><span class="p">(</span><span class="n">erich.DO</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-<p>以上所有内容学习自<a href="https://www.bilibili.com/video/BV14W411q7gi?t=2387">2018-01-07 生物信息学教程-GO, KEGG, DO富集分析</a></p>
-</div>
-</div>
-<div class="footnotes">
-<hr />
+</div><p><img src="https://songqi.zzmath.top/do_barplot.png" alt="DO barplot"></p>
+<!-- raw HTML omitted -->
+<p><img src="https://songqi.zzmath.top/do_dotplot.png" alt="DO dotplot"></p>
+<!-- raw HTML omitted -->
+<p>以上所有内容学习自<a href="https://www.bilibili.com/video/BV14W411q7gi?t=2387">2018-01-07 生物信息学教程-GO, KEGG, DO富集分析
+</a></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn1"><p><a href="https://baike.baidu.com/item/%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93">基因本体</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p><a href="https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html">org.Hs.eg.db</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://baike.baidu.com/item/%E5%9F%BA%E5%9B%A0%E6%9C%AC%E4%BD%93">基因本体</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://bioconductor.org/packages/release/data/annotation/html/org.Hs.eg.db.html">org.Hs.eg.db</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
     </div>
 
@@ -331,11 +458,15 @@ Figure 4: Barplot (left) and dotplot (right) of DO.
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2020-04-18
+      2020-04-19
       
     </span>
   </p>
-  
+  <p class="copyright-item">
+    <span class="item-title">原始文档</span>
+    <span class="item-content"><a class="link-to-markdown" href="../../../../2020/04/18/go_kegg_do/index.md"
+        target="_blank">查看本文 Markdown 版本 »</a></span>
+  </p>
   <p class="copyright-item">
     <span class="item-title">许可协议</span>
     <span class="item-content"><a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a></span>

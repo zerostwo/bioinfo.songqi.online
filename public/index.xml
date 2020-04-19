@@ -26,7 +26,7 @@
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/04/19/raw_data_processing_flow/</guid>
-      <description>mm10 gtf gencode https://www.jianshu.com/p/a84cd44bac67 # 进行质控 nohup fastqc -t 4 ./.gz -o ./fastqc_results &amp;gt; ./fastqc.log 2&amp;gt;&amp;amp;1 &amp;amp; # 去除低质量的部分 nohup trim_galore –illumina -o clean raw/fastq/.gz &amp;amp; nohup trim_galore -q 25 –phred33 –fastqc –length</description>
+      <description>https://www.jianshu.com/p/a84cd44bac67 进行质控 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &amp;gt; ./fastqc.log 2&amp;gt;&amp;amp;1 &amp;amp; 去除低质量的部分 nohup trim_galore &amp;ndash;illumina -o clean raw/fastq/.gz &amp;amp; nohup trim_galore -q 25 &amp;ndash;phred33 &amp;ndash;fastqc &amp;ndash;length 36 &amp;ndash;stringency 3 -o clean raw/fastq/.gz &amp;amp; 平台：&amp;ndash;nextera 序列比对 index=/home/duansq/reference/index/hisat/mm10 ls ./*.gz |</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/04/18/go_kegg_do/</guid>
-      <description>1 R Bioconductor初步探索 2 RNA-Seq后续应该怎么分析？ 2.1 GO富集分析（GO enrichment analysis） 2.1.1 基因本体论（Gene Onto</description>
+      <description>1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@
       <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/04/16/pca/</guid>
-      <description>1 2 3 function helloWorld () { alert(&amp;#34;Hello, World!&amp;#34;) } 1 a &amp;lt;- 1 使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;#34;wt&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;), paste(&amp;#34;ko&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;#34;gene&amp;#34;, 1:100, sep=&amp;#34;&amp;#34;) ) for (i in</description>
+      <description>使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;#34;wt&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;), paste(&amp;#34;ko&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;#34;gene&amp;#34;, 1:100, sep=&amp;#34;&amp;#34;) ) for (i in 1:100) { wt.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &amp;lt;-</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/04/15/bioinfo_config/</guid>
-      <description>1 终端美化（Oh My Zsh） 1.1 安装 Zsh 1.2 安装 Oh My Zsh 1.3 插件配置 1.4 .zshrc配置 2 R及Rstudio的安装 2.1 R安装 2.2 安装Rstudio 3 conda</description>
+      <description>拿到一台新的服务器生信分析环境的配置 1 终端美化（Oh My Zsh）1 1.1 安装 Zsh 1 2 sudo apt install zsh chsh -s /bin/zsh 1.2 安装 Oh My Zsh 1 2 sudo apt install git wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh 1.3 插件配置 zs</description>
     </item>
     
   </channel>

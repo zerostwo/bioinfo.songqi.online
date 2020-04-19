@@ -1,30 +1,3 @@
----
-title: R Markdown的使用技巧
-author: Songqi Duan
-date: '2020-04-17'
-slug: r_markdown
-categories:
-  - 生物信息学
-tags:
-  - R
-lastmod: '2020-04-19T11:42:23+08:00'
-keywords: []
-description: ''
-
-hiddenFromHomePage: no
-contentCopyright: "<a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>"
-reward: no
-mathjax: yes
-mathjaxEnableSingleDollar: true
-mathjaxEnableAutoNumber: true
-hideHeaderAndFooter: no
-flowchartDiagrams:
-  enable: no
-  options: ''
-sequenceDiagrams:
-  enable: no
-  options: ''
----
 `R markdown`通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
 
 此文介绍`R markdown`的一些使用技巧和常用快捷键[^1][^2]。

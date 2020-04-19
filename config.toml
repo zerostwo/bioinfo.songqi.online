@@ -5,7 +5,7 @@ title = "Songqi"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
-theme = "hugo-theme-even"
+theme = "songqi"
 # 可根据 Git 中的提交生成最近更新记录。
 enableGitInfo = true
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
@@ -119,7 +119,7 @@ copyright = ""
   # 包含作者，上次修改时间，markdown链接，许可信息
   postMetaInFooter = true
   # 链接到markdown原始文件（仅当允许hugo生成markdown文件时有效）
-  linkToMarkDown = false
+  linkToMarkDown = true
   # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
   contentCopyright = ''
 
@@ -264,18 +264,18 @@ copyright = ""
     privacyEnhanced = true
 
 # 将下面这段配置取消注释可以使 hugo 生成 .md 文件
-#[mediaTypes]
-#  [mediaTypes."text/plain"]
-#    suffixes = ["md"]
-#
-#[outputFormats.MarkDown]
-#  mediaType = "text/plain"
-#  isPlainText = true
-#  isHTML = false
-#
-#[outputs]
-#  home = ["HTML", "RSS"]
-#  page = ["HTML", "MarkDown"]
-#  section = ["HTML", "RSS"]
-#  taxonomy = ["HTML", "RSS"]
-#  taxonomyTerm = ["HTML"]
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]

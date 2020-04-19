@@ -18,7 +18,7 @@
 
 
 <meta name="author"
-  content="Songqi Duan" /><meta name="description" content="1 2 3 function helloWorld () { alert(&amp;#34;Hello, World!&amp;#34;) } 1 a &amp;lt;- 1 使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;#34;wt&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;), paste(&amp;#34;ko&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;#34;gene&amp;#34;, 1:100, sep=&amp;#34;&amp;#34;) ) for (i in" /><meta name="keywords"
+  content="Songqi Duan" /><meta name="description" content="使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;#34;wt&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;), paste(&amp;#34;ko&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;#34;gene&amp;#34;, 1:100, sep=&amp;#34;&amp;#34;) ) for (i in 1:100) { wt.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &amp;lt;-" /><meta name="keywords"
   content="生物信息学, R语言, 数据分析" />
 
 
@@ -38,27 +38,27 @@
 
 
 
-<link href="../../../../sass/main.min.50a7822e625c07bdde42d8e86bcf9ab8018de43091536e47eb3c95ad4a600ba4.css" rel="stylesheet">
+<link href="../../../../sass/main.min.f527d45788cc356ff99d15fa9df89766fb20ac762a8a1e6f488043d4df0bc8a8.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="PCA绘图" />
-<meta property="og:description" content="1 2 3 function helloWorld () { alert(&#34;Hello, World!&#34;) } 1 a &lt;- 1 使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &lt;- c( paste(&#34;wt&#34;, 1:5, sep=&#34;&#34;), paste(&#34;ko&#34;, 1:5, sep=&#34;&#34;) ) rownames(data.matrix) &lt;- c( paste(&#34;gene&#34;, 1:100, sep=&#34;&#34;) ) for (i in" />
+<meta property="og:description" content="使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &lt;- c( paste(&#34;wt&#34;, 1:5, sep=&#34;&#34;), paste(&#34;ko&#34;, 1:5, sep=&#34;&#34;) ) rownames(data.matrix) &lt;- c( paste(&#34;gene&#34;, 1:100, sep=&#34;&#34;) ) for (i in 1:100) { wt.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &lt;-" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2020/04/16/pca/" />
 <meta property="article:published_time" content="2020-04-16T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-04-19T21:52:16+08:00" />
 <meta itemprop="name" content="PCA绘图">
-<meta itemprop="description" content="1 2 3 function helloWorld () { alert(&#34;Hello, World!&#34;) } 1 a &lt;- 1 使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &lt;- c( paste(&#34;wt&#34;, 1:5, sep=&#34;&#34;), paste(&#34;ko&#34;, 1:5, sep=&#34;&#34;) ) rownames(data.matrix) &lt;- c( paste(&#34;gene&#34;, 1:100, sep=&#34;&#34;) ) for (i in">
+<meta itemprop="description" content="使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &lt;- c( paste(&#34;wt&#34;, 1:5, sep=&#34;&#34;), paste(&#34;ko&#34;, 1:5, sep=&#34;&#34;) ) rownames(data.matrix) &lt;- c( paste(&#34;gene&#34;, 1:100, sep=&#34;&#34;) ) for (i in 1:100) { wt.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &lt;-">
 <meta itemprop="datePublished" content="2020-04-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-19T21:52:16&#43;08:00" />
-<meta itemprop="wordCount" content="515">
+<meta itemprop="wordCount" content="501">
 
 
 
 <meta itemprop="keywords" content="R," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PCA绘图"/>
-<meta name="twitter:description" content="1 2 3 function helloWorld () { alert(&#34;Hello, World!&#34;) } 1 a &lt;- 1 使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &lt;- c( paste(&#34;wt&#34;, 1:5, sep=&#34;&#34;), paste(&#34;ko&#34;, 1:5, sep=&#34;&#34;) ) rownames(data.matrix) &lt;- c( paste(&#34;gene&#34;, 1:100, sep=&#34;&#34;) ) for (i in"/>
+<meta name="twitter:description" content="使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &lt;- c( paste(&#34;wt&#34;, 1:5, sep=&#34;&#34;), paste(&#34;ko&#34;, 1:5, sep=&#34;&#34;) ) rownames(data.matrix) &lt;- c( paste(&#34;gene&#34;, 1:100, sep=&#34;&#34;) ) for (i in 1:100) { wt.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &lt;-"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -138,27 +138,7 @@
 
     
     <div class="post-content">
-      <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">helloWorld</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Hello, World!&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="n">a</span> <span class="o">&lt;-</span> <span class="m">1</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>使用R语言进行PCA绘图<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+      <p>使用R语言进行PCA绘图<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <p>构建绘图数据</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -199,7 +179,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="n">pca</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">data.matrix</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">pca</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">data.matrix</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 <span class="nf">str</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span> <span class="c1"># return x, sdev and rotation</span>
 </code></pre></td></tr></table>
 </div>
@@ -209,7 +189,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="nf">plot</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span> <span class="n">pca</span><span class="o">$</span><span class="n">x[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">)</span> 
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">plot</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span> <span class="n">pca</span><span class="o">$</span><span class="n">x[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="p">)</span> 
 </code></pre></td></tr></table>
 </div>
 </div><!-- raw HTML omitted -->
@@ -232,7 +212,7 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="n">pca.var</span> <span class="o">&lt;-</span> <span class="n">pca</span><span class="o">$</span><span class="n">sdev^2</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">pca.var</span> <span class="o">&lt;-</span> <span class="n">pca</span><span class="o">$</span><span class="n">sdev^2</span>
 <span class="n">pca.var.per</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="n">pca.var</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">pca.var</span><span class="p">)</span><span class="o">*</span><span class="m">100</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 <span class="nf">barplot</span><span class="p">(</span><span class="n">pca.var.per</span><span class="p">,</span> 
         <span class="n">main</span><span class="o">=</span><span class="s">&#34;Scree Plot&#34;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&#34;Principal Component&#34;</span><span class="p">,</span>
@@ -257,7 +237,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
 <span class="n">pca.data</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
   <span class="n">Sample</span><span class="o">=</span><span class="nf">rownames</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">),</span>
   <span class="n">X</span><span class="o">=</span><span class="n">pca</span><span class="o">$</span><span class="n">x[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span><span class="p">,</span>
@@ -283,7 +263,7 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="n">loading_scores</span> <span class="o">&lt;-</span> <span class="n">pca</span><span class="o">$</span><span class="n">rotation[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="c1"># 这里使用第一列因为PC1的对原始数据的影响达到91%</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">loading_scores</span> <span class="o">&lt;-</span> <span class="n">pca</span><span class="o">$</span><span class="n">rotation[</span><span class="p">,</span><span class="m">1</span><span class="n">]</span> <span class="c1"># 这里使用第一列因为PC1的对原始数据的影响达到91%</span>
 <span class="n">gene_scores</span> <span class="o">&lt;-</span> <span class="nf">abs</span><span class="p">(</span><span class="n">loading_scores</span><span class="p">)</span>
 <span class="n">gene_score_ranked</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="n">gene_scores</span><span class="p">,</span> <span class="n">decreasing</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 <span class="n">top_10_genes</span> <span class="o">&lt;-</span> <span class="nf">names</span><span class="p">(</span><span class="n">gene_score_ranked[1</span><span class="o">:</span><span class="m">10</span><span class="n">]</span><span class="p">)</span>
@@ -296,7 +276,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="n">pca</span><span class="o">$</span><span class="n">rotation[top_10_genes</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">pca</span><span class="o">$</span><span class="n">rotation[top_10_genes</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -305,7 +285,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Text" data-lang="Text">##  [1] &#34;gene53&#34; &#34;gene60&#34; &#34;gene14&#34; &#34;gene63&#34; &#34;gene99&#34; &#34;gene64&#34; &#34;gene40&#34; &#34;gene47&#34;
+<pre class="chroma"><code class="language-plaintext" data-lang="plaintext">##  [1] &#34;gene53&#34; &#34;gene60&#34; &#34;gene14&#34; &#34;gene63&#34; &#34;gene99&#34; &#34;gene64&#34; &#34;gene40&#34; &#34;gene47&#34;
 ##  [9] &#34;gene39&#34; &#34;gene10&#34;
 </code></pre></td></tr></table>
 </div>
@@ -336,7 +316,11 @@
       
     </span>
   </p>
-  
+  <p class="copyright-item">
+    <span class="item-title">原始文档</span>
+    <span class="item-content"><a class="link-to-markdown" href="../../../../2020/04/16/pca/index.md"
+        target="_blank">查看本文 Markdown 版本 »</a></span>
+  </p>
   <p class="copyright-item">
     <span class="item-title">许可协议</span>
     <span class="item-content"><a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a></span>
@@ -399,11 +383,38 @@
     var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) { return $0.replace($1, $1.toUpperCase()); });
   timeago().render(document.querySelectorAll('.timeago'), languageCode);
   timeago.cancel();  
-</script>
+</script><script>
+  { { - if .Params.flowchartDiagrams.options -} }
+  window.flowchartDiagramsOptions = ;
+  { { - else if .Site.Params.flowchartDiagrams.options -} }
+  window.flowchartDiagramsOptions = ;
+  { { - end -} }
+</script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script>
+  { { - if .Params.sequenceDiagrams.options -} }
+  window.sequenceDiagramsOptions = ;
+  { { - else if .Site.Params.sequenceDiagrams.options -} }
+  window.sequenceDiagramsOptions = ;
+  { { - end -} }
+</script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
 
 
 
 <script type="text/javascript" src="../../../../js/main.5c396b668cb22fb75d863f6bf5678a531438ebda670c726c4f071a7194fa9ffd.js"></script>
+<script type="text/javascript">
+  window.MathJax = {
+      { { if or.Params.mathjaxEnableSingleDollar(and.Site.Params.mathjaxEnableSingleDollar(ne.Params.mathjaxEnableSingleDollar false)) -} }
+  tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+  { { end -} }
+  { { if or.Params.mathjaxEnableAutoNumber(and.Site.Params.mathjaxEnableAutoNumber(ne.Params.mathjaxEnableAutoNumber false)) -} }
+  TeX: { equationNumbers: { autoNumber: "AMS" } },
+  { { end -} }
+  showProcessingMessages: false,
+    messageStyle: 'none'
+    };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
 

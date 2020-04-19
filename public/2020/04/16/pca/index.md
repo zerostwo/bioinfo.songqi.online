@@ -1,21 +1,3 @@
----
-title: PCA绘图
-author: Songqi Duan
-date: '2020-04-16'
-slug: pca
-categories:
-  - 生物信息学
-tags:
-  - R
-lastmod: '2020-04-19T21:52:16+08:00'
-keywords: []
-description: ''
-comment: false
-postMetaInFooter: true
-hiddenFromHomePage: false
-contentCopyright: <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC
-  BY-NC-ND 4.0</a>
----
 使用R语言进行PCA绘图[^1]
 
 构建绘图数据
