@@ -140,7 +140,7 @@
     <div class="post-content">
       <p>使用R语言进行PCA绘图<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <p>构建绘图数据</p>
-<pre><code class="language-r">data.matrix &lt;- matrix(nrow=100, ncol=10)
+<pre><code class="language-R">data.matrix &lt;- matrix(nrow=100, ncol=10)
 colnames(data.matrix) &lt;- c(
   paste(&quot;wt&quot;, 1:5, sep=&quot;&quot;),
   paste(&quot;ko&quot;, 1:5, sep=&quot;&quot;)
@@ -155,11 +155,11 @@ for (i in 1:100) {
 }
 </code></pre>
 <p><code>procomp</code>默认样本为行，基因为列，因此在这里需要转置</p>
-<pre><code class="language-r">pca &lt;- prcomp(t(data.matrix), scale=TRUE)
+<pre><code class="language-R">pca &lt;- prcomp(t(data.matrix), scale=TRUE)
 str(pca) # return x, sdev and rotation
 </code></pre>
 <p>取第一主成分和第二主成分</p>
-<pre><code class="language-r">plot(pca$x[,1], pca$x[,2]) 
+<pre><code class="language-R">plot(pca$x[,1], pca$x[,2]) 
 </code></pre>
 <!-- raw HTML omitted -->
 <ul>
@@ -172,14 +172,14 @@ str(pca) # return x, sdev and rotation
 </ul>
 <p>让我们看看PC1能解释原始数据多大的方差，因此我们使用<code>sdev</code>(标准差)的平方</p>
 <p>标准差的平方是方差</p>
-<pre><code class="language-r">pca.var &lt;- pca$sdev^2
+<pre><code class="language-R">pca.var &lt;- pca$sdev^2
 pca.var.per &lt;- round(pca.var/sum(pca.var)*100, 1)
 barplot(pca.var.per, 
         main=&quot;Scree Plot&quot;, xlab=&quot;Principal Component&quot;,
         ylab=&quot;Percent Variation&quot;)
 </code></pre>
 <!-- raw HTML omitted -->
-<pre><code class="language-r">library(ggplot2)
+<pre><code class="language-R">library(ggplot2)
 pca.data &lt;- data.frame(
   Sample=rownames(pca$x),
   X=pca$x[,1],
@@ -195,16 +195,16 @@ ggplot(data=pca.data, mapping = aes(x=X, y=Y, label=Sample)) +
 </code></pre>
 <!-- raw HTML omitted -->
 <p>下面我们可以通过<code>pca$rotation</code>来看什么基因对结果影响最大</p>
-<pre><code class="language-r">loading_scores &lt;- pca$rotation[,1] # 这里使用第一列因为PC1的对原始数据的影响达到91%
+<pre><code class="language-R">loading_scores &lt;- pca$rotation[,1] # 这里使用第一列因为PC1的对原始数据的影响达到91%
 gene_scores &lt;- abs(loading_scores)
 gene_score_ranked &lt;- sort(gene_scores, decreasing=TRUE)
 top_10_genes &lt;- names(gene_score_ranked[1:10])
 top_10_genes
 </code></pre>
 <p>查看造成<code>wt</code>与<code>ko</code>不一样的关键基因</p>
-<pre><code class="language-r">pca$rotation[top_10_genes,1]
+<pre><code class="language-R">pca$rotation[top_10_genes,1]
 </code></pre>
-<pre><code class="language-text">##  [1] &quot;gene53&quot; &quot;gene60&quot; &quot;gene14&quot; &quot;gene63&quot; &quot;gene99&quot; &quot;gene64&quot; &quot;gene40&quot; &quot;gene47&quot;
+<pre><code class="language-Text">##  [1] &quot;gene53&quot; &quot;gene60&quot; &quot;gene14&quot; &quot;gene63&quot; &quot;gene99&quot; &quot;gene64&quot; &quot;gene40&quot; &quot;gene47&quot;
 ##  [9] &quot;gene39&quot; &quot;gene10&quot;
 </code></pre>
 <p>得到的结果说明，<code>PC1</code>下得分为正的是将<code>ko</code>推向PCA Graph右边的关键基因</p>

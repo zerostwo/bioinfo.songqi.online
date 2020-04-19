@@ -7,7 +7,7 @@ categories:
   - 生物信息学
 tags:
   - R
-lastmod: '2020-04-17T11:42:23+08:00'
+lastmod: '2020-04-19T11:42:23+08:00'
 keywords: []
 description: ''
 comment: true
@@ -25,20 +25,21 @@ flowchartDiagrams:
 sequenceDiagrams:
   enable: no
   options: ''
-output:
-  blogdown::html_page:
-    toc: yes
 ---
+[TOC]
+
 `R markdown`通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
 
 此文介绍`R markdown`的一些使用技巧和常用快捷键[^1][^2]。
 
 # 1 图片居中
-```
+
+```R
 <center>
 ![Naruto](http://songqi.zzmath.top/Naruto.jpg){width=50%}
 </center>
 ```
+
 <center>
 ![Naruto](https://songqi.zzmath.top/Naruto.jpg){width=50%}
 </center>
@@ -48,14 +49,14 @@ output:
 
 可以在`{r}`中增添以下信息：
 
-```
+```R
 {r, 
   fig.align="center", fig.width=6, fig.height=6,
   fig.cap="我是图注."
 }
 ```
 
-```r
+```R
 plot(c(1:10))
 ```
 <center>
@@ -68,14 +69,14 @@ plot(c(1:10))
 
 块级公式：
 
-```
+```Latex
 $$E=mc^2$$
 ```
 
 $$E=mc^2$$
 行内公式：
 
-```
+```Latex
 $c\approx 299,792,458\space m/s$
 ```
 
@@ -85,11 +86,11 @@ $c\approx 299,792,458\space m/s$
 
 可以在`{r}`中增添以下信息：
 
-```
+```R
 {r out.width=c('50%', '50%'), fig.show='hold'}
 ```
 
-```r
+```R
 boxplot(rnorm(10))
 plot(rnorm(10))
 ```

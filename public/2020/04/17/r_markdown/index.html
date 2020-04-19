@@ -18,7 +18,7 @@
 
 
 <meta name="author"
-  content="Songqi Duan" /><meta name="description" content="1 图片居中 2 图注 3 数学公式 4 并排放两张图 R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文" /><meta name="keywords"
+  content="Songqi Duan" /><meta name="description" content="[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和" /><meta name="keywords"
   content="生物信息学, R语言, 数据分析" />
 
 
@@ -43,22 +43,22 @@
 
 
 <meta property="og:title" content="R Markdown的使用技巧" />
-<meta property="og:description" content="1 图片居中 2 图注 3 数学公式 4 并排放两张图 R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文" />
+<meta property="og:description" content="[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2020/04/17/r_markdown/" />
 <meta property="article:published_time" content="2020-04-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-19T10:57:47+08:00" />
+<meta property="article:modified_time" content="2020-04-17T18:43:59+08:00" />
 <meta itemprop="name" content="R Markdown的使用技巧">
-<meta itemprop="description" content="1 图片居中 2 图注 3 数学公式 4 并排放两张图 R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文">
+<meta itemprop="description" content="[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和">
 <meta itemprop="datePublished" content="2020-04-17T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-19T10:57:47&#43;08:00" />
-<meta itemprop="wordCount" content="286">
+<meta itemprop="dateModified" content="2020-04-17T18:43:59&#43;08:00" />
+<meta itemprop="wordCount" content="210">
 
 
 
 <meta itemprop="keywords" content="R," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="R Markdown的使用技巧"/>
-<meta name="twitter:description" content="1 图片居中 2 图注 3 数学公式 4 并排放两张图 R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文"/>
+<meta name="twitter:description" content="[TOC] R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -138,76 +138,53 @@
 
     
     <div class="post-content">
-      
-
-<div id="TOC">
-<ul>
-<li><a href="#图片居中">1 图片居中</a></li>
-<li><a href="#图注">2 图注</a></li>
-<li><a href="#数学公式">3 数学公式</a></li>
-<li><a href="#并排放两张图">4 并排放两张图</a></li>
-</ul>
-</div>
-
+      <p>[TOC]</p>
 <p><code>R markdown</code>通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。</p>
-<p>此文介绍<code>R markdown</code>的一些使用技巧和常用快捷键<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>。</p>
-<div id="图片居中" class="section level1">
-<h1>1 图片居中</h1>
-<pre><code>&lt;center&gt;
+<p>此文介绍<code>R markdown</code>的一些使用技巧和常用快捷键<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+<h1 id="1-图片居中">1 图片居中</h1>
+<pre><code class="language-R">&lt;center&gt;
 ![Naruto](http://songqi.zzmath.top/Naruto.jpg){width=50%}
-&lt;/center&gt;</code></pre>
-<center>
-<img src="https://songqi.zzmath.top/Naruto.jpg" alt="Naruto" style="width:50.0%" />
-</center>
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">
-图1. 言ったことは、まげねぇ。それが俺の忍道だ！
-</center>
-</div>
-<div id="图注" class="section level1">
-<h1>2 图注</h1>
+&lt;/center&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h1 id="2-图注">2 图注</h1>
 <p>可以在<code>{r}</code>中增添以下信息：</p>
-<pre><code>{r, 
+<pre><code class="language-R">{r, 
   fig.align=&quot;center&quot;, fig.width=6, fig.height=6,
   fig.cap=&quot;我是图注.&quot;
-}</code></pre>
-<pre class="r"><code>plot(c(1:10))</code></pre>
-<center>
-<img src="https://songqi.zzmath.top/unnamed-chunk-1-1.png" alt="plot(c(1:10))" />
-</center>
-</center>
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">
-图2. 我是图注.
-</center>
-</div>
-<div id="数学公式" class="section level1">
-<h1>3 数学公式</h1>
+}
+</code></pre>
+<pre><code class="language-R">plot(c(1:10))
+</code></pre>
+<!-- raw HTML omitted -->
+<h1 id="3-数学公式">3 数学公式</h1>
 <p>块级公式：</p>
-<pre><code>$$E=mc^2$$</code></pre>
-<p><span class="math display">\[E=mc^2\]</span>
+<pre><code class="language-Latex">$$E=mc^2$$
+</code></pre>
+<p>$$E=mc^2$$
 行内公式：</p>
-<pre><code>$c\approx 299,792,458\space m/s$</code></pre>
-<p>其中<span class="math inline">\(c\approx 299,792,458\space m/s\)</span></p>
-</div>
-<div id="并排放两张图" class="section level1">
-<h1>4 并排放两张图</h1>
+<pre><code class="language-Latex">$c\approx 299,792,458\space m/s$
+</code></pre>
+<p>其中$c\approx 299,792,458\space m/s$</p>
+<h1 id="4-并排放两张图">4 并排放两张图</h1>
 <p>可以在<code>{r}</code>中增添以下信息：</p>
-<pre><code>{r out.width=c(&#39;50%&#39;, &#39;50%&#39;), fig.show=&#39;hold&#39;}</code></pre>
-<pre class="r"><code>boxplot(rnorm(10))
-plot(rnorm(10))</code></pre>
-<center>
-<img src="https://songqi.zzmath.top/unnamed-chunk-2-1.png" alt="boxplot" style="width:50.0%" /><img src="https://songqi.zzmath.top/unnamed-chunk-2-2.png" alt="plot" style="width:50.0%" />
-</center>
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">
-图3. 并排放两张图.
-</center>
-</div>
-<div class="footnotes">
-<hr />
+<pre><code class="language-R">{r out.width=c('50%', '50%'), fig.show='hold'}
+</code></pre>
+<pre><code class="language-R">boxplot(rnorm(10))
+plot(rnorm(10))
+</code></pre>
+<!-- raw HTML omitted -->
+<section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn1"><p><a href="https://holtzy.github.io/Pimp-my-rmd/#">Pimp my RMD: a few tips for R Markdown</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p><a href="https://bookdown.org/xiao/RAnalysisBook/r-markdown.html">第 5 章 R Markdown</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://holtzy.github.io/Pimp-my-rmd/#">Pimp my RMD: a few tips for R Markdown</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://bookdown.org/xiao/RAnalysisBook/r-markdown.html">第 5 章 R Markdown</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
     </div>
 
@@ -220,9 +197,9 @@ plot(rnorm(10))</code></pre>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2020-04-19
-      <a href="#ZgotmplZ/commit/5eed9515ffef3722824a11a0d029c46366c97cf7"
-        title="改用七牛云图床保存图片">(5eed951)</a>
+      2020-04-17
+      <a href="#ZgotmplZ/commit/82df835c4708c48cb11713165806d3879a6946dd"
+        title="修复了若干bug">(82df835)</a>
     </span>
   </p>
   
