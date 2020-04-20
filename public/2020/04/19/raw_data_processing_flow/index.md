@@ -34,14 +34,23 @@ ls *.sam|while read id;do (samtools sort -O bam -@ 5  -o $(basename ${id} ".sam"
 gtf=/home/duansq/reference/gtf/gencode/mm10/gencode.vM24.annotation.gtf.gz
 featureCounts -T 5 -p -t exon -g gene_id -a $gtf -o all.id.txt *.bam 1>counts.id.log 2>&1 &
 ```
+# hg gtf gencode
 
-
-
-
+```bash
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.chr_patch_hapl_scaff.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.primary_assembly.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.basic.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.chr_patch_hapl_scaff.basic.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.long_noncoding_RNAs.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.polyAs.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.2wayconspseudos.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.tRNAs.gtf.gz
+```
 
 # mm10 gtf gencode
 
-```
+```bash
 wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.annotation.gtf.gz
 wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.chr_patch_hapl_scaff.annotation.gtf.gz
 wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.primary_assembly.annotation.gtf.gz

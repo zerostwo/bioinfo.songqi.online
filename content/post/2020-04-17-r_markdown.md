@@ -37,11 +37,7 @@ sequenceDiagrams:
 </center>
 ```
 
-![Naruto](https://songqi.zzmath.top/Naruto.jpg#width-full)
-
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图1. 言ったことは、まげねぇ。それが俺の忍道だ！</center>
-
-{{% figure src="http://songqi.zzmath.top/Naruto.jpg" title="Naruto" alt="Naruto" %}}
+{{% figure src="http://songqi.zzmath.top/Naruto.jpg" title="图1. 言ったことは、まげねぇ。それが俺の忍道だ！" alt="Naruto" %}}
 
 # 2 图注
 

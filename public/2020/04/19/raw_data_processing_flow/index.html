@@ -52,7 +52,7 @@
 <meta itemprop="description" content="进行质控 1 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;&amp;1 &amp; 去除低质量的部分 1 2 nohup trim_galore --illumina -o clean raw/fastq/*.gz &amp; nohup trim_galore -q 25 --phred33 --fastqc --length 36 --stringency 3 -o clean raw/fastq/*.gz &amp; 平台：&ndash;nextera 序列比对 1 2">
 <meta itemprop="datePublished" content="2020-04-19T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-20T15:56:27&#43;08:00" />
-<meta itemprop="wordCount" content="157">
+<meta itemprop="wordCount" content="178">
 
 
 
@@ -200,6 +200,31 @@ ls ./*.gz <span class="p">|</span> <span class="k">while</span> <span class="nb"
 featureCounts -T <span class="m">5</span> -p -t exon -g gene_id -a <span class="nv">$gtf</span> -o all.id.txt *.bam 1&gt;counts.id.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
 </code></pre></td></tr></table>
 </div>
+</div><h1 id="hg-gtf-gencode">hg gtf gencode</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.chr_patch_hapl_scaff.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.primary_assembly.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.basic.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.chr_patch_hapl_scaff.basic.annotation.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.long_noncoding_RNAs.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.polyAs.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.2wayconspseudos.gtf.gz
+ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.tRNAs.gtf.gz
+</code></pre></td></tr></table>
+</div>
 </div><h1 id="mm10-gtf-gencode">mm10 gtf gencode</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -214,7 +239,7 @@ featureCounts -T <span class="m">5</span> -p -t exon -g gene_id -a <span class="
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.annotation.gtf.gz
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.annotation.gtf.gz
 wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.chr_patch_hapl_scaff.annotation.gtf.gz
 wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.primary_assembly.annotation.gtf.gz
 wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.basic.annotation.gtf.gz
