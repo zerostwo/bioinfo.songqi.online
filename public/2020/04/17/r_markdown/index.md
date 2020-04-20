@@ -4,14 +4,21 @@
 
 # 1 图片居中
 
+`.Rmd`文件写法：
+
 ```r
 <center>
-![Naruto](http://songqi.zzmath.top/Naruto.jpg){width=50%}
+![Naruto](){width=50%}
 </center>
 ```
-![Naruto](https://songqi.zzmath.top/Naruto.jpg#width-full)
 
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图1. 言ったことは、まげねぇ。それが俺の忍道だ！</center>
+`.md`文件写法：
+
+```markdown
+{{% figure class="center" src="http://songqi.zzmath.top/Naruto.jpg" title="图1. 言ったことは、まげねぇ。それが俺の忍道だ！" alt="Naruto" width="50%"%}}
+```
+
+{{% figure class="center" src="http://songqi.zzmath.top/Naruto.jpg" title="图1. 言ったことは、まげねぇ。それが俺の忍道だ！" alt="Naruto" width="50%"%}}
 
 # 2 图注
 
@@ -28,7 +35,7 @@
 plot(c(1:10))
 ```
 
-{{% figure src="https://songqi.zzmath.top/unnamed-chunk-1-1.png" title="图2. 我是图注." alt="plot(c(1:10))" width="50%"%}}
+{{% figure class="center" src="https://songqi.zzmath.top/unnamed-chunk-1-1.png" title="图2. 我是图注." alt="plot(c(1:10))" width="50%"%}}
 
 
 # 3 数学公式
@@ -62,9 +69,9 @@ boxplot(rnorm(10))
 plot(rnorm(10))
 ```
 
-![boxplot](https://songqi.zzmath.top/unnamed-chunk-2-1.png)![plot](https://songqi.zzmath.top/unnamed-chunk-2-2.png)
+{{% figure class="center" src="https://songqi.zzmath.top/unnamed-chunk-2-1.png" title="图3. 并排放两张图." alt="boxplot" width="50%"%}}
 
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图3. 并排放两张图.</center>
+{{% figure class="center" src="https://songqi.zzmath.top/unnamed-chunk-2-2.png" title="图3. 并排放两张图." alt="plot" width="50%"%}}
 
 [^1]: [Pimp my RMD: a few tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/#)
 [^2]: [第 5 章 R Markdown](https://bookdown.org/xiao/RAnalysisBook/r-markdown.html)
