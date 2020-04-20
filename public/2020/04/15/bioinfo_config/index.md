@@ -92,6 +92,15 @@ options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
 options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
 ```
 
+为了在后续安装R包过程中能够顺利，还需要安装一下依赖库：
+
+```bash
+sudo apt-get -y install libcurl4-gnutls-dev
+sudo apt-get -y install libxml2-dev
+sudo apt-get -y install libssl-dev
+sudo apt-get -y install  libmariadb-client-lgpl-dev
+```
+
 # 3 conda安装及bioconda配置
 
 ## 3.1 miniconda安装
@@ -172,3 +181,4 @@ conda deactivate
 [^2]: [Download RStudio Server for Debian & Ubuntu](https://rstudio.com/products/rstudio/download-server/debian-ubuntu/)
 [^3]: [Set up channels](https://bioconda.github.io/user/install.html)
 [^4]: [[转载]bioconda中国镜像(清华已恢复，中科大暂时没恢复)](http://blog.sciencenet.cn/home.php?mod=space&uid=623545&do=blog&id=1187896)
+[^5]: [如果有一个云服务器你会做什么？](https://vip.biotrainee.com/d/133--)

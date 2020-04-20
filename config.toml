@@ -76,7 +76,7 @@ copyright = ""
   # 站点建立时间
   since = "2020"
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-  gitRepo = "git@github.com:zerostwo/zerostwo.github.io.git"
+  gitRepo = "git@github.com:zerostwo/songqi.git"
 
   # 站点信息（可选，不需要的可以直接注释掉）
   logoTitle = "Songqi"  # 默认值: 上面设置的title值

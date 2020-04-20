@@ -18,7 +18,7 @@
 
 
 <meta name="author"
-  content="Songqi Duan" /><meta name="description" content="https://www.jianshu.com/p/a84cd44bac67 进行质控 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &amp;gt; ./fastqc.log 2&amp;gt;&amp;amp;1 &amp;amp; 去除低质量的部分 nohup trim_galore &amp;ndash;illumina -o clean raw/fastq/.gz &amp;amp; nohup trim_galore -q 25 &amp;ndash;phred33 &amp;ndash;fastqc &amp;ndash;length 36 &amp;ndash;stringency 3 -o clean raw/fastq/.gz &amp;amp; 平台：&amp;ndash;nextera 序列比对 index=/home/duansq/reference/index/hisat/mm10 ls ./*.gz |" /><meta name="keywords"
+  content="Songqi Duan" /><meta name="description" content="进行质控 1 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &amp;gt; ./fastqc.log 2&amp;gt;&amp;amp;1 &amp;amp; 去除低质量的部分 1 2 nohup trim_galore --illumina -o clean raw/fastq/*.gz &amp;amp; nohup trim_galore -q 25 --phred33 --fastqc --length 36 --stringency 3 -o clean raw/fastq/*.gz &amp;amp; 平台：&amp;ndash;nextera 序列比对 1 2" /><meta name="keywords"
   content="生物信息学, R语言, 数据分析" />
 
 
@@ -43,22 +43,22 @@
 
 
 <meta property="og:title" content="转录组原始数据处理流程" />
-<meta property="og:description" content="https://www.jianshu.com/p/a84cd44bac67 进行质控 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;&amp;1 &amp; 去除低质量的部分 nohup trim_galore &ndash;illumina -o clean raw/fastq/.gz &amp; nohup trim_galore -q 25 &ndash;phred33 &ndash;fastqc &ndash;length 36 &ndash;stringency 3 -o clean raw/fastq/.gz &amp; 平台：&ndash;nextera 序列比对 index=/home/duansq/reference/index/hisat/mm10 ls ./*.gz |" />
+<meta property="og:description" content="进行质控 1 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;&amp;1 &amp; 去除低质量的部分 1 2 nohup trim_galore --illumina -o clean raw/fastq/*.gz &amp; nohup trim_galore -q 25 --phred33 --fastqc --length 36 --stringency 3 -o clean raw/fastq/*.gz &amp; 平台：&ndash;nextera 序列比对 1 2" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2020/04/19/raw_data_processing_flow/" />
 <meta property="article:published_time" content="2020-04-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-18T15:04:27+08:00" />
+<meta property="article:modified_time" content="2020-04-20T15:56:27+08:00" />
 <meta itemprop="name" content="转录组原始数据处理流程">
-<meta itemprop="description" content="https://www.jianshu.com/p/a84cd44bac67 进行质控 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;&amp;1 &amp; 去除低质量的部分 nohup trim_galore &ndash;illumina -o clean raw/fastq/.gz &amp; nohup trim_galore -q 25 &ndash;phred33 &ndash;fastqc &ndash;length 36 &ndash;stringency 3 -o clean raw/fastq/.gz &amp; 平台：&ndash;nextera 序列比对 index=/home/duansq/reference/index/hisat/mm10 ls ./*.gz |">
+<meta itemprop="description" content="进行质控 1 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;&amp;1 &amp; 去除低质量的部分 1 2 nohup trim_galore --illumina -o clean raw/fastq/*.gz &amp; nohup trim_galore -q 25 --phred33 --fastqc --length 36 --stringency 3 -o clean raw/fastq/*.gz &amp; 平台：&ndash;nextera 序列比对 1 2">
 <meta itemprop="datePublished" content="2020-04-19T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-18T15:04:27&#43;08:00" />
-<meta itemprop="wordCount" content="130">
+<meta itemprop="dateModified" content="2020-04-20T15:56:27&#43;08:00" />
+<meta itemprop="wordCount" content="157">
 
 
 
 <meta itemprop="keywords" content="Linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转录组原始数据处理流程"/>
-<meta name="twitter:description" content="https://www.jianshu.com/p/a84cd44bac67 进行质控 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;&amp;1 &amp; 去除低质量的部分 nohup trim_galore &ndash;illumina -o clean raw/fastq/.gz &amp; nohup trim_galore -q 25 &ndash;phred33 &ndash;fastqc &ndash;length 36 &ndash;stringency 3 -o clean raw/fastq/.gz &amp; 平台：&ndash;nextera 序列比对 index=/home/duansq/reference/index/hisat/mm10 ls ./*.gz |"/>
+<meta name="twitter:description" content="进行质控 1 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;&amp;1 &amp; 去除低质量的部分 1 2 nohup trim_galore --illumina -o clean raw/fastq/*.gz &amp; nohup trim_galore -q 25 --phred33 --fastqc --length 36 --stringency 3 -o clean raw/fastq/*.gz &amp; 平台：&ndash;nextera 序列比对 1 2"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -144,34 +144,88 @@
   </div>
 </div>
     <div class="post-content">
-      <p><a href="https://www.jianshu.com/p/a84cd44bac67">https://www.jianshu.com/p/a84cd44bac67</a></p>
-<h1 id="进行质控">进行质控</h1>
-<p>nohup fastqc -t 4 ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;&amp;1 &amp;</p>
-<h1 id="去除低质量的部分">去除低质量的部分</h1>
-<p>nohup trim_galore &ndash;illumina -o clean raw/fastq/<em>.gz &amp;
-nohup trim_galore -q 25 &ndash;phred33 &ndash;fastqc &ndash;length 36 &ndash;stringency 3 -o clean raw/fastq/</em>.gz &amp;
-平台：&ndash;nextera</p>
+      <h1 id="进行质控">进行质控</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">nohup fastqc -t <span class="m">4</span> ./*.gz -o ./fastqc_results &gt; ./fastqc.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="去除低质量的部分">去除低质量的部分</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">nohup trim_galore --illumina -o clean raw/fastq/*.gz <span class="p">&amp;</span>
+nohup trim_galore -q <span class="m">25</span> --phred33 --fastqc --length <span class="m">36</span> --stringency <span class="m">3</span> -o clean raw/fastq/*.gz <span class="p">&amp;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>平台：&ndash;nextera</p>
 <h1 id="序列比对">序列比对</h1>
-<p>index=/home/duansq/reference/index/hisat/mm10
-ls ./*.gz | while read id;do
-hisat2 -p 5 -x $index -U $id -S $(basename $id).bam.hisat.sam
-done</p>
-<h1 id="sam2bam">sam2bam</h1>
-<p>ls *.sam|while read id;do (samtools sort -O bam -@ 5  -o $(basename ${id} &ldquo;.sam&rdquo;).bam   ${id});done</p>
-<h1 id="gtf">gtf</h1>
-<p>gtf=/home/duansq/reference/gtf/gencode/mm10/gencode.vM24.annotation.gtf.gz
-featureCounts -T 5 -p -t exon -g gene_id -a $gtf -o all.id.txt *.bam 1&gt;counts.id.log 2&gt;&amp;1 &amp;</p>
-<h1 id="mm10-gtf-gencode">mm10 gtf gencode</h1>
-<p><a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.annotation.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.annotation.gtf.gz</a>
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.chr_patch_hapl_scaff.annotation.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.chr_patch_hapl_scaff.annotation.gtf.gz</a>
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.primary_assembly.annotation.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.primary_assembly.annotation.gtf.gz</a>
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.basic.annotation.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.basic.annotation.gtf.gz</a>
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.chr_patch_hapl_scaff.basic.annotation.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.chr_patch_hapl_scaff.basic.annotation.gtf.gz</a>
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.long_noncoding_RNAs.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.long_noncoding_RNAs.gtf.gz</a>
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.polyAs.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.polyAs.gtf.gz</a>
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.2wayconspseudos.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.2wayconspseudos.gtf.gz</a>
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.tRNAs.gtf.gz">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.tRNAs.gtf.gz</a></p>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">index</span><span class="o">=</span>/home/duansq/reference/index/hisat/mm10
+ls ./*.gz <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> id<span class="p">;</span><span class="k">do</span>
+  hisat2 -p <span class="m">5</span> -x <span class="nv">$index</span> -U <span class="nv">$id</span> -S <span class="k">$(</span>basename <span class="nv">$id</span><span class="k">)</span>.bam.hisat.sam
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="sam2bam">sam2bam</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ls *.sam<span class="p">|</span><span class="k">while</span> <span class="nb">read</span> id<span class="p">;</span><span class="k">do</span> <span class="o">(</span>samtools sort -O bam -@ <span class="m">5</span>  -o <span class="k">$(</span>basename <span class="si">${</span><span class="nv">id</span><span class="si">}</span> <span class="s2">&#34;.sam&#34;</span><span class="k">)</span>.bam   <span class="si">${</span><span class="nv">id</span><span class="si">}</span><span class="o">)</span><span class="p">;</span><span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="gtf">gtf</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">gtf</span><span class="o">=</span>/home/duansq/reference/gtf/gencode/mm10/gencode.vM24.annotation.gtf.gz
+featureCounts -T <span class="m">5</span> -p -t exon -g gene_id -a <span class="nv">$gtf</span> -o all.id.txt *.bam 1&gt;counts.id.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="mm10-gtf-gencode">mm10 gtf gencode</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.annotation.gtf.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.chr_patch_hapl_scaff.annotation.gtf.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.primary_assembly.annotation.gtf.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.basic.annotation.gtf.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.chr_patch_hapl_scaff.basic.annotation.gtf.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.long_noncoding_RNAs.gtf.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.polyAs.gtf.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.2wayconspseudos.gtf.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode.vM24.tRNAs.gtf.gz
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -183,7 +237,7 @@ featureCounts -T 5 -p -t exon -g gene_id -a $gtf -o all.id.txt *.bam 1&gt;counts
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2020-04-18
+      2020-04-20
       
     </span>
   </p>

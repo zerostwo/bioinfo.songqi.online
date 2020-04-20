@@ -26,7 +26,7 @@
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/04/19/raw_data_processing_flow/</guid>
-      <description>https://www.jianshu.com/p/a84cd44bac67 进行质控 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &amp;gt; ./fastqc.log 2&amp;gt;&amp;amp;1 &amp;amp; 去除低质量的部分 nohup trim_galore &amp;ndash;illumina -o clean raw/fastq/.gz &amp;amp; nohup trim_galore -q 25 &amp;ndash;phred33 &amp;ndash;fastqc &amp;ndash;length 36 &amp;ndash;stringency 3 -o clean raw/fastq/.gz &amp;amp; 平台：&amp;ndash;nextera 序列比对 index=/home/duansq/reference/index/hisat/mm10 ls ./*.gz |</description>
+      <description>进行质控 1 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &amp;gt; ./fastqc.log 2&amp;gt;&amp;amp;1 &amp;amp; 去除低质量的部分 1 2 nohup trim_galore --illumina -o clean raw/fastq/*.gz &amp;amp; nohup trim_galore -q 25 --phred33 --fastqc --length 36 --stringency 3 -o clean raw/fastq/*.gz &amp;amp; 平台：&amp;ndash;nextera 序列比对 1 2</description>
     </item>
     
     <item>
