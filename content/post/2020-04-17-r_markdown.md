@@ -71,13 +71,14 @@ $$E=mc^2$$
 ```
 
 $$E=mc^2$$
+
 行内公式：
 
 ```latex
-$c\approx 299,792,458\space m/s$
+\\( c\approx 299,792,458\space m/s \\)
 ```
 
-其中$c\approx 299,792,458\space m/s$
+其中\\( c\approx 299,792,458\space m/s \\)
 
 # 4 并排放两张图
 

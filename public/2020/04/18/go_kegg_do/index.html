@@ -52,7 +52,7 @@
 <meta itemprop="description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编">
 <meta itemprop="datePublished" content="2020-04-18T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-19T15:35:51&#43;08:00" />
-<meta itemprop="wordCount" content="1362">
+<meta itemprop="wordCount" content="1368">
 
 
 
@@ -200,13 +200,13 @@
 <p>满足以下三个条件的基因即可视为差异基因：</p>
 <ul>
 <li>
-<p>$FPKM1&gt;1$并且$FPKM2&gt;1$</p>
+<p>\(FPKM1&gt;1$并且$FPKM2&gt;1\)</p>
 </li>
 <li>
-<p>$\left|\log_{2}{FC}\right|\geq 1$</p>
+<p>\(\left|\log_{2}{FC}\right|\geq 1\)</p>
 </li>
 <li>
-<p>$p &lt; 0.05$</p>
+<p>\(p &lt; 0.05\)</p>
 </li>
 </ul>
 <div class="highlight"><div class="chroma">
@@ -227,7 +227,7 @@
 <span class="nf">dim</span><span class="p">(</span><span class="n">cuffdiff_result.sign</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>通过数据筛选后，基因数已经从原来的22857个缩减到84个，这84个就是我们期望的<code>DEG</code>，但是84个基因做GO富集分析是做不出什么好的结果的（<strong>为什么呢？</strong>），因此在这里将条件放宽一下，$\left|\log_{2}{FC}\right|\geq 1$变为$\left|\log_{2}{FC}\right|\geq 0.5$，得到差不多1000个左右的基因即可。</p>
+</div><p>通过数据筛选后，基因数已经从原来的22857个缩减到84个，这84个就是我们期望的<code>DEG</code>，但是84个基因做GO富集分析是做不出什么好的结果的（<strong>为什么呢？</strong>），因此在这里将条件放宽一下，\(\left|\log_{2}{FC}\right|\geq 1\)变为\(\left|\log_{2}{FC}\right|\geq 0.5\)，得到差不多1000个左右的基因即可。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -557,18 +557,19 @@ dotplot(erich.KEGG)
 <script type="text/javascript" src="../../../../js/main.5c396b668cb22fb75d863f6bf5678a531438ebda670c726c4f071a7194fa9ffd.js"></script>
 <script type="text/javascript">
   window.MathJax = {
-      { { if or.Params.mathjaxEnableSingleDollar(and.Site.Params.mathjaxEnableSingleDollar(ne.Params.mathjaxEnableSingleDollar true)) -} }
+      { { if or.Params.mathjaxEnableSingleDollar(and.Site.Params.mathjaxEnableSingleDollar(ne.Params.mathjaxEnableSingleDollar false)) -} }
   tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
   { { end -} }
-  { { if or.Params.mathjaxEnableAutoNumber(and.Site.Params.mathjaxEnableAutoNumber(ne.Params.mathjaxEnableAutoNumber true)) -} }
+  { { if or.Params.mathjaxEnableAutoNumber(and.Site.Params.mathjaxEnableAutoNumber(ne.Params.mathjaxEnableAutoNumber false)) -} }
   TeX: { equationNumbers: { autoNumber: "AMS" } },
   { { end -} }
   showProcessingMessages: false,
     messageStyle: 'none'
     };
 </script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
-  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
 
 <script type="application/javascript">

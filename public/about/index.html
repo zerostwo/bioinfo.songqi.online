@@ -209,18 +209,19 @@
 <script type="text/javascript" src="../js/main.5c396b668cb22fb75d863f6bf5678a531438ebda670c726c4f071a7194fa9ffd.js"></script>
 <script type="text/javascript">
   window.MathJax = {
-      { { if or.Params.mathjaxEnableSingleDollar(and.Site.Params.mathjaxEnableSingleDollar(ne.Params.mathjaxEnableSingleDollar true)) -} }
+      { { if or.Params.mathjaxEnableSingleDollar(and.Site.Params.mathjaxEnableSingleDollar(ne.Params.mathjaxEnableSingleDollar false)) -} }
   tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
   { { end -} }
-  { { if or.Params.mathjaxEnableAutoNumber(and.Site.Params.mathjaxEnableAutoNumber(ne.Params.mathjaxEnableAutoNumber true)) -} }
+  { { if or.Params.mathjaxEnableAutoNumber(and.Site.Params.mathjaxEnableAutoNumber(ne.Params.mathjaxEnableAutoNumber false)) -} }
   TeX: { equationNumbers: { autoNumber: "AMS" } },
   { { end -} }
   showProcessingMessages: false,
     messageStyle: 'none'
     };
 </script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
-  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
 
 <script type="application/javascript">
