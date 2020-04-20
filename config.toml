@@ -21,7 +21,7 @@ hasCJKLanguage = true
 # 首页每页显示的文章数
 paginate = 5
 # disqus_shortname
-disqusShortname = "duansq"
+disqusShortname = "songqi"
 # UA-XXXXXXXX-X
 googleAnalytics = "UA-131168697-2"      
 # 默认为下面配置的author.name
