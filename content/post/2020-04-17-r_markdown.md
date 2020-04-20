@@ -7,23 +7,15 @@ categories:
   - 生物信息学
 tags:
   - R
-lastmod: '2020-04-19T11:42:23+08:00'
+lastmod: '2020-04-20T11:42:23+08:00'
 keywords: []
 description: ''
-
-hiddenFromHomePage: false
+toc: true
+comment: true
 contentCopyright: "<a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>"
-reward: false
 mathjax: true
 mathjaxEnableSingleDollar: true
 mathjaxEnableAutoNumber: true
-hideHeaderAndFooter: false
-flowchartDiagrams:
-  enable: false
-  options: ''
-sequenceDiagrams:
-  enable: false
-  options: ''
 ---
 `R markdown`通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。
 

@@ -7,27 +7,21 @@
   <title>PCA绘图 - Songqi</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-
 <meta name="theme-color" content="#f8f5ec" />
 <meta name="msapplication-navbutton-color" content="#f8f5ec">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-
 <meta name="author"
-  content="Songqi Duan" /><meta name="description" content="使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;#34;wt&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;), paste(&amp;#34;ko&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;#34;gene&amp;#34;, 1:100, sep=&amp;#34;&amp;#34;) ) for (i in 1:100) { wt.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &amp;lt;-" /><meta name="keywords"
-  content="生物信息学, R语言, 数据分析" />
-
-
+    content="Songqi Duan" /><meta name="description" content="使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &amp;lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &amp;lt;- c( paste(&amp;#34;wt&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;), paste(&amp;#34;ko&amp;#34;, 1:5, sep=&amp;#34;&amp;#34;) ) rownames(data.matrix) &amp;lt;- c( paste(&amp;#34;gene&amp;#34;, 1:100, sep=&amp;#34;&amp;#34;) ) for (i in 1:100) { wt.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &amp;lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &amp;lt;-" /><meta name="keywords"
+    content="生物信息学, R语言, 数据分析" />
 
 
 
 
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
-
 
 <link rel="canonical" href="../../../../2020/04/16/pca/" />
 <link rel="apple-touch-icon" sizes="180x180" href="../../../../apple-touch-icon.png">
@@ -37,10 +31,8 @@
 <link rel="mask-icon" href="../../../../safari-pinned-tab.svg" color="#5bbad5">
 
 
-
 <link href="../../../../sass/main.min.f527d45788cc356ff99d15fa9df89766fb20ac762a8a1e6f488043d4df0bc8a8.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
 
 <meta property="og:title" content="PCA绘图" />
 <meta property="og:description" content="使用R语言进行PCA绘图1 构建绘图数据 1 2 3 4 5 6 7 8 9 10 11 12 13 data.matrix &lt;- matrix(nrow=100, ncol=10) colnames(data.matrix) &lt;- c( paste(&#34;wt&#34;, 1:5, sep=&#34;&#34;), paste(&#34;ko&#34;, 1:5, sep=&#34;&#34;) ) rownames(data.matrix) &lt;- c( paste(&#34;gene&#34;, 1:100, sep=&#34;&#34;) ) for (i in 1:100) { wt.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1)) ko.values &lt;- rpois(5, lambda=sample(x=10:1000, size=1)) data.matrix[i,] &lt;-" />
@@ -63,7 +55,6 @@
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
 <![endif]-->
-
 <!--[if lt IE 9]>
   <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -101,7 +92,6 @@
       <div class="logo-wrapper">
   <a href="../../../../" class="logo">Songqi</a>
 </div>
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -350,7 +340,26 @@
     </footer>
   </article>
         </div>
-        
+        <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    id: '2020-04-16 00:00:00 \x2b0000 UTC',
+    title: 'PCA绘图',
+    clientID: 'e80f8bc7b6095ab1ad40',
+    clientSecret: '623211db1d4eca51644a76627aa4d2f224dd98c8',
+    repo: 'songqi',
+    owner: 'zerostwo',
+    admin: ['zerostwo'],
+    body: decodeURI(location.href)
+  });
+  gitalk.render('gitalk-container');
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by
+    gitalk.</a></noscript>
+
+
       </div>
     </main>
 
@@ -362,10 +371,8 @@
   <a href="https://space.bilibili.com/85834603" class="iconfont icon-bilibili" title="bilibili"></a>
   <a href="../../../../index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
-
 <div class="copyright">
   
-
   <span class="copyright-year">
     Copyright&copy;
     <a href="https://songqi.netlify.app/" style="color:#8a8a8a"><span
@@ -423,7 +430,6 @@
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -444,7 +450,6 @@ if (!doNotTrack) {
     s.parentNode.insertBefore(hm, s);
   })();
 </script>
-
 <script id="baidu_push">
   (function () {
     if (window.location.hostname === 'localhost') return;
@@ -460,7 +465,6 @@ if (!doNotTrack) {
     s.parentNode.insertBefore(bp, s);
   })();
 </script>
-
 
 
 </body>

@@ -2,7 +2,6 @@
 {{- if .Site.Params.highlightInClient -}}
 <script src="{{ "lib/highlight/highlight.pack.js?v=20171001" | relURL }}"></script>
 {{- end -}}
-
 <!-- core -->
 {{- if .Site.Params.publicCDN.enable }}
 {{ .Site.Params.publicCDN.jquery | safeHTML }}
@@ -14,7 +13,6 @@
 {{ if .Site.Params.fancybox }}
 <script type="text/javascript" src="{{ "lib/fancybox/jquery.fancybox-3.1.20.min.js" | relURL }}"></script>{{ end }}
 {{- end -}}
-
 <!-- timeago.JS -->
 {{- if and (or .Params.enableOutdatedInfoWarning (and .Site.Params.outdatedInfoWarning.enable (ne .Params.enableOutdatedInfoWarning false))) (or .IsPage .IsHome) }}
 {{- if .Site.Params.publicCDN.enable }}
@@ -30,7 +28,6 @@
   timeago.cancel();  // stop update
 </script>
 {{- end -}}
-
 <!-- flowchart -->
 {{- if and (or .Params.flowchartDiagrams.enable (and .Site.Params.flowchartDiagrams.enable (ne .Params.flowchartDiagrams.enable false))) (or .IsPage .IsHome) -}}
 <script>
@@ -49,7 +46,6 @@
   integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script>
 {{- end -}}
 {{- end -}}
-
 <!-- js-sequence-diagrams -->
 {{- if and (or .Params.sequenceDiagrams.enable (and .Site.Params.sequenceDiagrams.enable (ne .Params.sequenceDiagrams.enable false))) (or .IsPage .IsHome) -}}
 <script>
@@ -79,7 +75,6 @@
 {{ $main := resources.Get "js/main.js" }}
 {{ $js := slice $even $main | resources.Concat "js/main.js" | fingerprint }}
 <script type="text/javascript" src="{{ $js.Permalink }}"></script>
-
 {{- if and (or .Params.mathjax (and .Site.Params.mathjax (ne .Params.mathjax false))) (or .IsPage .IsHome) }}
 <script type="text/javascript">
   window.MathJax = {
@@ -101,12 +96,10 @@
 </script>
 {{- end }}
 {{- end }}
-
 <!-- Analytics -->
 {{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
 {{ template "_internal/google_analytics_async.html" . }}
 {{- end -}}
-
 {{- with .Site.Params.baiduAnalytics -}}
 <script id="baidu_analytics">
   var _hmt = _hmt || [];
@@ -119,7 +112,6 @@
   })();
 </script>
 {{- end }}
-
 <!-- baidu push -->
 {{- if .Site.Params.baiduPush -}}
 <script id="baidu_push">
@@ -138,7 +130,6 @@
   })();
 </script>
 {{- end }}
-
 <!-- custom js -->
 {{ range .Site.Params.customJS -}}
 <script src="{{ "/js/" | relURL }}{{ . }}"></script>

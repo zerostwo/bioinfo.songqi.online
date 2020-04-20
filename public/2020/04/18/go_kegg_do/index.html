@@ -7,27 +7,21 @@
   <title>GO, KEGG, DO富集分析 - Songqi</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-
 <meta name="theme-color" content="#f8f5ec" />
 <meta name="msapplication-navbutton-color" content="#f8f5ec">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-
 <meta name="author"
-  content="Songqi Duan" /><meta name="description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编" /><meta name="keywords"
-  content="生物信息学, R语言, 数据分析" />
-
-
+    content="Songqi Duan" /><meta name="description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编" /><meta name="keywords"
+    content="生物信息学, R语言, 数据分析" />
 
 
 
 
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
-
 
 <link rel="canonical" href="../../../../2020/04/18/go_kegg_do/" />
 <link rel="apple-touch-icon" sizes="180x180" href="../../../../apple-touch-icon.png">
@@ -37,10 +31,8 @@
 <link rel="mask-icon" href="../../../../safari-pinned-tab.svg" color="#5bbad5">
 
 
-
 <link href="../../../../sass/main.min.f527d45788cc356ff99d15fa9df89766fb20ac762a8a1e6f488043d4df0bc8a8.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
 
 <meta property="og:title" content="GO, KEGG, DO富集分析" />
 <meta property="og:description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编" />
@@ -52,7 +44,7 @@
 <meta itemprop="description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编">
 <meta itemprop="datePublished" content="2020-04-18T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-19T15:35:51&#43;08:00" />
-<meta itemprop="wordCount" content="1472">
+<meta itemprop="wordCount" content="1474">
 
 
 
@@ -63,7 +55,6 @@
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
 <![endif]-->
-
 <!--[if lt IE 9]>
   <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -101,7 +92,6 @@
       <div class="logo-wrapper">
   <a href="../../../../" class="logo">Songqi</a>
 </div>
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -200,7 +190,7 @@
 <p>满足以下三个条件的基因即可视为差异基因：</p>
 <ul>
 <li>
-<p>\(FPKM1&gt;1$并且$FPKM2&gt;1\)</p>
+<p>\(FPKM1&gt;1\)并且\(FPKM2&gt;1\)</p>
 </li>
 <li>
 <p>\(\left|\log_{2}{FC}\right|\geq 1\)</p>
@@ -511,8 +501,6 @@ dotplot(erich.KEGG)
     gitalk.</a></noscript>
 
 
-
-
       </div>
     </main>
 
@@ -524,10 +512,8 @@ dotplot(erich.KEGG)
   <a href="https://space.bilibili.com/85834603" class="iconfont icon-bilibili" title="bilibili"></a>
   <a href="../../../../index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
-
 <div class="copyright">
   
-
   <span class="copyright-year">
     Copyright&copy;
     <a href="https://songqi.netlify.app/" style="color:#8a8a8a"><span
@@ -551,7 +537,20 @@ dotplot(erich.KEGG)
     var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) { return $0.replace($1, $1.toUpperCase()); });
   timeago().render(document.querySelectorAll('.timeago'), languageCode);
   timeago.cancel();  
-</script>
+</script><script>
+  { { - if .Params.flowchartDiagrams.options -} }
+  window.flowchartDiagramsOptions = ;
+  { { - else if .Site.Params.flowchartDiagrams.options -} }
+  window.flowchartDiagramsOptions = ;
+  { { - end -} }
+</script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script>
+  { { - if .Params.sequenceDiagrams.options -} }
+  window.sequenceDiagramsOptions = ;
+  { { - else if .Site.Params.sequenceDiagrams.options -} }
+  window.sequenceDiagramsOptions = ;
+  { { - end -} }
+</script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
 
 
 
@@ -571,7 +570,6 @@ dotplot(erich.KEGG)
 <script id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -593,7 +591,6 @@ if (!doNotTrack) {
     s.parentNode.insertBefore(hm, s);
   })();
 </script>
-
 <script id="baidu_push">
   (function () {
     if (window.location.hostname === 'localhost') return;
@@ -609,7 +606,6 @@ if (!doNotTrack) {
     s.parentNode.insertBefore(bp, s);
   })();
 </script>
-
 
 
 </body>

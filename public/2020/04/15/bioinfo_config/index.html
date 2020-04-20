@@ -7,27 +7,21 @@
   <title>生物信息学环境配置 - Songqi</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-
 <meta name="theme-color" content="#f8f5ec" />
 <meta name="msapplication-navbutton-color" content="#f8f5ec">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-
 <meta name="author"
-  content="Songqi Duan" /><meta name="description" content="拿到一台新的服务器生信分析环境的配置 1 终端美化（Oh My Zsh）1 1.1 安装 Zsh 1 2 sudo apt install zsh chsh -s /bin/zsh 1.2 安装 Oh My Zsh 1 2 sudo apt install git wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh 1.3 插件配置 zs" /><meta name="keywords"
-  content="生物信息学, R语言, 数据分析" />
-
-
+    content="Songqi Duan" /><meta name="description" content="拿到一台新的服务器生信分析环境的配置 1 终端美化（Oh My Zsh）1 1.1 安装 Zsh 1 2 sudo apt install zsh chsh -s /bin/zsh 1.2 安装 Oh My Zsh 1 2 sudo apt install git wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh 1.3 插件配置 zs" /><meta name="keywords"
+    content="生物信息学, R语言, 数据分析" />
 
 
 
 
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
-
 
 <link rel="canonical" href="../../../../2020/04/15/bioinfo_config/" />
 <link rel="apple-touch-icon" sizes="180x180" href="../../../../apple-touch-icon.png">
@@ -37,10 +31,8 @@
 <link rel="mask-icon" href="../../../../safari-pinned-tab.svg" color="#5bbad5">
 
 
-
 <link href="../../../../sass/main.min.f527d45788cc356ff99d15fa9df89766fb20ac762a8a1e6f488043d4df0bc8a8.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
 
 <meta property="og:title" content="生物信息学环境配置" />
 <meta property="og:description" content="拿到一台新的服务器生信分析环境的配置 1 终端美化（Oh My Zsh）1 1.1 安装 Zsh 1 2 sudo apt install zsh chsh -s /bin/zsh 1.2 安装 Oh My Zsh 1 2 sudo apt install git wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh 1.3 插件配置 zs" />
@@ -63,7 +55,6 @@
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
 <![endif]-->
-
 <!--[if lt IE 9]>
   <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
@@ -101,7 +92,6 @@
       <div class="logo-wrapper">
   <a href="../../../../" class="logo">Songqi</a>
 </div>
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -534,8 +524,6 @@ conda deactivate
     gitalk.</a></noscript>
 
 
-
-
       </div>
     </main>
 
@@ -547,10 +535,8 @@ conda deactivate
   <a href="https://space.bilibili.com/85834603" class="iconfont icon-bilibili" title="bilibili"></a>
   <a href="../../../../index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
-
 <div class="copyright">
   
-
   <span class="copyright-year">
     Copyright&copy;
     <a href="https://songqi.netlify.app/" style="color:#8a8a8a"><span
@@ -574,12 +560,39 @@ conda deactivate
     var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) { return $0.replace($1, $1.toUpperCase()); });
   timeago().render(document.querySelectorAll('.timeago'), languageCode);
   timeago.cancel();  
-</script>
+</script><script>
+  { { - if .Params.flowchartDiagrams.options -} }
+  window.flowchartDiagramsOptions = ;
+  { { - else if .Site.Params.flowchartDiagrams.options -} }
+  window.flowchartDiagramsOptions = ;
+  { { - end -} }
+</script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script>
+  { { - if .Params.sequenceDiagrams.options -} }
+  window.sequenceDiagramsOptions = ;
+  { { - else if .Site.Params.sequenceDiagrams.options -} }
+  window.sequenceDiagramsOptions = ;
+  { { - end -} }
+</script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
 
 
 
 <script type="text/javascript" src="../../../../js/main.5c396b668cb22fb75d863f6bf5678a531438ebda670c726c4f071a7194fa9ffd.js"></script>
-
+<script type="text/javascript">
+  window.MathJax = {
+      { { if or.Params.mathjaxEnableSingleDollar(and.Site.Params.mathjaxEnableSingleDollar(ne.Params.mathjaxEnableSingleDollar false)) -} }
+  tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+  { { end -} }
+  { { if or.Params.mathjaxEnableAutoNumber(and.Site.Params.mathjaxEnableAutoNumber(ne.Params.mathjaxEnableAutoNumber false)) -} }
+  TeX: { equationNumbers: { autoNumber: "AMS" } },
+  { { end -} }
+  showProcessingMessages: false,
+    messageStyle: 'none'
+    };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -601,7 +614,6 @@ if (!doNotTrack) {
     s.parentNode.insertBefore(hm, s);
   })();
 </script>
-
 <script id="baidu_push">
   (function () {
     if (window.location.hostname === 'localhost') return;
@@ -617,7 +629,6 @@ if (!doNotTrack) {
     s.parentNode.insertBefore(bp, s);
   })();
 </script>
-
 
 
 </body>
