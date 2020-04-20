@@ -68,7 +68,7 @@ source .zshrc
 - 安装
   ```bash
   sudo apt update
-  sudo apt intall r-base
+  sudo apt install r-base
   ```
 
 ## 2.2 安装Rstudio[^2]
@@ -85,6 +85,13 @@ sudo gdebi rstudio-server-1.2.5042-amd64.deb
 
 Rstudio Server默认端口`8787`
 
+安装完成后如果是国内服务器编辑`vim ~/.Rprofile`：
+
+```vim
+options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
+```
+
 # 3 conda安装及bioconda配置
 
 ## 3.1 miniconda安装
@@ -92,8 +99,12 @@ Rstudio Server默认端口`8787`
 在[Miniconda](https://docs.conda.io/en/latest/miniconda.html)获取最新安装包链接
 
 ```bash
+# 国外服务器
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
+# 国内服务器
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py38_4.8.2-Linux-x86_64.sh
+bash Miniconda3-py38_4.8.2-Linux-x86_64.sh
 ```
 
 在完成后配置环境变量
@@ -111,7 +122,20 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 ```
 
-如果是国内服务器，可以换用[Anaconda 镜像使用帮助](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)
+如果是国内服务器，可以换用[Anaconda 镜像使用帮助](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)。按照以下方法添加清华源[^4]：
+
+```bash
+#Anaconda Python 免费仓库
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ #Conda Forge
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ #msys2
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+#bioconda
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/ #menpo
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/ #pytorch
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ # for legacy win-64
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/peterjc123/
+conda config --set show_channel_urls yes
+```
 
 ## 3.3 常用生信工具安装
 
@@ -125,7 +149,7 @@ conda create -n rna python=3.7
 
 ```bash
 # 激活环境
-conda activate rna
+source activate rna
 # 退出环境
 conda deactivate
 ```
@@ -147,3 +171,4 @@ conda deactivate
 [^1]: [Ubuntu 下 Oh My Zsh 的最佳实践「安装及配置」](https://segmentfault.com/a/1190000015283092)
 [^2]: [Download RStudio Server for Debian & Ubuntu](https://rstudio.com/products/rstudio/download-server/debian-ubuntu/)
 [^3]: [Set up channels](https://bioconda.github.io/user/install.html)
+[^4]: [[转载]bioconda中国镜像(清华已恢复，中科大暂时没恢复)](http://blog.sciencenet.cn/home.php?mod=space&uid=623545&do=blog&id=1187896)
