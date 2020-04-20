@@ -52,7 +52,7 @@
 <meta itemprop="description" content="1 R Bioconductor初步探索 Bioconductor提供了用于分析和理解高通量基因组数据的工具。 Bioconductor使用R统计编">
 <meta itemprop="datePublished" content="2020-04-18T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-19T15:35:51&#43;08:00" />
-<meta itemprop="wordCount" content="1368">
+<meta itemprop="wordCount" content="1472">
 
 
 
@@ -268,12 +268,20 @@
 </div>
 </div><p>将提出出来的基因粘贴到<a href="http://amp.pharm.mssm.edu/Enrichr/">Enrichr</a>的输入框里面，然后点击<code>Submit</code>。</p>
 <p><strong>注意</strong>此网站适用于模式动物。如果要做植物的可以使用<a href="https://david.ncifcrf.gov/home.jsp">DAVID</a>，这个网站的优点是动物植物都可以做，但这个网站在国内加载奇慢。</p>
-<p><img src="https://songqi.zzmath.top/enrichr.png" alt="enrichr"></p>
-<!-- raw HTML omitted -->
-<p>稍等片刻后即可得到GO，KEGG，DO等分析结果。</p>
-<p><img src="https://songqi.zzmath.top/enrichr_result.png" alt="enrichr result"></p>
 <!-- raw HTML omitted -->
 </li>
+</ol>
+<!-- raw HTML omitted -->
+<pre><code>稍等片刻后即可得到GO，KEGG，DO等分析结果。
+
+&lt;figure class=&quot;center&quot;&gt;
+&lt;img src=&quot;https://songqi.zzmath.top/enrichr_result.png&quot;
+     alt=&quot;enrichr result&quot; width=&quot;100%&quot;/&gt; &lt;figcaption&gt;
+        &lt;h4&gt;图2. Enrichr运行完成后输出页面.&lt;/h4&gt;
+    &lt;/figcaption&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<ol start="4">
 <li>
 <p>富集分析（R包大法）</p>
 <p>安装以下的R包<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>：</p>
@@ -351,36 +359,33 @@
 <span class="nf">dotplot</span><span class="p">(</span><span class="n">erich.go.CC</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="https://songqi.zzmath.top/go_barplot.png" alt="GO barplot"></p>
-<!-- raw HTML omitted -->
-<p><img src="https://songqi.zzmath.top/go_dotplot.png" alt="GO dotplot"></p>
-<!-- raw HTML omitted -->
-<p>除此之外还可以使用<code>plotGOgraph</code>绘制树形图
-：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">plotGOgraph</span><span class="p">(</span><span class="n">erich.go.CC</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
 </div><!-- raw HTML omitted -->
-<p>如果图片看不清楚，可以将结果保存为<code>pdf</code>文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">pdf</span><span class="p">(</span><span class="s">&#34;~/songqi/data/rna-seq/enrich.go.cc.tree.pdf&#34;</span><span class="p">)</span>
-<span class="nf">plotGOgraph</span><span class="p">(</span><span class="n">erich.go.CC</span><span class="p">)</span>
-<span class="nf">dev.off</span><span class="p">()</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+</li>
 </ol>
+<!-- raw HTML omitted -->
+<pre><code>&lt;figure class=&quot;center&quot;&gt;
+&lt;img src=&quot;https://songqi.zzmath.top/go_dotplot.png&quot;
+     alt=&quot;GO dotplot&quot; width=&quot;100%&quot;/&gt; &lt;figcaption&gt;
+        &lt;h4&gt;图4. Dotplot of Cellular Components.&lt;/h4&gt;
+    &lt;/figcaption&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<pre><code>除此之外还可以使用`plotGOgraph`绘制树形图
+</code></pre>
+<p>：</p>
+<pre><code>```r
+plotGOgraph(erich.go.CC)
+```
+&lt;center style=&quot;font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;&quot;&gt;图5. PlotGOgraph of Cellular Components.&lt;/center&gt;
+
+如果图片看不清楚，可以将结果保存为`pdf`文件
+
+```r
+pdf(&quot;~/songqi/data/rna-seq/enrich.go.cc.tree.pdf&quot;)
+plotGOgraph(erich.go.CC)
+dev.off()
+```
+</code></pre>
 <h2 id="22-kegg富集分析kegg-enrichment-analysis">2.2 KEGG富集分析（KEGG enrichment analysis）</h2>
 <p>将生物体的<code>pathway</code>进行富集分析。</p>
 <div class="highlight"><div class="chroma">
@@ -407,9 +412,7 @@ barplot(erich.KEGG)
 dotplot(erich.KEGG)
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="https://songqi.zzmath.top/kegg_barplot.png" alt="KEGG barplot"></p>
-<!-- raw HTML omitted -->
-<p><img src="https://songqi.zzmath.top/kegg_dotplot.png" alt="KEGG dotplot"></p>
+</div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="23-do富集分析do-enrichment-analysis">2.3 DO富集分析（DO enrichment analysis）</h2>
 <p>看基因是否在某个疾病上富集，临床上用得比较多。</p>
@@ -429,9 +432,7 @@ dotplot(erich.KEGG)
 <span class="nf">dotplot</span><span class="p">(</span><span class="n">erich.DO</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="https://songqi.zzmath.top/do_barplot.png" alt="DO barplot"></p>
-<!-- raw HTML omitted -->
-<p><img src="https://songqi.zzmath.top/do_dotplot.png" alt="DO dotplot"></p>
+</div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>以上所有内容学习自<a href="https://www.bilibili.com/video/BV14W411q7gi?t=2387">2018-01-07 生物信息学教程-GO, KEGG, DO富集分析
 </a></p>

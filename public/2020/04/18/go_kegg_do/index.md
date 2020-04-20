@@ -80,14 +80,12 @@
     将提出出来的基因粘贴到[Enrichr](http://amp.pharm.mssm.edu/Enrichr/)的输入框里面，然后点击`Submit`。
     
     **注意**此网站适用于模式动物。如果要做植物的可以使用[DAVID](https://david.ncifcrf.gov/home.jsp)，这个网站的优点是动物植物都可以做，但这个网站在国内加载奇慢。
-    
-    ![enrichr](https://songqi.zzmath.top/enrichr.png)
-    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图1. Enrichr官网主页面.</center>
+
+    {{% figure class="center" src="https://songqi.zzmath.top/enrichr.png" title="图1. Enrichr官网主页面." alt="enrichr" width="100%"%}}
     
     稍等片刻后即可得到GO，KEGG，DO等分析结果。
     
-    ![enrichr result](https://songqi.zzmath.top/enrichr_result.png)
-    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图2. Enrichr运行完成后输出页面.</center>
+    {{% figure class="center" src="https://songqi.zzmath.top/enrichr_result.png" title="图2. Enrichr运行完成后输出页面." alt="enrichr result" width="100%"%}}
     
 4. 富集分析（R包大法）
     
@@ -132,11 +130,10 @@
     barplot(erich.go.CC)
     dotplot(erich.go.CC)
     ```
-    ![GO barplot](https://songqi.zzmath.top/go_barplot.png)
-    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图3. Barplot of Cellular Components.</center>
     
-    ![GO dotplot](https://songqi.zzmath.top/go_dotplot.png)
-    <center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图4. Dotplot of Cellular Components.</center>
+    {{% figure class="center" src="https://songqi.zzmath.top/go_barplot.png" title="图3. Barplot of Cellular Components." alt="GO barplot" width="100%"%}}
+    
+    {{% figure class="center" src="https://songqi.zzmath.top/go_dotplot.png" title="图4. Dotplot of Cellular Components." alt="GO dotplot" width="100%"%}}
     
     除此之外还可以使用`plotGOgraph`绘制树形图
  ：
@@ -169,11 +166,10 @@ load("~/songqi/data/rna-seq/go_kegg_do.Rdata")
 barplot(erich.KEGG)
 dotplot(erich.KEGG)
 ```
-![KEGG barplot](https://songqi.zzmath.top/kegg_barplot.png)
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图6. Barplot of KEGG.</center>
 
-![KEGG dotplot](https://songqi.zzmath.top/kegg_dotplot.png)
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图7. Dotplot of KEGG.</center>
+{{% figure class="center" src="https://songqi.zzmath.top/kegg_barplot.png" title="图6. Barplot of KEGG." alt="KEGG barplot" width="100%"%}}
+
+{{% figure class="center" src="https://songqi.zzmath.top/kegg_dotplot.png" title="图7. Dotplot of KEGG." alt="KEGG dotplot" width="100%"%}}
 
 
 ## 2.3 DO富集分析（DO enrichment analysis）
@@ -188,11 +184,9 @@ barplot(erich.DO)
 dotplot(erich.DO)
 ```
 
-![DO barplot](https://songqi.zzmath.top/do_barplot.png)
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图8. Barplot of DO.</center>
+{{% figure class="center" src="https://songqi.zzmath.top/do_barplot.png" title="图8. Barplot of DO." alt="DO barplot" width="100%"%}}
 
-![DO dotplot](https://songqi.zzmath.top/do_dotplot.png)
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图9. Dotplot of DO.</center>
+{{% figure class="center" src="https://songqi.zzmath.top/do_dotplot.png" title="图9. Dotplot of DO." alt="DO dotplot" width="100%"%}}
 
 以上所有内容学习自[2018-01-07 生物信息学教程-GO, KEGG, DO富集分析
 ](https://www.bilibili.com/video/BV14W411q7gi?t=2387)
