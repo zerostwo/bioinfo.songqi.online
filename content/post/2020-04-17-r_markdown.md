@@ -11,18 +11,18 @@ lastmod: '2020-04-19T11:42:23+08:00'
 keywords: []
 description: ''
 
-hiddenFromHomePage: no
+hiddenFromHomePage: false
 contentCopyright: "<a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>"
-reward: no
-mathjax: yes
+reward: false
+mathjax: true
 mathjaxEnableSingleDollar: true
 mathjaxEnableAutoNumber: true
-hideHeaderAndFooter: no
+hideHeaderAndFooter: false
 flowchartDiagrams:
-  enable: no
+  enable: false
   options: ''
 sequenceDiagrams:
-  enable: no
+  enable: false
   options: ''
 ---
 `R markdown`通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。

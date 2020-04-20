@@ -83,10 +83,10 @@
 {{- if and (or .Params.mathjax (and .Site.Params.mathjax (ne .Params.mathjax false))) (or .IsPage .IsHome) }}
 <script type="text/javascript">
   window.MathJax = {
-      { { if or.Params.mathjaxEnableSingleDollar(and.Site.Params.mathjaxEnableSingleDollar(ne.Params.mathjaxEnableSingleDollar false)) -} }
+      { { if or.Params.mathjaxEnableSingleDollar(and.Site.Params.mathjaxEnableSingleDollar(ne.Params.mathjaxEnableSingleDollar true)) -} }
   tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
   { { end -} }
-  { { if or.Params.mathjaxEnableAutoNumber(and.Site.Params.mathjaxEnableAutoNumber(ne.Params.mathjaxEnableAutoNumber false)) -} }
+  { { if or.Params.mathjaxEnableAutoNumber(and.Site.Params.mathjaxEnableAutoNumber(ne.Params.mathjaxEnableAutoNumber true)) -} }
   TeX: { equationNumbers: { autoNumber: "AMS" } },
   { { end -} }
   showProcessingMessages: false,

@@ -17,11 +17,11 @@ autoCollapseToc: true
 postMetaInFooter: true
 hiddenFromHomePage: false
 # You can also define another contentCopyright. e.g. contentCopyright: "This is another copyright."
-contentCopyright: "<a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC BY-NC-ND 4.0</a>"
+contentCopyright: ""
 reward: false
 mathjax: true
-mathjaxEnableSingleDollar: false
-mathjaxEnableAutoNumber: false
+mathjaxEnableSingleDollar: true
+mathjaxEnableAutoNumber: true
 
 # You unlisted posts you might want not want the header or footer to show
 hideHeaderAndFooter: false
