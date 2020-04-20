@@ -9,8 +9,9 @@
 ![Naruto](http://songqi.zzmath.top/Naruto.jpg){width=50%}
 </center>
 ```
+![Naruto](https://songqi.zzmath.top/Naruto.jpg#width-full)
 
-{{% figure src="http://songqi.zzmath.top/Naruto.jpg" title="图1. 言ったことは、まげねぇ。それが俺の忍道だ！" alt="Naruto" %}}
+<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图1. 言ったことは、まげねぇ。それが俺の忍道だ！</center>
 
 # 2 图注
 
@@ -27,10 +28,8 @@
 plot(c(1:10))
 ```
 
-![plot(c(1:10))](https://songqi.zzmath.top/unnamed-chunk-1-1.png)
+{{% figure src="https://songqi.zzmath.top/unnamed-chunk-1-1.png" title="图2. 我是图注." alt="plot(c(1:10))" width="50%"%}}
 
-</center>
-<center style="font-size:16px;color:#C0C0C0;margin-block-start: 1em;margin-block-end: 1em;">图2. 我是图注.</center>
 
 # 3 数学公式
 
