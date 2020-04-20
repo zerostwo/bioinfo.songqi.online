@@ -21,9 +21,9 @@ hasCJKLanguage = true
 # 首页每页显示的文章数
 paginate = 5
 # disqus_shortname
-disqusShortname = ""
+disqusShortname = "duansq"
 # UA-XXXXXXXX-X
-googleAnalytics = ""      
+googleAnalytics = "UA-131168697-2"      
 # 默认为下面配置的author.name
 copyright = ""
 
@@ -99,9 +99,9 @@ copyright = ""
 
   # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
   # 是否开启目录
-  toc = false
+  toc = true
   # 目录自动展开/折叠
-  autoCollapseToc = false
+  autoCollapseToc = true
   # 是否启用fancybox（图片可点击）
   fancybox = true
 
@@ -121,7 +121,7 @@ copyright = ""
   # 链接到markdown原始文件（仅当允许hugo生成markdown文件时有效）
   linkToMarkDown = true
   # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
-  contentCopyright = ''
+  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
 
   # 畅言
   changyanAppid = ""
@@ -133,7 +133,7 @@ copyright = ""
   
   # 百度
   baiduPush = true        # baidu push                  
-  baiduAnalytics = ""      # Baidu Analytics
+  baiduAnalytics = "0c941bf9e3385efd75dbf7ede017eb3f"      # Baidu Analytics
   baiduVerification = ""   # Baidu Verification
   # 谷歌
   googleVerification = ""  # Google Verification
