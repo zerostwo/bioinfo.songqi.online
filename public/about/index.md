@@ -1,2 +1,18 @@
 
-$$E=mc^2$$
+## 关于我
+
+我叫[段松岐（Songqi Duan）](https://www.researchgate.net/profile/Songqi_Duan)热爱数学和计算机科学，未来打算成为一名科研工作者，目前还是一名本科生（2017年9月入学）。然而由于不可抗力，本科的我选择了食品科学与工程这个专业。进入大学后，发现了生物信息学这个方向，我看到她的第一眼，我就知道我以后离不开她。俗（xia）话（Che）说（de）不会编程的生物信息学习者不是一名好的食品人，因此我就开始了我漫长的生物信息学自学之路。
+
+你在这个网站上看到的内容，都是我通过查阅书籍或通过网络自学而来的。我看到过一句话：所谓大学，其实就是锻炼你自学能力的地方。确实是这样，或许毕业之后，专业知识可用的地方具有局限性，但是通过本科四年下来锻炼的自学能力能让你在任何地方都大展身手。我很欣赏在我自学过程中在网络上看到的那些文章背后默默奉献的人们，他们分享了自己所学给好学者。因此我也要将我所学分享给大家。
+
+## 文章
+
+1. Yanyan Su, **Songqi Duan**, Huilan Zhang, et al. "Preparation and characterization of Konjac glucomannan and pullulan composite films for strawberry preservation." *Carbohydrate Polymers*. (IF=6.230) [DOI: 10.1016/j.carbpol.2020.116446](https://doi.org/10.1016/j.carbpol.2020.116446)
+	
+2. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "The purification, structural characterization and antidiabetic activity of a polysaccharide from *Anoectochilus roxburghii*." *Food Funct*. (IF=3.241) [DOI: 10.1039/C9FO00860H](https://doi.org/10.1039/C9FO00860H)
+
+3. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "Effects of sodium alginate and rice variety on the physicochemical characteristics and 3D printing feasibility of rice paste." *Lwt*. (IF=3.970) [DOI: 10.1016/j.lwt.2020.109360](https://doi.org/10.1016/j.lwt.2020.109360)
+	
+4. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "Applicability of Rice Doughs as Promising Food Materials in Extrusion-Based 3D Printing." *Food and Bioprocess Technology*. (IF=3.449) [DOI: 10.1007/s11947-020-02415-y](https://doi.org/10.1007/s11947-020-02415-y)
+	
+5. Yuntao Liu, Yuan Yuan, **Songqi Duan**, et al. (2020). "Preparation and characterization of chitosan films with three kinds of molecular weight for food packaging." *Int J Biol Macromol*. (IF=4.940) [DOI: 10.1016/j.ijbiomac.2020.03.217](https://doi.org/10.1016/j.ijbiomac.2020.03.217)
