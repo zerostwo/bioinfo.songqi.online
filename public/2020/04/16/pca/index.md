@@ -31,7 +31,7 @@ str(pca) # return x, sdev and rotation
 plot(pca$x[,1], pca$x[,2]) 
 ```
 
-{{% figure class="center" src="https://songqi.zzmath.top/unnamed-chunk-3-1.png" title="图1. PCA简图." alt="PCA" width="100%"%}}
+{{% figure class="center" src="https://files.zzmath.top/unnamed-chunk-3-1.png" title="图1. PCA简图." alt="PCA" width="100%"%}}
 
 - 第一主成分解释了原始数据（所有10个样本的基因表达）中最大的方差
 
@@ -49,7 +49,7 @@ barplot(pca.var.per,
         ylab="Percent Variation")
 ```
 
-{{% figure class="center" src="https://songqi.zzmath.top/unnamed-chunk-4-1.png" title="图2. Barplot." alt="barplot" width="100%"%}}
+{{% figure class="center" src="https://files.zzmath.top/unnamed-chunk-4-1.png" title="图2. Barplot." alt="barplot" width="100%"%}}
 
 ```r
 library(ggplot2)
@@ -67,7 +67,7 @@ ggplot(data=pca.data, mapping = aes(x=X, y=Y, label=Sample)) +
   ggtitle("My PCA Graph")
 ```
 
-{{% figure class="center" src="https://songqi.zzmath.top/unnamed-chunk-5-1.png" title="图3. 有注释的PCA图." alt="PCA" width="100%"%}}
+{{% figure class="center" src="https://files.zzmath.top/unnamed-chunk-5-1.png" title="图3. 有注释的PCA图." alt="PCA" width="100%"%}}
 
 下面我们可以通过`pca$rotation`来看什么基因对结果影响最大
 

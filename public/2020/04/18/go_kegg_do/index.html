@@ -184,7 +184,7 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">cuffdiff_result</span> <span class="o">=</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&#34;~/songqi/data/rna-seq/cuffdiff_test_data_gene_exp.diff&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;\t&#34;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">cuffdiff_result</span> <span class="o">=</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&#34;~/files/data/rna-seq/cuffdiff_test_data_gene_exp.diff&#34;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;\t&#34;</span><span class="p">)</span>
 <span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">sample_1</span> <span class="o">&lt;-</span> <span class="s">&#34;treat&#34;</span>
 <span class="n">cuffdiff_result</span><span class="o">$</span><span class="n">sample_2</span> <span class="o">&lt;-</span> <span class="s">&#34;ctrl&#34;</span>
 <span class="nf">dim</span><span class="p">(</span><span class="n">cuffdiff_result</span><span class="p">)</span>
@@ -257,7 +257,7 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="n">output.gene_id</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">gene_id</span><span class="o">=</span><span class="n">cuffdiff_result.sign</span><span class="o">$</span><span class="n">gene_id</span><span class="p">)</span>
 <span class="nf">write.table</span><span class="p">(</span><span class="n">output.gene_id</span><span class="p">,</span> 
-            <span class="n">file</span><span class="o">=</span><span class="s">&#34;~/songqi/data/rna-seq/sign_gene_id.txt&#34;</span><span class="p">,</span> 
+            <span class="n">file</span><span class="o">=</span><span class="s">&#34;~/files/data/rna-seq/sign_gene_id.txt&#34;</span><span class="p">,</span> 
             <span class="n">col.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span>
             <span class="n">sep</span><span class="o">=</span><span class="s">&#34;\t&#34;</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -271,7 +271,7 @@
 <pre><code>稍等片刻后即可得到GO，KEGG，DO等分析结果。
 
 &lt;figure class=&quot;center&quot;&gt;
-&lt;img src=&quot;https://songqi.zzmath.top/enrichr_result.png&quot;
+&lt;img src=&quot;https://files.zzmath.top/enrichr_result.png&quot;
      alt=&quot;enrichr result&quot; width=&quot;100%&quot;/&gt; &lt;figcaption&gt;
         &lt;h4&gt;图2. Enrichr运行完成后输出页面.&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -360,7 +360,7 @@
 </ol>
 <!-- raw HTML omitted -->
 <pre><code>&lt;figure class=&quot;center&quot;&gt;
-&lt;img src=&quot;https://songqi.zzmath.top/go_dotplot.png&quot;
+&lt;img src=&quot;https://files.zzmath.top/go_dotplot.png&quot;
      alt=&quot;GO dotplot&quot; width=&quot;100%&quot;/&gt; &lt;figcaption&gt;
         &lt;h4&gt;图4. Dotplot of Cellular Components.&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -377,7 +377,7 @@ plotGOgraph(erich.go.CC)
 如果图片看不清楚，可以将结果保存为`pdf`文件
 
 ```r
-pdf(&quot;~/songqi/data/rna-seq/enrich.go.cc.tree.pdf&quot;)
+pdf(&quot;~/files/data/rna-seq/enrich.go.cc.tree.pdf&quot;)
 plotGOgraph(erich.go.CC)
 dev.off()
 ```
@@ -403,7 +403,7 @@ dev.off()
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">load(&#34;~/songqi/data/rna-seq/go_kegg_do.Rdata&#34;)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">load(&#34;~/files/data/rna-seq/go_kegg_do.Rdata&#34;)
 barplot(erich.KEGG)
 dotplot(erich.KEGG)
 </code></pre></td></tr></table>
