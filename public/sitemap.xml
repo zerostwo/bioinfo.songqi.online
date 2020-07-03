@@ -1,65 +1,65 @@
-<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/about/</loc>
-    <lastmod>2020-07-03T18:13:05+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>/categories/</loc>
-    <lastmod>2020-07-03T17:24:46+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/tags/linux/</loc>
-    <lastmod>2020-04-20T15:56:27+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-07-03T17:24:46+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2020-07-03T17:24:46+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/</loc>
-    <lastmod>2020-07-03T17:24:46+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/2020/04/19/raw_data_processing_flow/</loc>
-    <lastmod>2020-04-20T15:56:27+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/2020/04/18/go_kegg_do/</loc>
-    <lastmod>2020-04-19T15:35:51+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/tags/r/</loc>
-    <lastmod>2020-07-03T17:24:46+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -73,28 +73,21 @@
   
   <url>
     <loc>/2020/04/16/pca/</loc>
-    <lastmod>2020-04-19T21:52:16+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/tags/python/</loc>
-    <lastmod>2020-04-20T14:58:00+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/2020/04/15/bioinfo_config/</loc>
-    <lastmod>2020-04-20T14:58:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-07-03T18:13:05+08:00</lastmod>
+    <lastmod>2020-07-04T00:26:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

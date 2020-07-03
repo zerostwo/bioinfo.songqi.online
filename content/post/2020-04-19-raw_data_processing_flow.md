@@ -2,17 +2,15 @@
 title: 转录组原始数据处理流程
 author: Songqi Duan
 date: '2020-04-19'
-slug: raw_data_processing_flow
 categories:
   - 生物信息学
 tags:
   - Linux
+slug: raw_data_processing_flow
 lastmod: '2020-04-20T15:56:27+08:00'
-keywords: []
-description: ''
-toc: true
-comment: true
-postMetaInFooter: true
+toc: yes
+comment: yes
+postMetaInFooter: yes
 contentCopyright: <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>CC
   BY-NC-ND 4.0</a>
 ---
