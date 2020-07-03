@@ -13,12 +13,22 @@ weight: 50
 
 ## 文章
 
-1. Yanyan Su, **Songqi Duan**, Huilan Zhang, et al. "Preparation and characterization of Konjac glucomannan and pullulan composite films for strawberry preservation." *Carbohydrate Polymers*. (IF=6.230) [DOI: 10.1016/j.carbpol.2020.116446](https://doi.org/10.1016/j.carbpol.2020.116446)
+1. Yanyan Su, **Songqi Duan**, Huilan Zhang, et al. "Preparation and characterization of Konjac glucomannan and pullulan composite films for strawberry preservation." *Carbohydrate Polymers*. (IF=7.182) [DOI: 10.1016/j.carbpol.2020.116446](https://doi.org/10.1016/j.carbpol.2020.116446)
 	
-2. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "The purification, structural characterization and antidiabetic activity of a polysaccharide from *Anoectochilus roxburghii*." *Food Funct*. (IF=3.241) [DOI: 10.1039/C9FO00860H](https://doi.org/10.1039/C9FO00860H)
+2. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "The purification, structural characterization and antidiabetic activity of a polysaccharide from *Anoectochilus roxburghii*." *Food Funct*. (IF=4.171) [DOI: 10.1039/C9FO00860H](https://doi.org/10.1039/C9FO00860H)
 
-3. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "Effects of sodium alginate and rice variety on the physicochemical characteristics and 3D printing feasibility of rice paste." *Lwt*. (IF=3.970) [DOI: 10.1016/j.lwt.2020.109360](https://doi.org/10.1016/j.lwt.2020.109360)
+3. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "Effects of sodium alginate and rice variety on the physicochemical characteristics and 3D printing feasibility of rice paste." *Lwt*. (IF=4.006) [DOI: 10.1016/j.lwt.2020.109360](https://doi.org/10.1016/j.lwt.2020.109360)
 	
-4. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "Applicability of Rice Doughs as Promising Food Materials in Extrusion-Based 3D Printing." *Food and Bioprocess Technology*. (IF=3.449) [DOI: 10.1007/s11947-020-02415-y](https://doi.org/10.1007/s11947-020-02415-y)
+4. Yuntao Liu, Tingting Tang, **Songqi Duan**, et al. "Applicability of Rice Doughs as Promising Food Materials in Extrusion-Based 3D Printing." *Food and Bioprocess Technology*. (IF=3.356) [DOI: 10.1007/s11947-020-02415-y](https://doi.org/10.1007/s11947-020-02415-y)
 	
-5. Yuntao Liu, Yuan Yuan, **Songqi Duan**, et al. (2020). "Preparation and characterization of chitosan films with three kinds of molecular weight for food packaging." *Int J Biol Macromol*. (IF=4.940) [DOI: 10.1016/j.ijbiomac.2020.03.217](https://doi.org/10.1016/j.ijbiomac.2020.03.217)
+5. Yuntao Liu, Yuan Yuan, **Songqi Duan**, et al. (2020). "Preparation and characterization of chitosan films with three kinds of molecular weight for food packaging." *Int J Biol Macromol*. (IF=5.162) [DOI: 10.1016/j.ijbiomac.2020.03.217](https://doi.org/10.1016/j.ijbiomac.2020.03.217)
+
+## 专利
+
+1. 一种人体胃肠道模拟消化器，2020，201921097181.9，段松岐（第一）
+
+2. 一种木姜叶柯活性成分的提取装置，2019，201910626073，段松岐（第一）
+
+## 项目
+
+1. 灰喇叭菌多糖的体外模拟消化及其肠道菌群发酵的研究，省级大学生创新训练计划项目，201910626073，段松岐（主持人，已结题）
