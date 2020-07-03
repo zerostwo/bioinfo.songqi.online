@@ -23,11 +23,13 @@ weight: 50
 	
 5. Yuntao Liu, Yuan Yuan, **Songqi Duan**, et al. (2020). "Preparation and characterization of chitosan films with three kinds of molecular weight for food packaging." *Int J Biol Macromol*. (IF=5.162) [DOI: 10.1016/j.ijbiomac.2020.03.217](https://doi.org/10.1016/j.ijbiomac.2020.03.217)
 
+6. Yuntao Liu, Xiaoyu Duan, **Songqi Duan**, et all. (2020). "Effects of in vitro digestion and fecal fermentation on stability and metabolic behavior of polysaccharides from *Craterellus cornucopioides*." *Food Funct*. (IF=4.171) [DOI: 10.1039/D0FO01430C](https://doi.org/10.1039/D0FO01430C)
+
 ## 专利
 
-1. 一种人体胃肠道模拟消化器，2020，201921097181.9，段松岐（第一）
+1. 一种人体胃肠道模拟消化器，2020，201921097181.9，**段松岐**；李仍树；张铭月等
 
-2. 一种木姜叶柯活性成分的提取装置，2019，201910626073，段松岐（第一）
+2. 一种木姜叶柯活性成分的提取装置，2019，201910626073，**段松岐**；李益文；颜滟苏等
 
 ## 项目
 
