@@ -2,13 +2,24 @@
 title: 关于
 author: Songqi Duan
 date: '2020-07-04'
-lastmod: '2017-08-28T21:41:52+08:00'
 weight: 50
 ---
 
 > 现在每一份努力都在为我的出行积累欣喜，希望我最后的成绩能点亮整个夏天，我会比这个夏天还闪耀！——2020年07月04日00点31分致自己。
 
-![希望我最后的成绩能点亮整个夏天](https://files.zzmath.top/to_summer.jpg)
+![test](https://files.zzmath.top/to_summer.jpg)
+
+<form name="contact" netlify>
+  <p>
+    <label>Name <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Email <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 
 ## 关于我
 
