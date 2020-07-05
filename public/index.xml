@@ -6,10 +6,19 @@
     <description>Recent content on Songqi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于</title>
+      <link>/about/</link>
+      <pubDate>Sat, 04 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>现在每一份努力都在为我的出行积累欣喜，希望我最后的成绩能点亮整个夏天，我会比这个夏天还闪耀！——2020年07月04日00点31分致自己。 关</description>
+    </item>
     
     <item>
       <title>转录组原始数据处理流程</title>
