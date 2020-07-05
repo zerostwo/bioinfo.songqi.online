@@ -211,9 +211,9 @@ copyright = "Songqi Duan"
     notify = true
     # Verification code
     verify = true
-    avatar = 'mm' 
+    avatar = 'retro' 
     placeholder = '说点什么吧...'
-    visitor = false
+    visitor = true
     
   # see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
   [params.flowchartDiagrams]
