@@ -26,7 +26,7 @@ paginate = 5
 # UA-XXXXXXXX-X
 googleAnalytics = "UA-131168697-2"      
 # 默认为下面配置的author.name
-copyright = ""
+copyright = "Songqi Duan"
 
 [author]
   name = "Songqi Duan"
@@ -80,7 +80,7 @@ copyright = ""
 
   # 站点信息（可选，不需要的可以直接注释掉）
   logoTitle = "Songqi"  # 默认值: 上面设置的title值
-  keywords = ["生物信息学", "R语言","数据分析"]
+  keywords = ["生物信息学", "R语言","数据分析","段松岐","Songqi Duan"]
   description = "Personal website of Songqi Duan"
 
   # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
@@ -93,7 +93,7 @@ copyright = ""
   dateFormatToUse = "2006-01-02"
 
   # 是否显示字数统计与阅读时间
-  moreMeta = false
+  moreMeta = true
 
   # Syntax highlighting by highlight.js
   highlightInClient = false
@@ -201,9 +201,9 @@ copyright = ""
   # You can get your appid and appkey from https://leancloud.cn
   # more info please open https://valine.js.org
   [params.valine]
-    enable = false
-    appId = ''
-    appKey = ''
+    enable = true
+    appId = 'EbW42Mr8CI212K4Nni3nVHGA-gzGzoHsz'
+    appKey = 'NVfGGps0xGO1Jye6lY2KdSQR'
     # mail notifier , https://github.com/xCss/Valine/wiki
     notify = true
     # Verification code
