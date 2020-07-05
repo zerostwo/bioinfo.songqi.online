@@ -189,14 +189,17 @@ copyright = "Songqi Duan"
   # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
   [params.gitalk]
     # Your GitHub ID
-    owner = "zerostwo"
+    # owner = "zerostwo"
+    owner = ""
     # The repo to store comments
-    repo = "songqi"
+    # repo = "songqi"
+    repo = ""
     # Your client ID
-    clientId = "e80f8bc7b6095ab1ad40"
+    # clientId = "e80f8bc7b6095ab1ad40"
+    clientId = ""
     # Your client secret
-    clientSecret = "623211db1d4eca51644a76627aa4d2f224dd98c8"
-
+    # clientSecret = "623211db1d4eca51644a76627aa4d2f224dd98c8"
+    clientSecret = ""
   # Valine.
   # You can get your appid and appkey from https://leancloud.cn
   # more info please open https://valine.js.org
