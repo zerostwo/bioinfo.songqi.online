@@ -31,6 +31,8 @@ weight: 50
 
 6. Yuntao Liu, Xiaoyu Duan, **Songqi Duan**, et all. (2020). "Effects of in vitro digestion and fecal fermentation on stability and metabolic behavior of polysaccharides from *Craterellus cornucopioides*." *Food Funct*. (IF=4.171) [DOI: 10.1039/D0FO01430C](https://doi.org/10.1039/D0FO01430C)
 
+7. 段小雨，**段松岐**，张蕙兰等（2020），芒果废弃物降解菌的筛选及香菇混菌发酵条件优化，四川农业大学学报，（中文核心期刊）[DOI: 16036/j.issn.1000-2650.2020.03.009](https://doi.org/16036/j.issn.1000-2650.2020.03.009)
+
 ## 专利
 
 1. 一种人体胃肠道模拟消化器，2020，201921097181.9，**段松岐**；李仍树；张铭月等
