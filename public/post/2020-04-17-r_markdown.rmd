@@ -23,10 +23,13 @@ mathjaxEnableAutoNumber: true
 
 # 1 图片居中
 
-`.Rmd`文件写法，在`{r}`中增添以下信息[^3]：
+`.Rmd`文件写法：
 
 ```r
+\```
 {r, echo=FALSE, fig.cap="图1. 言ったことは、まげねぇ。それが俺の忍道だ！", out.width = '80%'}
+knitr::include_graphics("http://files.zzmath.top/Naruto.jpg")
+
 ```
 
 {{% figure class="center" src="http://files.zzmath.top/Naruto.jpg" title="图1. 言ったことは、まげねぇ。それが俺の忍道だ！" alt="Naruto" width="80%"%}}
@@ -86,5 +89,4 @@ plot(rnorm(10))
 
 [^1]: [Pimp my RMD: a few tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/#)
 [^2]: [第 5 章 R Markdown](https://bookdown.org/xiao/RAnalysisBook/r-markdown.html)
-[^3]: [在R Markdown中插入图片/表格](https://www.itranslater.com/qa/details/2130545799317685248)
 

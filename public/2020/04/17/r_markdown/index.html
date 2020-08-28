@@ -16,12 +16,12 @@
 
 <meta name="author"
     content="Songqi Duan" /><meta name="description" content="R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和常" /><meta name="keywords"
-    content="生物信息学, R语言, 数据分析" />
+    content="生物信息学, R语言, 数据分析, 段松岐, Songqi Duan" />
 
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 <link rel="canonical" href="/2020/04/17/r_markdown/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -31,7 +31,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/sass/main.min.d2d87ff89c281677a19a7487d5f3aae29c1134c98deb75601b1f3aa7e1c9c6fa.css" rel="stylesheet">
+<link href="/sass/main.min.390a2e3c7d19a94b1cc4108b272f57d6f7fc6e147198364260d3e7504fc3db82.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 <meta property="og:title" content="R Markdown的使用技巧" />
@@ -44,7 +44,7 @@
 <meta itemprop="description" content="R markdown通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。 此文介绍R markdown的一些使用技巧和常">
 <meta itemprop="datePublished" content="2020-04-17T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-07-03T17:24:46&#43;08:00" />
-<meta itemprop="wordCount" content="226">
+<meta itemprop="wordCount" content="301">
 
 
 
@@ -122,6 +122,8 @@
         <div class="post-category">
             <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"> 生物信息学 </a>
             </div>
+          <span class="more-meta"> 约 301 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
         
       </div>
     </header>
@@ -133,21 +135,23 @@
     <nav id="TableOfContents"></nav>
   </div>
 </div>
+<div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-07-03T17:24:46"
+          title="July 3, 2020">July 3, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
     <div class="post-content">
       <p><code>R markdown</code>通过R代码创建交互式报告。这篇文章提供了一些我每天用来改善输出文档外观的技巧。</p>
 <p>此文介绍<code>R markdown</code>的一些使用技巧和常用快捷键<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
 <h1 id="1-图片居中">1 图片居中</h1>
-<p><code>.Rmd</code>文件写法：</p>
+<p><code>.Rmd</code>文件写法，在<code>{r}</code>中增添以下信息<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="o">&lt;</span><span class="n">center</span><span class="o">&gt;</span>
-<span class="o">!</span><span class="n">[Naruto</span><span class="nf">]</span><span class="p">(){</span><span class="n">width</span><span class="o">=</span><span class="m">50</span>%<span class="p">}</span>
-<span class="o">&lt;/</span><span class="n">center</span><span class="o">&gt;</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="p">{</span><span class="n">r</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">fig.cap</span><span class="o">=</span><span class="s">&#34;图1. 言ったことは、まげねぇ。それが俺の忍道だ！&#34;</span><span class="p">,</span> <span class="n">out.width</span> <span class="o">=</span> <span class="s">&#39;80%&#39;</span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><!-- raw HTML omitted -->
@@ -228,6 +232,9 @@
 <li id="fn:2" role="doc-endnote">
 <p><a href="https://bookdown.org/xiao/RAnalysisBook/r-markdown.html">第 5 章 R Markdown</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://www.itranslater.com/qa/details/2130545799317685248">在R Markdown中插入图片/表格</a> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
 </section>
 
@@ -275,25 +282,27 @@
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        
+<span id="/2020/04/17/r_markdown/" class="leancloud_visitors" data-flag-title="R Markdown的使用技巧">
+  <span class="post-meta-item-text">文章阅读量 </span>
+  <span class="leancloud-visitors-count">0</span>
+  <p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script type="text/javascript">
-  var gitalk = new Gitalk({
-    id: '2020-04-17 00:00:00 \x2b0000 UTC',
-    title: 'R Markdown的使用技巧',
-    clientID: 'e80f8bc7b6095ab1ad40',
-    clientSecret: '623211db1d4eca51644a76627aa4d2f224dd98c8',
-    repo: 'songqi',
-    owner: 'zerostwo',
-    admin: ['zerostwo'],
-    body: decodeURI(location.href)
-  });
-  gitalk.render('gitalk-container');
+  new Valine({
+    el: '#vcomments',
+    appId: 'EbW42Mr8CI212K4Nni3nVHGA-gzGzoHsz',
+    appKey: 'NVfGGps0xGO1Jye6lY2KdSQR',
+    notify:  true ,
+    verify:  true ,
+    avatar: 'retro',
+    placeholder: '说点什么吧...',
+    visitor:  true 
+    });
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by
-    gitalk.</a></noscript>
-
 
       </div>
     </main>

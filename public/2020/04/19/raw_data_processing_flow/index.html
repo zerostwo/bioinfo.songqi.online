@@ -16,12 +16,12 @@
 
 <meta name="author"
     content="Songqi Duan" /><meta name="description" content="进行质控 1 nohup fastqc -t 4 ./*.gz -o ./fastqc_results &amp;gt; ./fastqc.log 2&amp;gt;&amp;amp;1 &amp;amp; 去除低质量的部分 1 2 nohup trim_galore --illumina -o clean raw/fastq/*.gz &amp;amp; nohup trim_galore -q 25 --phred33 --fastqc --length 36 --stringency 3 -o clean raw/fastq/*.gz &amp;amp; 平台：&amp;ndash;nextera 序列比对 1 2" /><meta name="keywords"
-    content="生物信息学, R语言, 数据分析" />
+    content="生物信息学, R语言, 数据分析, 段松岐, Songqi Duan" />
 
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 <link rel="canonical" href="/2020/04/19/raw_data_processing_flow/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -31,7 +31,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/sass/main.min.d2d87ff89c281677a19a7487d5f3aae29c1134c98deb75601b1f3aa7e1c9c6fa.css" rel="stylesheet">
+<link href="/sass/main.min.390a2e3c7d19a94b1cc4108b272f57d6f7fc6e147198364260d3e7504fc3db82.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 <meta property="og:title" content="转录组原始数据处理流程" />
@@ -122,6 +122,8 @@
         <div class="post-category">
             <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"> 生物信息学 </a>
             </div>
+          <span class="more-meta"> 约 178 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
         
       </div>
     </header>
@@ -133,6 +135,12 @@
     <nav id="TableOfContents"></nav>
   </div>
 </div>
+<div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-07-04T00:41:14"
+          title="July 4, 2020">July 4, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
     <div class="post-content">
       <h1 id="进行质控">进行质控</h1>
 <div class="highlight"><div class="chroma">
@@ -281,25 +289,27 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M24/gencode
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        
+<span id="/2020/04/19/raw_data_processing_flow/" class="leancloud_visitors" data-flag-title="转录组原始数据处理流程">
+  <span class="post-meta-item-text">文章阅读量 </span>
+  <span class="leancloud-visitors-count">0</span>
+  <p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script type="text/javascript">
-  var gitalk = new Gitalk({
-    id: '2020-04-19 00:00:00 \x2b0000 UTC',
-    title: '转录组原始数据处理流程',
-    clientID: 'e80f8bc7b6095ab1ad40',
-    clientSecret: '623211db1d4eca51644a76627aa4d2f224dd98c8',
-    repo: 'songqi',
-    owner: 'zerostwo',
-    admin: ['zerostwo'],
-    body: decodeURI(location.href)
-  });
-  gitalk.render('gitalk-container');
+  new Valine({
+    el: '#vcomments',
+    appId: 'EbW42Mr8CI212K4Nni3nVHGA-gzGzoHsz',
+    appKey: 'NVfGGps0xGO1Jye6lY2KdSQR',
+    notify:  true ,
+    verify:  true ,
+    avatar: 'retro',
+    placeholder: '说点什么吧...',
+    visitor:  true 
+    });
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by
-    gitalk.</a></noscript>
-
 
       </div>
     </main>
