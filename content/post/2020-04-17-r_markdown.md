@@ -29,7 +29,7 @@ mathjaxEnableAutoNumber: true
 {r, echo=FALSE, fig.cap="图1. 言ったことは、まげねぇ。それが俺の忍道だ！", out.width = '80%'}
 ```
 
-{{% figure class="center" src="http://files.zzmath.top/Naruto.jpg" title="图1. 言ったことは、まげねぇ。それが俺の忍道だ！" alt="Naruto" width="80%"%}}
+{{% figure class="center" src="https://files.zzmath.top/Naruto.jpg" title="图1. 言ったことは、まげねぇ。それが俺の忍道だ！" alt="Naruto" width="80%"%}}
 
 # 2 图注
 
