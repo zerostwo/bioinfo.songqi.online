@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Songqi</title>
+    <title>Python on Songqi Duan - Bioinformatics notes</title>
     <link>/tags/python/</link>
-    <description>Recent content in Python on Songqi</description>
+    <description>Recent content in Python on Songqi Duan - Bioinformatics notes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-us</language>
     <copyright>Songqi Duan</copyright>
     <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate>
     

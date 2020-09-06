@@ -29,7 +29,7 @@
   {{- end }}
   <span class="copyright-year">
     Copyright{{- $current := now.Format "2006" }}&copy;
-    <a href="https://songqi.zzmath.top" style="color:#8a8a8a"><span
+    <a href="/" style="color:#8a8a8a"><span
       class="author">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span></a>
     {{ if ne .Site.Params.since $current -}}
     {{ .Site.Params.since }} -

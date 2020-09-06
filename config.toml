@@ -1,7 +1,7 @@
-languageCode = "en"
+languageCode = "zh-us"
 # en / zh-cn / ... (This field determines which i18n file to use)
 defaultContentLanguage = "zh-cn"
-title = "Songqi"
+title = "Songqi Duan - Bioinformatics notes"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
@@ -76,12 +76,12 @@ copyright = "Songqi Duan"
   # 站点建立时间
   since = "2020"
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-  gitRepo = "git@github.com:zerostwo/songqi.git"
+  gitRepo = "git@github.com:zerostwo/bioinfo.songqi.online.git"
 
   # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "Songqi"  # 默认值: 上面设置的title值
+  logoTitle = "Bioinfo"  # 默认值: 上面设置的title值
   keywords = ["生物信息学", "R语言","数据分析","段松岐","Songqi Duan"]
-  description = "Personal website of Songqi Duan"
+  description = "Bioinformatics notes of Songqi Duan"
 
   # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
   archivePaginate = 10
